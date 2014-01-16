@@ -3,11 +3,21 @@
 <!DOCTYPE html">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="maximum-scale=1.0" />
 <link rel="shortcut icon" href="./material/logo.ico" />
 <link rel="stylesheet" type="text/css" href="./css/core.css" />
 <title>Health Club--index</title>
 </head>
 <body>
+	<div class="homepage">
+		<div class="main-header">
+			<div class="profile-bar">
+				<div class="menu row grid-layout">
+					<a class="logo" href="./index.jsp"><img alt="health club" src="./material/HealthClub.png" /></a>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
