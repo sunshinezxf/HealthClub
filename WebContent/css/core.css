@@ -53,3 +53,22 @@ a .logo {
 	padding: 0;
 	position: relative;
 }
+
+.profile-bar ul {
+	float: right;
+	height: 45px;
+	margin: 0 -4px 0 0;
+}
+
+.profile-bar li {
+	float: left;
+	padding-left: 10px;
+}
+
+.profile-bar a, .profile-bar a:visited {
+	color: #ffffff;
+	padding: 10px 10px 10px 10px;
+	font-size: 18px;
+	line-height: 45px;
+	font-weight: bold;
+}
