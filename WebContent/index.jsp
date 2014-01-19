@@ -16,12 +16,13 @@
 				<div class="row grid-layout">
 					<a class="logo" href="./index.jsp"><img alt="health club" src="./material/HealthClub.png" /></a>
 					<ul>
-						<li><a>注册</a></li>
-						<li><a>登录</a></li>
+						<li><a href="./member/sign_up.jsp">注册</a></li>
+						<li><a href="./member/login.jsp">登录</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
+		<div class="module grid-layout"></div>
 	</div>
 </body>
 </html>
