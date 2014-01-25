@@ -14,9 +14,11 @@
 		<div class="main-header">
 			<div class="profile-bar">
 				<div class="row grid-layout">
-					<a class="logo" href="../index.jsp"><img alt="health club" src="../material/HealthClub.png" /></a>
+					<a class="logo" href="../index.jsp"><img alt="health club"
+						src="../material/HealthClub.png" /></a>
 					<ul>
-						
+						<li><a href="./sign_up.jsp">注册</a></li>
+						<li><a href="./login.jsp">登录</a></li>
 					</ul>
 				</div>
 			</div>
