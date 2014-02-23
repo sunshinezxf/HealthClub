@@ -1,5 +1,5 @@
 package model;
 
-public enum VIPType {
+public enum CardType {
 	SINGLE, HOME
 }
