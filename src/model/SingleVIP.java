@@ -43,4 +43,10 @@ public class SingleVIP {
 		cardList.remove(card);
 		return cardList;
 	}
+
+	public boolean register(String name, String password) {
+		setName(name);
+		setPassword(password);
+		return true;
+	}
 }
