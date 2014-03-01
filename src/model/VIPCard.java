@@ -4,12 +4,14 @@ public abstract class VIPCard {
 	private String code;
 	protected double activatePrice;
 	protected double rent;
+	private String token;
 	private CardType type;
 
 	public VIPCard() {
 		code = "";
 		activatePrice = 0;
 		rent = 0;
+		token = "";
 		type = null;
 	}
 
@@ -38,6 +40,14 @@ public abstract class VIPCard {
 	}
 
 	public abstract double calculatePrice();
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public String getToken() {
+		return token;
+	}
 
 	public void setType(CardType type) {
 		this.type = type;
