@@ -44,7 +44,27 @@ public class SingleVIP {
 		return cardList;
 	}
 
+	/**
+	 * function register *
+	 * 
+	 * @param name
+	 * @param password
+	 * @return whether the register action is success
+	 */
 	public boolean register(String name, String password) {
+		setName(name);
+		setPassword(password);
+		return true;
+	}
+
+	/**
+	 * function to modify vip information *
+	 * 
+	 * @param name
+	 * @param password
+	 * @return whether the modify action is success
+	 */
+	public boolean modifyInfo(String name, String password) {
 		setName(name);
 		setPassword(password);
 		return true;
