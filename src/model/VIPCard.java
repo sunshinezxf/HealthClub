@@ -6,6 +6,8 @@ public abstract class VIPCard {
 	protected double rent;
 	private String token;
 	private CardType type;
+	private boolean activated = false;
+	private boolean payed = false;
 
 	public VIPCard() {
 		code = "";
@@ -55,6 +57,38 @@ public abstract class VIPCard {
 
 	public CardType getType() {
 		return type;
+	}
+
+	public void setActivated(boolean activated) {
+		this.activated = activated;
+	}
+
+	public boolean getActivated() {
+		return activated;
+	}
+
+	public void setPayed(boolean payed) {
+		this.payed = payed;
+	}
+
+	public boolean getPayed() {
+		return payed;
+	}
+
+	public boolean activate(double money) {
+		if (money >= activatePrice)
+			activated = true;
+		else
+			activated = false;
+		return activated;
+	}
+
+	public boolean pay(double money) {
+		if (money >= rent)
+			payed = true;
+		else
+			payed = false;
+		return payed;
 	}
 
 	public CardType distinguishCardType() {
