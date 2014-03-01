@@ -2,46 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
-public class SingleVIP {
-	private ArrayList<VIPCard> cardList;
-	private String name;
-	private String password;
+public class SingleVIP extends VIP{
 
 	public SingleVIP() {
-		cardList = new ArrayList<VIPCard>();
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public ArrayList<VIPCard> getCardList() {
-		return cardList;
-	}
-
-	public void setCardList(ArrayList<VIPCard> cardList) {
-		this.cardList = cardList;
-	}
-
-	public void addCard(VIPCard card) {
-		cardList.add(card);
-	}
-
-	public ArrayList<VIPCard> removeCard(VIPCard card) {
-		cardList.remove(card);
-		return cardList;
+		super();
 	}
 
 	/**
@@ -70,8 +34,26 @@ public class SingleVIP {
 		return true;
 	}
 
-	public boolean pay(VIPCard card, double money) {
-
-		return true;
+	/**
+	 * function to activate the card *
+	 * 
+	 * @param card
+	 * @param money
+	 * @return whether the activate action is success
+	 */
+	public boolean activate(VIPCard card, double money) {
+		return card.activate(money);
 	}
+
+	/**
+	 * function to pay the rent every month *
+	 * 
+	 * @param card
+	 * @param money
+	 * @return whether the pay action is success
+	 */
+	public boolean pay(VIPCard card, double money) {
+		return card.pay(money);
+	}
+
 }
