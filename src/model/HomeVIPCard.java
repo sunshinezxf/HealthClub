@@ -1,5 +1,7 @@
 package model;
 
+import util.IDGenerator;
+
 public class HomeVIPCard extends VIPCard {
 	private final static double ACTIVATE = 100;
 	private final static double RENT_COUPLE = 55;
@@ -7,12 +9,8 @@ public class HomeVIPCard extends VIPCard {
 
 	public HomeVIPCard() {
 		super();
+		setCode(IDGenerator.generateHMVIP());
 		setActivatePrice(ACTIVATE);
-	}
-
-	public HomeVIPCard(String code) {
-		setCode(code);
-		activatePrice = ACTIVATE;
 	}
 
 	@Override

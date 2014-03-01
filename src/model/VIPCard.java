@@ -13,10 +13,6 @@ public abstract class VIPCard {
 		type = null;
 	}
 
-	public VIPCard(final String code) {
-		this.code = code;
-	}
-
 	public void setCode(String code) {
 		this.code = code;
 	}
