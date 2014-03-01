@@ -15,7 +15,7 @@ public class HomeVIPCard extends VIPCard {
 
 	@Override
 	public double calculatePrice() {
-		return 0;
+		return RENT_COUPLE + RENT_CHILD;
 	}
 
 }

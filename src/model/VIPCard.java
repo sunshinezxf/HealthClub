@@ -46,4 +46,12 @@ public abstract class VIPCard {
 	public CardType getType() {
 		return type;
 	}
+
+	public CardType distinguishCardType() {
+		if (code.startsWith("SG"))
+			return CardType.SINGLE;
+		if (code.startsWith("HM"))
+			return CardType.HOME;
+		return null;
+	}
 }
