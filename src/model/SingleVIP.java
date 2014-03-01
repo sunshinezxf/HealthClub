@@ -69,4 +69,9 @@ public class SingleVIP {
 		setPassword(password);
 		return true;
 	}
+
+	public boolean pay(VIPCard card, double money) {
+
+		return true;
+	}
 }
