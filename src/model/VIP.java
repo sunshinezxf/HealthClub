@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import model.card.VIPCard;
+
 public class VIP {
 	private ArrayList<VIPCard> cardList;
 	private String name;
