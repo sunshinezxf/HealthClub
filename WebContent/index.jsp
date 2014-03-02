@@ -22,8 +22,8 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="index.jsp">Home</a></li>
-					<li><a href="">Register</a></li>
-					<li><a>Login</a></li>
+					<li><a href="./member/register.jsp">Register</a></li>
+					<li><a href="./member/login.jsp">Login</a></li>
 				</ul>
 			</div>
 		</div>
