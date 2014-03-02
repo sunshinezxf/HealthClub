@@ -10,5 +10,29 @@
 	width: 95%;
 	position: relative;
 	background-color: #ffffdf;
-	opacity: 0.85;	
+	opacity: 0.85;
+}
+
+.form-register,.form-control {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.form-register .form-control:focus {
+	z-index: 2;
+}
+
+.form-register input[type="text"] {
+	margin-bottom: -1px;
+	border-radius: 1px;
+}
+
+.form-register input[type="password"] {
+	margin-bottom: 10px;
+	border-radius: 1px;
 }

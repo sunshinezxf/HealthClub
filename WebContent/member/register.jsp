@@ -32,6 +32,7 @@
 	<div class="grid-layout module">
 		<strong>Register</strong><span>——Please fill you information</span>
 		<hr>
+		
 	</div>
 	
 </body>
