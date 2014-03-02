@@ -21,8 +21,8 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a>Home</a></li>
-					<li><a>Register</a></li>
+					<li><a href="index.jsp">Home</a></li>
+					<li><a href="">Register</a></li>
 					<li><a>Login</a></li>
 				</ul>
 			</div>
