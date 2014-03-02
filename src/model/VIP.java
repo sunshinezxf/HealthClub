@@ -10,6 +10,7 @@ import model.record.ActivityRecord;
 import model.record.PayRecord;
 
 public class VIP {
+	private String v_id;
 	private ArrayList<VIPCard> cardList;
 	private String username;
 	private String name;
@@ -17,8 +18,17 @@ public class VIP {
 	private ArrayList<ActivityRecord> activityRecord;
 
 	public VIP() {
+		v_id = "";
 		cardList = new ArrayList<VIPCard>();
 		activityRecord = new ArrayList<ActivityRecord>();
+	}
+
+	public String getV_id() {
+		return v_id;
+	}
+
+	public void setV_id(String v_id) {
+		this.v_id = v_id;
 	}
 
 	public String getUsername() {
@@ -145,7 +155,13 @@ public class VIP {
 		return VIPManager.cancelVIP(username);
 	}
 
+	/**
+	 * function to reserve activity *
+	 * 
+	 * @param a_id
+	 * @return whether the reserve action is success or not
+	 */
 	public boolean reserveActivity(String a_id) {
-		return true;
+		return ActivityManager.reserveActivity(a_id, v_id);
 	}
 }
