@@ -64,4 +64,8 @@ public class Attendant {
 	public ArrayList<PayRecord> checkPayRecord(String username) {
 		return PayManager.checkPayRecord(username);
 	}
+	
+	public boolean modifyVIPInfomation(VIP vip) {
+		return VIPManager.modifyVIP(vip);
+	}
 }

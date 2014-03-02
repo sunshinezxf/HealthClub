@@ -11,7 +11,11 @@ public class VIPManager {
 		return true;
 	}
 
-	public static VIP checkVIP(String v_id) {
+	public static VIP checkVIP(String username) {
 		return null;
+	}
+	
+	public static boolean modifyVIP(VIP vip) {
+		return true;
 	}
 }
