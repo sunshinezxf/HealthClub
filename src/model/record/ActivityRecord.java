@@ -1,6 +1,9 @@
-package model;
+package model.record;
 
 import java.util.Calendar;
+
+import model.Place;
+import model.VIP;
 
 public class ActivityRecord {
 	private Calendar date;

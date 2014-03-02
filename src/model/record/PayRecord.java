@@ -1,4 +1,4 @@
-package model;
+package model.record;
 
 public class PayRecord {
 	private String r_id;

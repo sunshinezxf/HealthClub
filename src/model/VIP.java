@@ -2,9 +2,11 @@ package model;
 
 import java.util.ArrayList;
 
-import util.ActivityRecordManager;
-import util.PayRecordManager;
+import util.manager.ActivityRecordManager;
+import util.manager.PayRecordManager;
 import model.card.VIPCard;
+import model.record.ActivityRecord;
+import model.record.PayRecord;
 
 public class VIP {
 	private ArrayList<VIPCard> cardList;

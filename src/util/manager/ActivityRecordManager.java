@@ -1,8 +1,8 @@
-package util;
+package util.manager;
 
 import java.util.ArrayList;
 
-import model.ActivityRecord;
+import model.record.ActivityRecord;
 
 public class ActivityRecordManager {
 	public static ArrayList<ActivityRecord> checkActivityRecord(String username) {
