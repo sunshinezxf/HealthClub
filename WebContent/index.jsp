@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,7 @@
 		<div class="main-header">
 			<div class="profile-bar">
 				<div class="row grid-layout">
-					<a class="logo" href="./index.jsp"><img alt="health club"
+					<a class="logo" href="../index.jsp"><img alt="health club"
 						src="./material/HealthClub.png" /></a>
 					<ul>
 						<li><a href="./member/sign_up.jsp">注册</a></li>
