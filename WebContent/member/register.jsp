@@ -30,9 +30,11 @@
 		</div>
 	</div>
 	<div class="grid-layout module">
-		<strong>Register</strong><span>——Please fill you information</span>
+		<strong>Register</strong>
 		<hr>
-		
+		<form class="form-register">
+			<span>Please fill you information</span>
+		</form>
 	</div>
 	
 </body>
