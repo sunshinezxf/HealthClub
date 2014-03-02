@@ -2,8 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
-import util.manager.ActivityRecordManager;
-import util.manager.PayRecordManager;
+import util.manager.ActivityManager;
+import util.manager.PayManager;
 import util.manager.VIPManager;
 import model.card.VIPCard;
 import model.record.ActivityRecord;
@@ -124,7 +124,7 @@ public class VIP {
 	 * @return the record list
 	 */
 	public ArrayList<ActivityRecord> checkActivityRecord() {
-		return ActivityRecordManager.checkActivityRecord(username);
+		return ActivityManager.checkActivityRecord(username);
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class VIP {
 	 * @return the record list
 	 */
 	public ArrayList<PayRecord> checkPayRecord() {
-		return PayRecordManager.checkPayRecord(username);
+		return PayManager.checkPayRecord(username);
 	}
 
 	/**

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.record.ActivityRecord;
 
-public class ActivityRecordManager {
+public class ActivityManager {
 	public static ArrayList<ActivityRecord> checkActivityRecord(String username) {
 		return null;
 	}

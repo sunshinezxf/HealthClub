@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.record.PayRecord;
 
-public class PayRecordManager {
+public class PayManager {
 	public static ArrayList<PayRecord> checkPayRecord(String username) {
 		return null;
 	}
