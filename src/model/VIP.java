@@ -2,15 +2,28 @@ package model;
 
 import java.util.ArrayList;
 
+import util.ActivityRecordManager;
+import util.PayRecordManager;
 import model.card.VIPCard;
 
 public class VIP {
 	private ArrayList<VIPCard> cardList;
+	private String username;
 	private String name;
 	private String password;
+	private ArrayList<ActivityRecord> activityRecord;
 
 	public VIP() {
 		cardList = new ArrayList<VIPCard>();
+		activityRecord = new ArrayList<ActivityRecord>();
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getName() {
@@ -37,6 +50,14 @@ public class VIP {
 		this.cardList = cardList;
 	}
 
+	public ArrayList<ActivityRecord> getActivityRecord() {
+		return activityRecord;
+	}
+
+	public void setActivityRecord(ArrayList<ActivityRecord> activityRecord) {
+		this.activityRecord = activityRecord;
+	}
+
 	public void addCard(VIPCard card) {
 		cardList.add(card);
 	}
@@ -45,7 +66,7 @@ public class VIP {
 		cardList.remove(card);
 		return cardList;
 	}
-	
+
 	/**
 	 * function register *
 	 * 
@@ -92,5 +113,23 @@ public class VIP {
 	 */
 	public boolean pay(VIPCard card, double money) {
 		return card.pay(money);
+	}
+
+	/**
+	 * * function to check the activity record of the vip himself/herself
+	 * 
+	 * @return the record list
+	 */
+	public ArrayList<ActivityRecord> checkActivityRecord() {
+		return ActivityRecordManager.checkActivityRecord(username);
+	}
+
+	/**
+	 * function to check the pay record of the vip himself/herself *
+	 * 
+	 * @return the record list
+	 */
+	public ArrayList<PayRecord> checkPayRecord() {
+		return PayRecordManager.checkPayRecord(username);
 	}
 }
