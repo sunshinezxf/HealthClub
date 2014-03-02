@@ -6,9 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="maximum-scale=1.0" />
 <link rel="shortcut icon" href="./material/logo.ico" />
-<link rel="stylesheet" type="text/css" href="./css/core.css" />
+<link rel="stylesheet" href="./css/bootstrap.min.css">
 <title>Health Club--index</title>
 </head>
 <body>
+	
 </body>
 </html>
