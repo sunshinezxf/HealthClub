@@ -42,6 +42,8 @@
 				<input type="radio" name="sex" value="female" />&nbsp; &nbsp;Female
 			</div>
 			<input type="text" class="form-control" placeholder="Cellphone" />
+			<input type="text" class="form-control" placeholder="Age" />
+			<button class="btn btn-lg btn-primary btn-block button-commit" type="submit">Register</button>
 		</form>
 	</div>
 
