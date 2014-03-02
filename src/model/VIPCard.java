@@ -1,5 +1,6 @@
 package model;
 
+
 public abstract class VIPCard {
 	private String code;
 	protected double activatePrice;
