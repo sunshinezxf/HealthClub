@@ -9,8 +9,8 @@
 <meta name="description" content="health club register page" />
 <meta name="author" content="zhang xu fan" />
 <link rel="shortcut icon" href="../material/logo.ico" />
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="../css/customize.css">
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<link rel="stylesheet" href="../css/customize.css" />
 <title>Health Club--register</title>
 </head>
 <body>
@@ -33,9 +33,17 @@
 		<strong>Register</strong>
 		<hr>
 		<form class="form-register">
-			<span>Please fill you information</span>
+			<span>Please fill you information</span><input type="text"
+				class="form-control" placeholder="Name" />
+			<div class="form-register-sex">
+				<input type="radio" name="sex" value="male" />&nbsp; &nbsp;Male
+			</div>
+			<div class="form-register-sex">
+				<input type="radio" name="sex" value="female" />&nbsp; &nbsp;Female
+			</div>
+			<input type="text" class="form-control" placeholder="Cellphone" />
 		</form>
 	</div>
-	
+
 </body>
 </html>
