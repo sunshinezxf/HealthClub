@@ -144,4 +144,8 @@ public class VIP {
 	public boolean cancelVIP() {
 		return VIPManager.cancelVIP(username);
 	}
+
+	public boolean reserveActivity(String a_id) {
+		return true;
+	}
 }
