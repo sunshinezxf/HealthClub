@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import util.manager.ActivityRecordManager;
 import util.manager.PayRecordManager;
+import util.manager.VIPManager;
 import model.card.VIPCard;
 import model.record.ActivityRecord;
 import model.record.PayRecord;
@@ -79,7 +80,7 @@ public class VIP {
 	public boolean register(String name, String password) {
 		setName(name);
 		setPassword(password);
-		return true;
+		return VIPManager.registerVIP(name, password);
 	}
 
 	/**
@@ -133,5 +134,14 @@ public class VIP {
 	 */
 	public ArrayList<PayRecord> checkPayRecord() {
 		return PayRecordManager.checkPayRecord(username);
+	}
+
+	/**
+	 * function to cancel the vip himself/herself *
+	 * 
+	 * @return whether the action is success
+	 */
+	public boolean cancelVIP() {
+		return VIPManager.cancelVIP(username);
 	}
 }
