@@ -8,8 +8,8 @@ import util.IDGenerator;
 @SuppressWarnings("serial")
 public class Register extends BaseAction {
 	private String name;
-	private Gender gender;
-	private Phone phone;
+	private String gender;
+	private String phone;
 	private int age;
 	private String password;
 
@@ -18,6 +18,12 @@ public class Register extends BaseAction {
 		VIP vip = new VIP();
 		vip.setUsername(username);
 		vip.setName(name);
+		Gender gender = (this.gender.equals("male")) ? Gender.MALE
+				: Gender.FEMALE;
+		vip.setGender(gender);
+		Phone phone = new Phone(this.phone);
+		vip.setPhone(phone);
+		vip.setAge(age);
 		vip.setPassword(password);
 		boolean status = vip.register();
 		if (status)
@@ -33,20 +39,20 @@ public class Register extends BaseAction {
 		this.name = name;
 	}
 
-	public Gender getGender() {
+	public String getGender() {
 		return gender;
 	}
 
 	public void setGender(Gender gender) {
-		this.gender = gender;
+		this.gender = (gender == Gender.MALE) ? "male" : "female";
 	}
 
-	public Phone getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
 	public void setPhone(Phone phone) {
-		this.phone = phone;
+		this.phone = phone.getNo();
 	}
 
 	public int getAge() {
