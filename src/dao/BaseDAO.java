@@ -14,9 +14,9 @@ import javax.sql.DataSource;
 public class BaseDAO {
 	private static BaseDAO baseDAO = new BaseDAO();
 
-	private InitialContext jndiContext = null;
-	private Connection connection = null;
-	private DataSource dataSource = null;
+	private static InitialContext jndiContext = null;
+	private static Connection connection = null;
+	private static DataSource dataSource = null;
 
 	private BaseDAO() {
 		Properties properties = new Properties();
@@ -36,7 +36,7 @@ public class BaseDAO {
 		return baseDAO;
 	}
 
-	public Connection getConnection() {
+	public static Connection getConnection() {
 		try {
 			connection = dataSource.getConnection();
 		} catch (SQLException e) {
@@ -45,7 +45,7 @@ public class BaseDAO {
 		return connection;
 	}
 
-	public void closeConnection(Connection connection) {
+	public static void closeConnection(Connection connection) {
 		if (connection != null) {
 			try {
 				connection.close();
@@ -55,7 +55,7 @@ public class BaseDAO {
 		}
 	}
 
-	public void closePreparedStatement(PreparedStatement ps) {
+	public static void closePreparedStatement(PreparedStatement ps) {
 		if (ps != null) {
 			try {
 				ps.close();
@@ -65,7 +65,7 @@ public class BaseDAO {
 		}
 	}
 
-	public void closeResultSet(ResultSet rs) {
+	public static void closeResultSet(ResultSet rs) {
 		if (rs != null) {
 			try {
 				rs.close();
