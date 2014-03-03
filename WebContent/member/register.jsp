@@ -33,8 +33,9 @@
 		<strong>Register</strong>
 		<hr>
 		<form class="form-register">
-			<span>Please fill you information</span><input type="text"
-				class="form-control" placeholder="Name" />
+			<span>Please fill you information</span>
+			<input type="text"
+				class="form-control" placeholder="Name" name="name"/>
 			<div class="form-register-sex">
 				<input type="radio" name="sex" value="male" />&nbsp; &nbsp;Male
 			</div>

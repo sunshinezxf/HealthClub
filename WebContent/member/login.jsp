@@ -32,7 +32,13 @@
 	<div class="grid-layout module">
 		<strong>Login</strong>
 		<hr>
+		<form class="form-register">
+			<span>Please input your login ID and password</span>
+			<input type="text" class="form-control" placeholder="Login ID" /> <input
+				type="password" class="form-control" placeholder="Login Password" />
+			<button class="btn btn-lg btn-primary btn-block button-commit" type="submit">Login</button>
+		</form>
 	</div>
-	
+
 </body>
 </html>
