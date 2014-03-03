@@ -32,7 +32,7 @@
 	<div class="grid-layout module">
 		<strong>Register</strong>
 		<hr>
-		<form class="form-register">
+		<form class="form-register" action="/action/register">
 			<span>Please fill you information</span>
 			<input type="text"
 				class="form-control" placeholder="Name" name="name"/>
