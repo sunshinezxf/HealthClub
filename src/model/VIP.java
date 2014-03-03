@@ -14,6 +14,7 @@ public class VIP {
 	private ArrayList<VIPCard> cardList;
 	private String username;
 	private String name;
+	private int age;
 	private String password;
 	private ArrayList<ActivityRecord> activityRecord;
 
@@ -45,6 +46,14 @@ public class VIP {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public String getPassword() {

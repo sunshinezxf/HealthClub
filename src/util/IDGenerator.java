@@ -12,8 +12,8 @@ public class IDGenerator {
 		return "HM" + generateCode(LENGTH);
 	}
 
-	public static String generateV_id() {
-		return generateId(PERSON_NO);
+	public static String generateUsername() {
+		return generateUsername(PERSON_NO);
 	}
 
 	private static String generateCode(int length) {
@@ -24,7 +24,7 @@ public class IDGenerator {
 		return new String(temp);
 	}
 
-	private static String generateId(int length) {
+	private static String generateUsername(int length) {
 		char[] temp = new char[length];
 		for (int i = 0; i < length; i++) {
 			temp[i] = Random.generate_id();

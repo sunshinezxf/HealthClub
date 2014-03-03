@@ -44,6 +44,7 @@
 			</div>
 			<input type="text" class="form-control" placeholder="Cellphone" />
 			<input type="text" class="form-control" placeholder="Age" />
+			<input type="password" class="form-control" placeholder="Password" />
 			<button class="btn btn-lg btn-primary btn-block button-commit" type="submit">Register</button>
 		</form>
 	</div>

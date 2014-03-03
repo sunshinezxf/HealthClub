@@ -11,12 +11,14 @@ public class Register extends BaseAction {
 	private Gender gender;
 	private Phone phone;
 	private int age;
+	private String password;
 
 	public String execute() throws Exception {
-		String v_id = IDGenerator.generateV_id();
+		String username = IDGenerator.generateUsername();
 		VIP vip = new VIP();
-		vip.setV_id(v_id);
+		vip.setUsername(username);
 		vip.setName(name);
+		vip.setPassword(password);
 		return null;
 	}
 
@@ -50,5 +52,13 @@ public class Register extends BaseAction {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
