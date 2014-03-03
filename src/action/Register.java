@@ -31,8 +31,10 @@ public class Register extends BaseAction {
 		vip.setAge(age);
 		vip.setPassword(password);
 		boolean status = vip.register();
-		if (status)
+		if (status){
+			session.put("username", vip.getUsername());
 			return "success";
+		}
 		return "failure";
 	}
 
