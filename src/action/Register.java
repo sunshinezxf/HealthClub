@@ -14,6 +14,11 @@ public class Register extends BaseAction {
 	private String password;
 
 	public String execute() throws Exception {
+		if (name == null || name.equals("") || gender == null
+				|| gender.equals("") || phone == null || phone.equals("")
+				|| password == null || password.equals("") || age == 0) {
+			return "failure";
+		}
 		String username = IDGenerator.generateUsername();
 		VIP vip = new VIP();
 		vip.setUsername(username);
@@ -43,16 +48,16 @@ public class Register extends BaseAction {
 		return gender;
 	}
 
-	public void setGender(Gender gender) {
-		this.gender = (gender == Gender.MALE) ? "male" : "female";
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(Phone phone) {
-		this.phone = phone.getNo();
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public int getAge() {

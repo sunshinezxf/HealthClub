@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,20 +14,21 @@
 <title>Health Club--index</title>
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<a href="index.jsp"><img alt="logo"
-					src="./material/HealthClub.png" /></a>
-			</div>
-			<div class="collapse navbar-collapse">
+	<s:div cssClass="navbar navbar-inverse navbar-fixed-top">
+		<s:div cssClass="container">
+			<s:div cssClass="navbar-header">
+				<a href="index.jsp"> <img alt="logo"
+					src="<s:url value="./material/HealthClub.png"></s:url>" />
+				</a>
+			</s:div>
+			<s:div cssClass="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="index.jsp">Home</a></li>
-					<li><a href="./member/register.jsp">Register</a></li>
-					<li><a href="./member/login.jsp">Login</a></li>
+					<li><s:a href="index.jsp">Home</s:a></li>
+					<li><s:a href="./member/register.jsp">Register</s:a></li>
+					<li><s:a href="./member/login.jsp">Login</s:a></li>
 				</ul>
-			</div>
-		</div>
-	</div>
+			</s:div>
+		</s:div>
+	</s:div>
 </body>
 </html>

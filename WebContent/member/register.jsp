@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html">
 <html>
 <head>
@@ -32,21 +33,26 @@
 	<div class="grid-layout module">
 		<strong>Register</strong>
 		<hr>
-		<form class="form-register" action="/action/register">
+		<s:form cssClass="form-register" action="register" name="register"
+			method="post" namespace="/action">
 			<span>Please fill you information</span>
-			<input type="text"
-				class="form-control" placeholder="Name" name="name"/>
+			<input type="text" class="form-control" placeholder="Name"
+				name="name" />
 			<div class="form-register-gender">
 				<input type="radio" name="gender" value="male" />&nbsp; &nbsp;Male
 			</div>
 			<div class="form-register-gender">
-				<input type="radio" name="gender" value="female" />&nbsp; &nbsp;Female
+				<input type="radio" name="gender" value="female" />&nbsp;
+				&nbsp;Female
 			</div>
-			<input type="text" class="form-control" placeholder="Cellphone" />
-			<input type="text" class="form-control" placeholder="Age" />
-			<input type="password" class="form-control" placeholder="Password" />
-			<button class="btn btn-lg btn-primary btn-block button-commit" type="submit">Register</button>
-		</form>
+			<input type="text" class="form-control" placeholder="Cellphone"
+				name="phone" />
+			<input type="text" class="form-control" placeholder="Age" name="age" />
+			<input type="password" class="form-control" placeholder="Password"
+				name="password" />
+			<button class="btn btn-lg btn-primary btn-block button-commit"
+				type="submit">Register</button>
+		</s:form>
 	</div>
 
 </body>
