@@ -9,7 +9,7 @@
 <meta name="description" content="health club index page" />
 <meta name="author" content="zhang xu fan" />
 <link rel="shortcut icon" href="./material/logo.ico" />
-<link rel="stylesheet" href="./css/bootstrap.css">
+<link rel="stylesheet" href="./css/bootstrap.css" />
 <title>Health Club--index</title>
 </head>
 <body>
