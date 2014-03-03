@@ -68,4 +68,10 @@ public class Attendant {
 	public boolean modifyVIPInfomation(VIP vip) {
 		return VIPManager.modifyVIP(vip);
 	}
+	
+	public boolean modifyVIPActivityRecord(VIP vip) {
+		return ActivityManager.modifyVIPActivityRecord(vip);
+	}
+	
+	
 }
