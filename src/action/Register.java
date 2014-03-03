@@ -4,7 +4,6 @@ import model.Gender;
 import model.Phone;
 import model.VIP;
 import util.IDGenerator;
-import util.manager.VIPManager;
 
 @SuppressWarnings("serial")
 public class Register extends BaseAction {

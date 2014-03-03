@@ -14,6 +14,8 @@ public class VIP {
 	private ArrayList<VIPCard> cardList;
 	private String username;
 	private String name;
+	private Gender gender;
+	private Phone phone;
 	private int age;
 	private String password;
 	private ArrayList<ActivityRecord> activityRecord;
@@ -46,6 +48,22 @@ public class VIP {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+	public Phone getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Phone phone) {
+		this.phone = phone;
 	}
 
 	public int getAge() {
@@ -95,9 +113,9 @@ public class VIP {
 	 * @return whether the register action is success
 	 */
 	public boolean register() {
-		if (username.equals("") || username == null)
+		if (username == null || username.equals(""))
 			return false;
-		if (name.equals("") || name == null)
+		if (name == null || name.equals(""))
 			return false;
 		if (age < 10 || age > 60)
 			return false;
