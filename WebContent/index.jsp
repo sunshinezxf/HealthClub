@@ -9,8 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="health club index page" />
 <meta name="author" content="zhang xu fan" />
-<link rel="shortcut icon" href="./material/logo.ico" />
-<link rel="stylesheet" href="./css/bootstrap.css" />
+<link rel="shortcut icon"
+	href="<s:url value="/material/logo.ico"></s:url>" />
+<link rel="stylesheet" href="<s:url value="/css/bootstrap.css"></s:url>" />
 <title>Health Club--index</title>
 </head>
 <body>
@@ -18,14 +19,14 @@
 		<s:div cssClass="container">
 			<s:div cssClass="navbar-header">
 				<a href="index.jsp"> <img alt="logo"
-					src="<s:url value="./material/HealthClub.png"></s:url>" />
+					src="<s:url value="/material/HealthClub.png"></s:url>" />
 				</a>
 			</s:div>
 			<s:div cssClass="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><s:a href="index.jsp">Home</s:a></li>
-					<li><s:a href="./member/register.jsp">Register</s:a></li>
-					<li><s:a href="./member/login.jsp">Login</s:a></li>
+					<li><a href="<s:url value="index.jsp"></s:url>">Home</a></li>
+					<li><a href="<s:url value="/member/register.jsp"></s:url>">Register</a></li>
+					<li><a href="<s:url value="/member/login.jsp"></s:url>">Login</a></li>
 				</ul>
 			</s:div>
 		</s:div>

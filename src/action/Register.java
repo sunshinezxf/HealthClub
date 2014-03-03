@@ -64,8 +64,11 @@ public class Register extends BaseAction {
 		return age;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setAge(String age) {
+		if (age == null || age.equals(""))
+			this.age = 0;
+		else
+			this.age = Integer.parseInt(age);
 	}
 
 	public String getPassword() {
