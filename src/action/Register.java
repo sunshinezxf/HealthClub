@@ -20,7 +20,7 @@ public class Register extends BaseAction {
 		vip.setUsername(username);
 		vip.setName(name);
 		vip.setPassword(password);
-		boolean status = VIPManager.registerVIP(vip);
+		boolean status = vip.register();
 		if (status)
 			return "success";
 		return "failure";

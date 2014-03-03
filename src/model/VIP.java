@@ -92,14 +92,10 @@ public class VIP {
 	/**
 	 * function register *
 	 * 
-	 * @param name
-	 * @param password
 	 * @return whether the register action is success
 	 */
-	public boolean register(String name, String password) {
-		setName(name);
-		setPassword(password);
-		return VIPManager.registerVIP(name, password);
+	public boolean register() {
+		return VIPManager.registerVIP(this);
 	}
 
 	/**
