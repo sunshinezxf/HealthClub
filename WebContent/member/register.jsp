@@ -36,11 +36,11 @@
 			<span>Please fill you information</span>
 			<input type="text"
 				class="form-control" placeholder="Name" name="name"/>
-			<div class="form-register-sex">
-				<input type="radio" name="sex" value="male" />&nbsp; &nbsp;Male
+			<div class="form-register-gender">
+				<input type="radio" name="gender" value="male" />&nbsp; &nbsp;Male
 			</div>
-			<div class="form-register-sex">
-				<input type="radio" name="sex" value="female" />&nbsp; &nbsp;Female
+			<div class="form-register-gender">
+				<input type="radio" name="gender" value="female" />&nbsp; &nbsp;Female
 			</div>
 			<input type="text" class="form-control" placeholder="Cellphone" />
 			<input type="text" class="form-control" placeholder="Age" />

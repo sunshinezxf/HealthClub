@@ -4,6 +4,7 @@ import model.Gender;
 import model.Phone;
 import model.VIP;
 import util.IDGenerator;
+import util.manager.VIPManager;
 
 @SuppressWarnings("serial")
 public class Register extends BaseAction {
@@ -19,7 +20,10 @@ public class Register extends BaseAction {
 		vip.setUsername(username);
 		vip.setName(name);
 		vip.setPassword(password);
-		return null;
+		boolean status = VIPManager.registerVIP(vip);
+		if (status)
+			return "success";
+		return "failure";
 	}
 
 	public String getName() {

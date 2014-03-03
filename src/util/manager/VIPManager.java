@@ -3,7 +3,7 @@ package util.manager;
 import model.VIP;
 
 public class VIPManager {
-	public static boolean registerVIP(String username, String password) {
+	public static boolean registerVIP(VIP vip) {
 		return true;
 	}
 
