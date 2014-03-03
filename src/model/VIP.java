@@ -95,6 +95,12 @@ public class VIP {
 	 * @return whether the register action is success
 	 */
 	public boolean register() {
+		if (username.equals("") || username == null)
+			return false;
+		if (name.equals("") || name == null)
+			return false;
+		if (age < 10 || age > 60)
+			return false;
 		return VIPManager.registerVIP(this);
 	}
 
