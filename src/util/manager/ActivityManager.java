@@ -10,7 +10,7 @@ public class ActivityManager {
 		return null;
 	}
 
-	public static boolean reserveActivity(String a_id, String v_id) {
+	public static boolean reserveActivity(String a_id, int v_id) {
 		return true;
 	}
 	

@@ -10,7 +10,7 @@ import model.record.ActivityRecord;
 import model.record.PayRecord;
 
 public class VIP {
-	private String v_id;
+	private int v_id;
 	private ArrayList<VIPCard> cardList;
 	private String username;
 	private String name;
@@ -21,16 +21,15 @@ public class VIP {
 	private ArrayList<ActivityRecord> activityRecord;
 
 	public VIP() {
-		v_id = "";
 		cardList = new ArrayList<VIPCard>();
 		activityRecord = new ArrayList<ActivityRecord>();
 	}
 
-	public String getV_id() {
+	public int getV_id() {
 		return v_id;
 	}
 
-	public void setV_id(String v_id) {
+	public void setV_id(int v_id) {
 		this.v_id = v_id;
 	}
 

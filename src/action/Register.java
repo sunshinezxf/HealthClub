@@ -3,6 +3,7 @@ package action;
 import model.Gender;
 import model.Phone;
 import model.VIP;
+import util.Encryption;
 import util.IDGenerator;
 
 @SuppressWarnings("serial")
@@ -29,9 +30,9 @@ public class Register extends BaseAction {
 		Phone phone = new Phone(this.phone);
 		vip.setPhone(phone);
 		vip.setAge(age);
-		vip.setPassword(password);
+		vip.setPassword(Encryption.md5(password));
 		boolean status = vip.register();
-		if (status){
+		if (status) {
 			session.put("username", vip.getUsername());
 			return "success";
 		}
