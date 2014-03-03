@@ -10,14 +10,14 @@ public class VIPManager {
 	}
 
 	public static boolean cancelVIP(String username) {
-		return true;
+		return VIPDAO.deleteVIP(username);
 	}
 
 	public static VIP checkVIP(String username) {
-		return null;
+		return VIPDAO.find(username);
 	}
 
 	public static boolean modifyVIP(VIP vip) {
-		return true;
+		return VIPDAO.modifyVIP(vip);
 	}
 }
