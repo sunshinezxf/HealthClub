@@ -2,6 +2,8 @@ package action;
 
 import model.Gender;
 import model.Phone;
+import model.VIP;
+import util.IDGenerator;
 
 @SuppressWarnings("serial")
 public class Register extends BaseAction {
@@ -10,11 +12,14 @@ public class Register extends BaseAction {
 	private Phone phone;
 	private int age;
 
-	public String execute() throws Exception  {
-		
+	public String execute() throws Exception {
+		String v_id = IDGenerator.generateV_id();
+		VIP vip = new VIP();
+		vip.setV_id(v_id);
+		vip.setName(name);
 		return null;
 	}
-	
+
 	public String getName() {
 		return name;
 	}

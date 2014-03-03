@@ -2,19 +2,32 @@ package util;
 
 public class IDGenerator {
 	private final static int LENGTH = 5;
+	private final static int PERSON_NO = 8;
 
 	public static String generateSGVIP() {
-		return "SG" + generateCode();
+		return "SG" + generateCode(LENGTH);
 	}
 
 	public static String generateHMVIP() {
-		return "HM" + generateCode();
+		return "HM" + generateCode(LENGTH);
 	}
 
-	private static String generateCode() {
-		char[] temp = new char[LENGTH];
-		for (int i = 0; i < LENGTH; i++) {
+	public static String generateV_id() {
+		return generateId(PERSON_NO);
+	}
+
+	private static String generateCode(int length) {
+		char[] temp = new char[length];
+		for (int i = 0; i < length; i++) {
 			temp[i] = Random.generate();
+		}
+		return new String(temp);
+	}
+
+	private static String generateId(int length) {
+		char[] temp = new char[length];
+		for (int i = 0; i < length; i++) {
+			temp[i] = Random.generate_id();
 		}
 		return new String(temp);
 	}

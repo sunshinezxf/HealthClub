@@ -8,6 +8,8 @@ public class Random {
 			'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
 			'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
 			'X', 'Y', 'Z' };
+	private static final char[] no = { '0', '1', '2', '3', '4', '5', '6', '7',
+			'8', '9' };
 
 	private static int num(int min, int max) {
 		return min + SEED.nextInt(max - min);
@@ -15,5 +17,9 @@ public class Random {
 
 	public static char generate() {
 		return code[num(0, code.length)];
+	}
+
+	public static char generate_id() {
+		return no[num(0, no.length)];
 	}
 }
