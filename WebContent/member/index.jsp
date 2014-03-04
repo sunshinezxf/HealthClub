@@ -29,6 +29,8 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<s:url value="/member/index.jsp"></s:url>">Home</a></li>
+					<li><a href="<s:url value="/member/index.jsp"></s:url>">Personal
+							Information</a></li>
 				</ul>
 			</div>
 		</div>
