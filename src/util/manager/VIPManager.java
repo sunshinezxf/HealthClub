@@ -14,7 +14,7 @@ public class VIPManager {
 	}
 
 	public static VIP checkVIP(String username) {
-		return VIPDAO.find(username);
+		return VIPDAO.find("username", username);
 	}
 
 	public static boolean modifyVIP(VIP vip) {
