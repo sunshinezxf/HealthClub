@@ -46,30 +46,40 @@
 				<div class="jumbotron">
 					<h1>
 						Hello,&nbsp;
-						<%=vip.getName()%></h1>
+						<%=vip.getName()%>!</h1>
 					<p>Welcome to your personal home page, your can see what you
 						can do here.</p>
 				</div>
 				<div class="row">
 					<div class="col-6 col-sm-6 col-lg-4">
-						<h2>Function 1</h2>
-						<p>What you can do with Function 1</p>
+						<h2>Membership Card</h2>
+						<p>You can either apply for a new one or check out all that you already have.</p>
 					</div>
 					<div class="col-6 col-sm-6 col-lg-4">
-						<h2>Function 2</h2>
-						<p>What you can do with Function 2</p>
+						<h2>Registration Data</h2>
+						<p>Here you can check out your personal information and modify them.</p>
 					</div>
 					<div class="col-6 col-sm-6 col-lg-4">
-						<h2>Function 3</h2>
-						<p>What you can do with Function 3</p>
+						<h2>Activity Record</h2>
+						<p>Here you can check out all the activities you have participated in.</p>
+					</div>
+					<div class="col-6 col-sm-6 col-lg-4">
+						<h2>Payment Record</h2>
+						<p>Here you can check out all your payment record.</p>
+					</div>
+					<div class="col-6 col-sm-6 col-lg-4">
+						<h2>Withdraw VIP</h2>
+						<p>Here you can check out all your payment record.</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-xs-6 col-sm-3 sidebar-ofcanvas" id="sidebar">
 					<div class="list-group">
-						<a href="#" class="list-group-item">Link</a>
-						<a href="#" class="list-group-item">Link</a>
-						<a href="#" class="list-group-item">Link</a>
+						<a href="#" class="list-group-item">Membership &nbsp;Card</a>
+						<a href="#" class="list-group-item">Registration &nbsp;Data</a>
+						<a href="#" class="list-group-item">Activity &nbsp; Record</a>
+						<a href="#" class="list-group-item">Payment &nbsp;Record</a>
+						<a href="#" class="list-group-item">Withdraw &nbsp;VIP</a>
 					</div>
 				</div>
 		</div>
