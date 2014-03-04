@@ -31,5 +31,4 @@
 			</s:div>
 		</s:div>
 	</s:div>
-</body>
 </html>
