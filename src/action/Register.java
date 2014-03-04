@@ -44,6 +44,8 @@ public class Register extends BaseAction {
 		boolean status = vipService.registerVIP(vip);
 		if (status) {
 			session.put("username", vip.getUsername());
+			session.put("prompt", "Welcome to Health Club, your username is "
+					+ vip.getUsername());
 			return "success";
 		}
 		return "failure";

@@ -33,6 +33,18 @@
 	</div>
 	<div class="grid-layout module">
 		<strong>Login</strong>
+		<%
+			String prompt = (String) session.getAttribute("prompt");
+			if ((prompt == null) || prompt.equals("")) {
+			} else {
+		%>
+		<div class="prompt module">
+			<h1><%=prompt%></h1>
+		</div>
+		<%
+			session.removeAttribute("prompt");
+			}
+		%>
 		<hr>
 		<s:form cssClass="form-register" action="login" name="login"
 			method="post" namespace="action">
