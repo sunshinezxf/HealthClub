@@ -1,6 +1,8 @@
 package service.impl;
 
 import model.VIP;
+import model.card.HomeVIPCard;
+import model.card.SingleVIPCard;
 import service.VIPService;
 import dao.VIPDAO;
 
@@ -32,6 +34,14 @@ public class VIPServiceImpl implements VIPService {
 		if (vip.getPassword().equals(password))
 			return true;
 		return false;
+	}
+
+	public SingleVIPCard applySGCard(String sg_id, int v_id) {
+		return null;
+	}
+
+	public HomeVIPCard applyHMCard(VIP vip) {
+		return null;
 	}
 
 	public boolean cancelVIP(String username) {
