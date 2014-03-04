@@ -13,6 +13,8 @@
 	href="<s:url value="/material/logo.ico"></s:url>" />
 <link rel="stylesheet" href="<s:url value="/css/bootstrap.css"></s:url>" />
 <link rel="stylesheet" href="<s:url value="/css/customize.css"></s:url>" />
+<link rel="stylesheet"
+	href="<s:url value="/css/bootstrap-theme.min.css"></s:url>" />
 <title>Health Club--login</title>
 </head>
 <body>
@@ -38,7 +40,7 @@
 			if ((prompt == null) || prompt.equals("")) {
 			} else {
 		%>
-		<div class="prompt module">
+		<div class="alert alert-success">
 			<h1><%=prompt%></h1>
 		</div>
 		<%

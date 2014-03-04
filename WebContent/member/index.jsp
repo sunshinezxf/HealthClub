@@ -23,14 +23,12 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<a href="<s:url value="/index.jsp"></s:url>"><img alt="logo"
-					src="<s:url value="/material/HealthClub.png"></s:url>" /></a>
+				<a href="<s:url value="/member/index.jsp"></s:url>"><img
+					alt="logo" src="<s:url value="/material/HealthClub.png"></s:url>" /></a>
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<s:url value="/index.jsp"></s:url>">Home</a></li>
-					<li><a href="<s:url value="/member/register.jsp"></s:url>">Register</a></li>
-					<li><a href="<s:url value="/member/login.jsp"></s:url>">Login</a></li>
+					<li><a href="<s:url value="/member/index.jsp"></s:url>">Home</a></li>
 				</ul>
 			</div>
 		</div>
