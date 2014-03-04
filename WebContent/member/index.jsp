@@ -36,5 +36,43 @@
 			</div>
 		</div>
 	</div>
+	<div class="container">
+		<div class="row row-offcanvas row-offcanvas-right">
+			<div class="col-xs-12 col-sm-9">
+				<p class="pull-right visible-xs">
+					<button type="button" class="btn btn-primary btn-xs"
+						data-toggle="offcanvas">Toggle nav</button>
+				</p>
+				<div class="jumbotron">
+					<h1>
+						Hello,&nbsp;
+						<%=vip.getName()%></h1>
+					<p>Welcome to your personal home page, your can see what you
+						can do here.</p>
+				</div>
+				<div class="row">
+					<div class="col-6 col-sm-6 col-lg-4">
+						<h2>Function 1</h2>
+						<p>What you can do with Function 1</p>
+					</div>
+					<div class="col-6 col-sm-6 col-lg-4">
+						<h2>Function 2</h2>
+						<p>What you can do with Function 2</p>
+					</div>
+					<div class="col-6 col-sm-6 col-lg-4">
+						<h2>Function 3</h2>
+						<p>What you can do with Function 3</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-3 sidebar-ofcanvas" id="sidebar">
+					<div class="list-group">
+						<a href="#" class="list-group-item">Link</a>
+						<a href="#" class="list-group-item">Link</a>
+						<a href="#" class="list-group-item">Link</a>
+					</div>
+				</div>
+		</div>
+	</div>
 </body>
 </html>
