@@ -16,10 +16,6 @@
 <link rel="stylesheet" href="<s:url value="/css/customize.css"></s:url>" />
 <%
 	VIP vip = (VIP) session.getAttribute("vip");
-	if (vip == null || vip.getName() == null
-			|| vip.getName().equals("")) {
-
-	}
 %>
 <title>Health Club--<%=vip.getName()%></title>
 </head>
