@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; utf-8"
 	pageEncoding="utf-8"%>
+<%@ page import="model.VIP"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,13 +8,20 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="health club login page" />
+<meta name="description" content="health club vip index page" />
 <meta name="author" content="zhang xu fan" />
 <link rel="shortcut icon"
 	href="<s:url value="/material/logo.ico"></s:url>" />
 <link rel="stylesheet" href="<s:url value="/css/bootstrap.css"></s:url>" />
 <link rel="stylesheet" href="<s:url value="/css/customize.css"></s:url>" />
-<title>Health Club--login</title>
+<%
+	VIP vip = (VIP) session.getAttribute("vip");
+	if (vip == null || vip.getName() == null
+			|| vip.getName().equals("")) {
+
+	}
+%>
+<title>Health Club--<%=vip.getName()%></title>
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -31,32 +39,5 @@
 			</div>
 		</div>
 	</div>
-	<div class="grid-layout module">
-		<strong>Login</strong>
-		<%
-			String prompt = (String) session.getAttribute("prompt");
-			if ((prompt == null) || prompt.equals("")) {
-			} else {
-		%>
-		<div class="prompt module">
-			<h1><%=prompt%></h1>
-		</div>
-		<%
-			session.removeAttribute("prompt");
-			}
-		%>
-		<hr>
-		<s:form cssClass="form-register" action="login" name="login"
-			method="post" namespace="/action">
-			<span>Please input your login username and password</span>
-			<input type="text" class="form-control" placeholder="Login Username"
-				name="username" />
-			<input type="password" class="form-control"
-				placeholder="Login Password" name="password" />
-			<button class="btn btn-lg btn-primary btn-block button-commit"
-				type="submit">Login</button>
-		</s:form>
-	</div>
-
 </body>
 </html>

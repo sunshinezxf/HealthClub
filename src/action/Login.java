@@ -1,5 +1,6 @@
 package action;
 
+import model.VIP;
 import service.VIPService;
 import util.Encryption;
 
@@ -22,6 +23,8 @@ public class Login extends BaseAction {
 		String login_password = Encryption.md5(password);
 		boolean status = vipService.login(login_username, login_password);
 		if (status) {
+			VIP vip = vipService.checkVIP("username", login_username);
+			session.put("vip", vip);
 			return "success";
 		} else {
 			return "failure";

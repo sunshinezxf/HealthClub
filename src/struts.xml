@@ -9,7 +9,7 @@
 			<result name="failure">/member/register.jsp</result>
 		</action>
 		<action name="login" class="action.Login">
-			<result name="success">/member/login.jsp</result>
+			<result name="success">/member/index.jsp</result>
 			<result name="failure">/member/login.jsp</result>
 		</action>
 	</package>
