@@ -47,12 +47,12 @@
 		%>
 		<hr>
 		<s:form cssClass="form-register" action="login" name="login"
-			method="post" namespace="action">
+			method="post" namespace="/action">
 			<span>Please input your login username and password</span>
 			<input type="text" class="form-control" placeholder="Login Username"
 				name="username" />
 			<input type="password" class="form-control"
-				placeholder="Login Password" />
+				placeholder="Login Password" name="password" />
 			<button class="btn btn-lg btn-primary btn-block button-commit"
 				type="submit">Login</button>
 		</s:form>

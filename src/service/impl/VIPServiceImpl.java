@@ -25,6 +25,15 @@ public class VIPServiceImpl implements VIPService {
 		return vipDAO.addVIP(vip);
 	}
 
+	public boolean login(String username, String password) {
+		VIP vip = vipDAO.find("username", username);
+		if (vip == null)
+			return false;
+		if (vip.getPassword().equals(password))
+			return true;
+		return false;
+	}
+
 	public boolean cancelVIP(String username) {
 		return vipDAO.deleteVIP(username);
 	}

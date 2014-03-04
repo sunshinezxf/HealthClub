@@ -9,8 +9,8 @@
 			<result name="failure">/member/register.jsp</result>
 		</action>
 		<action name="login" class="action.Login">
-			<result name="success"></result>
-			<result name="failure"></result>
+			<result name="success">/member/login.jsp</result>
+			<result name="failure">/member/login.jsp</result>
 		</action>
 	</package>
 </struts>

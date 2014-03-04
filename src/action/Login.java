@@ -1,12 +1,31 @@
 package action;
 
+import service.VIPService;
+import util.Encryption;
+
 @SuppressWarnings("serial")
 public class Login extends BaseAction {
 	private String username;
 	private String password;
+	private VIPService vipService;
+
+	public VIPService getVIPService() {
+		return vipService;
+	}
+
+	public void setVIPService(VIPService vipService) {
+		this.vipService = vipService;
+	}
 
 	public String execute() throws Exception {
-		return null;
+		String login_username = username;
+		String login_password = Encryption.md5(password);
+		boolean status = vipService.login(login_username, login_password);
+		if (status) {
+			return "success";
+		} else {
+			return "failure";
+		}
 	}
 
 	public String getUsername() {
