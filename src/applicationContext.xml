@@ -7,13 +7,21 @@
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
 
-	<bean id="BaseDAO" class="dao.BaseDAO">
-	
+	<bean id="BaseDAO" class="dao.impl.BaseDAOImpl">
 	</bean>
-	<bean id="VIPDAO" class="dao.VIPDAO">
-	
+	<bean id="VIPDAO" class="dao.impl.VIPDAOImpl">
+		<property name="BaseDAO">
+			<ref bean="BaseDAO" />
+		</property>
+	</bean>
+	<bean id="VIPService" class="service.impl.VIPServiceImpl">
+		<property name="VIPDAO">
+			<ref bean="VIPDAO" />
+		</property>
 	</bean>
 	<bean id="Register" class="action.Register">
-
+		<property name="VIPService">
+			<ref bean="VIPService" />
+		</property>
 	</bean>
 </beans>

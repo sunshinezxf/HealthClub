@@ -3,6 +3,7 @@ package action;
 import model.Gender;
 import model.Phone;
 import model.VIP;
+import service.VIPService;
 import util.Encryption;
 import util.IDGenerator;
 
@@ -13,6 +14,15 @@ public class Register extends BaseAction {
 	private String phone;
 	private int age;
 	private String password;
+	private VIPService vipService;
+
+	public VIPService getVIPService() {
+		return vipService;
+	}
+
+	public void setVIPService(VIPService vipService) {
+		this.vipService = vipService;
+	}
 
 	public String execute() throws Exception {
 		if (name == null || name.equals("") || gender == null
@@ -31,7 +41,7 @@ public class Register extends BaseAction {
 		vip.setPhone(phone);
 		vip.setAge(age);
 		vip.setPassword(Encryption.md5(password));
-		boolean status = vip.register();
+		boolean status = vipService.registerVIP(vip);
 		if (status) {
 			session.put("username", vip.getUsername());
 			return "success";

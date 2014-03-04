@@ -6,7 +6,6 @@ import model.record.ActivityRecord;
 import model.record.PayRecord;
 import util.manager.ActivityManager;
 import util.manager.PayManager;
-import util.manager.VIPManager;
 
 public class Attendant {
 	private String ad_id;
@@ -54,24 +53,23 @@ public class Attendant {
 	}
 
 	public VIP checkVIPInformation(String username) {
-		return VIPManager.checkVIP(username);
+		return null;
 	}
 
 	public ArrayList<ActivityRecord> checkActivityRecord(String username) {
 		return ActivityManager.checkActivityRecord(username);
 	}
-	
+
 	public ArrayList<PayRecord> checkPayRecord(String username) {
 		return PayManager.checkPayRecord(username);
 	}
-	
+
 	public boolean modifyVIPInfomation(VIP vip) {
-		return VIPManager.modifyVIP(vip);
+		return true;
 	}
-	
+
 	public boolean modifyVIPActivityRecord(VIP vip) {
 		return ActivityManager.modifyVIPActivityRecord(vip);
 	}
-	
-	
+
 }

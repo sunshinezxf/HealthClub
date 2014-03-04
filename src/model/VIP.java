@@ -2,12 +2,11 @@ package model;
 
 import java.util.ArrayList;
 
-import util.manager.ActivityManager;
-import util.manager.PayManager;
-import util.manager.VIPManager;
 import model.card.VIPCard;
 import model.record.ActivityRecord;
 import model.record.PayRecord;
+import util.manager.ActivityManager;
+import util.manager.PayManager;
 
 public class VIP {
 	private int v_id;
@@ -107,21 +106,6 @@ public class VIP {
 	}
 
 	/**
-	 * function register *
-	 * 
-	 * @return whether the register action is success
-	 */
-	public boolean register() {
-		if (username == null || username.equals(""))
-			return false;
-		if (name == null || name.equals(""))
-			return false;
-		if (age < 10 || age > 60)
-			return false;
-		return VIPManager.registerVIP(this);
-	}
-
-	/**
 	 * function to modify vip information *
 	 * 
 	 * @param name
@@ -172,15 +156,6 @@ public class VIP {
 	 */
 	public ArrayList<PayRecord> checkPayRecord() {
 		return PayManager.checkPayRecord(username);
-	}
-
-	/**
-	 * function to cancel the vip himself/herself *
-	 * 
-	 * @return whether the action is success
-	 */
-	public boolean cancelVIP() {
-		return VIPManager.cancelVIP(username);
 	}
 
 	/**
