@@ -53,26 +53,43 @@
 				</div>
 				<div class="row">
 					<div class="col-6 col-sm-6 col-lg-4">
-						<h2>Membership Card</h2>
+						<h2>
+							<s:a action="">
+								<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Membership Card</s:a>
+						</h2>
 						<p>You can either apply for a new one or check out all that
 							you already have.</p>
 					</div>
 					<div class="col-6 col-sm-6 col-lg-4">
-						<h2>Registration Data</h2>
+						<h2>
+							<s:a action="">
+								<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>
+							Registration Data
+							</s:a>
+						</h2>
 						<p>Here you can check out your personal information and modify
 							them.</p>
 					</div>
 					<div class="col-6 col-sm-6 col-lg-4">
-						<h2>Activity Record</h2>
+						<h2>
+							<s:a action="">
+								<s:param name="v_id" value="%{#sessino.vip.v_id}"></s:param>Activity Record</s:a>
+						</h2>
 						<p>Here you can check out all the activities you have
 							participated in.</p>
 					</div>
 					<div class="col-6 col-sm-6 col-lg-4">
-						<h2>Payment Record</h2>
+						<h2>
+							<s:a>
+								<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Payment Record</s:a>
+						</h2>
 						<p>Here you can check out all your payment record.</p>
 					</div>
 					<div class="col-6 col-sm-6 col-lg-4">
-						<h2>Withdraw VIP</h2>
+						<h2>
+							<s:a>
+								<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Withdraw VIP</s:a>
+						</h2>
 						<p>Here you can check out all your payment record.</p>
 					</div>
 				</div>
