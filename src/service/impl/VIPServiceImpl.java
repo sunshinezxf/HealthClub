@@ -40,7 +40,7 @@ public class VIPServiceImpl implements VIPService {
 		return null;
 	}
 
-	public HomeVIPCard applyHMCard(VIP vip) {
+	public HomeVIPCard applyHMCard(String hm_id, int v_id) {
 		return null;
 	}
 

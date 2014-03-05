@@ -46,22 +46,26 @@
 				<div class="jumbotron">
 					<h1>
 						Hello,&nbsp;
-						<%=vip.getName()%>!</h1>
+						<%=vip.getName()%>!
+					</h1>
 					<p>Welcome to your personal home page, your can see what you
 						can do here.</p>
 				</div>
 				<div class="row">
 					<div class="col-6 col-sm-6 col-lg-4">
 						<h2>Membership Card</h2>
-						<p>You can either apply for a new one or check out all that you already have.</p>
+						<p>You can either apply for a new one or check out all that
+							you already have.</p>
 					</div>
 					<div class="col-6 col-sm-6 col-lg-4">
 						<h2>Registration Data</h2>
-						<p>Here you can check out your personal information and modify them.</p>
+						<p>Here you can check out your personal information and modify
+							them.</p>
 					</div>
 					<div class="col-6 col-sm-6 col-lg-4">
 						<h2>Activity Record</h2>
-						<p>Here you can check out all the activities you have participated in.</p>
+						<p>Here you can check out all the activities you have
+							participated in.</p>
 					</div>
 					<div class="col-6 col-sm-6 col-lg-4">
 						<h2>Payment Record</h2>
@@ -74,14 +78,19 @@
 				</div>
 			</div>
 			<div class="col-xs-6 col-sm-3 sidebar-ofcanvas" id="sidebar">
-					<div class="list-group">
-						<a href="#" class="list-group-item">Membership &nbsp;Card</a>
-						<a href="#" class="list-group-item">Registration &nbsp;Data</a>
-						<a href="#" class="list-group-item">Activity &nbsp; Record</a>
-						<a href="#" class="list-group-item">Payment &nbsp;Record</a>
-						<a href="#" class="list-group-item">Withdraw &nbsp;VIP</a>
-					</div>
+				<div class="list-group">
+					<s:a cssClass="list-group-item" action="">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Membership &nbsp;Card</s:a>
+					<s:a cssClass="list-group-item" action="">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Registration &nbsp;Data</s:a>
+					<s:a cssClass="list-group-item" action="">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Activity &nbsp; Record</s:a>
+					<s:a cssClass="list-group-item" action="">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Payment &nbsp;Record</s:a>
+					<s:a cssClass="list-group-item" action="">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Withdraw &nbsp;VIP</s:a>
 				</div>
+			</div>
 		</div>
 	</div>
 </body>

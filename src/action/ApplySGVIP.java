@@ -1,5 +1,6 @@
 package action;
 
+import model.card.SingleVIPCard;
 import service.VIPService;
 import util.IDGenerator;
 
@@ -10,8 +11,6 @@ public class ApplySGVIP extends BaseAction {
 	private int v_id;
 
 	public VIPService getVIPService() {
-		String sg_id = IDGenerator.generateSGVIP();
-		vipService.applySGCard(sg_id, v_id);
 		return vipService;
 	}
 
@@ -20,6 +19,15 @@ public class ApplySGVIP extends BaseAction {
 	}
 
 	public String execute() throws Exception {
+		v_id = (Integer)session.get("v_id");
+		String sg_id = IDGenerator.generateSGVIP();
+		SingleVIPCard card = vipService.applySGCard(sg_id, v_id);
+		if(card == null) {
+			return "failure";
+		}
+		else {
+			
+		}
 		return null;
 	}
 

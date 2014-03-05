@@ -11,7 +11,7 @@ public interface VIPService {
 
 	public SingleVIPCard applySGCard(String sg_id, int v_id);
 
-	public HomeVIPCard applyHMCard(VIP vip);
+	public HomeVIPCard applyHMCard(String hm_id, int v_id);
 
 	public boolean cancelVIP(String username);
 
