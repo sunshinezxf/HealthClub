@@ -12,5 +12,9 @@
 			<result name="success">/member/index.jsp</result>
 			<result name="failure">/member/login.jsp</result>
 		</action>
+		<action name="viewcard" class="action.ViewCard">
+			<result name="success">/member/viewcard.jsp</result>
+			<result name="failure">/member/index.jsp</result>
+		</action>
 	</package>
 </struts>
