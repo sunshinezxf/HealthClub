@@ -11,19 +11,22 @@ import dao.VIPDAO;
 import model.Gender;
 import model.Phone;
 import model.VIP;
+import model.card.CardType;
+import model.card.HomeVIPCard;
+import model.card.SingleVIPCard;
 import model.card.VIPCard;
 
-public class VIPDAOImpl implements VIPDAO{
+public class VIPDAOImpl implements VIPDAO {
 	private BaseDAO baseDAO;
 
 	public BaseDAO getBaseDAO() {
 		return baseDAO;
 	}
-	
+
 	public void setBaseDAO(BaseDAO baseDAO) {
 		this.baseDAO = baseDAO;
 	}
-	
+
 	public boolean addVIP(VIP vip) {
 		Connection connection = baseDAO.getConnection();
 		PreparedStatement ps = null;
@@ -118,8 +121,55 @@ public class VIPDAOImpl implements VIPDAO{
 	public boolean update(VIP vip) {
 		return true;
 	}
-	
+
 	public ArrayList<VIPCard> viewCard(int v_id) {
-		return null;
+		Connection connection = baseDAO.getConnection();
+		PreparedStatement ps = null;
+		String sql = "select * from card where v_id = ?";
+		ResultSet rs = null;
+		ArrayList<VIPCard> cardList = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, v_id);
+			rs = ps.executeQuery();
+			rs.beforeFirst();
+			while (rs.next()) {
+				cardList = new ArrayList<VIPCard>();
+				VIPCard card = null;
+				String cardType = rs.getString(4);
+				if (cardType.equals("SG")) {
+					card = new SingleVIPCard();
+				} else {
+					card = new HomeVIPCard();
+				}
+				int c_id = rs.getInt(1);
+				String c_code = rs.getString(2);
+				String c_token = rs.getString(3);
+				String c_type = rs.getString(4);
+				boolean c_activated = rs.getBoolean(5);
+				boolean c_payed = rs.getBoolean(6);
+				double c_activatePrice = rs.getDouble(7);
+				double c_rent = rs.getDouble(8);
+				card.setC_id(c_id);
+				card.setCode(c_code);
+				card.setToken(c_token);
+				CardType type = (c_type.equals("SG")) ? CardType.SINGLE
+						: CardType.HOME;
+				card.setType(type);
+				card.setActivated(c_activated);
+				card.setPayed(c_payed);
+				card.setActivatePrice(c_activatePrice);
+				card.setRent(c_rent);
+				card.setV_id(v_id);
+				cardList.add(card);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closeResultSet(rs);
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return cardList;
 	}
 }

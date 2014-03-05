@@ -1,15 +1,15 @@
 package model.card;
 
-
-
 public abstract class VIPCard {
+	private int c_id;
 	private String code;
-	protected double activatePrice;
-	protected double rent;
 	private String token;
 	private CardType type;
 	private boolean activated = false;
 	private boolean payed = false;
+	protected double activatePrice;
+	protected double rent;
+	private int v_id;
 
 	public VIPCard() {
 		code = "";
@@ -17,6 +17,14 @@ public abstract class VIPCard {
 		rent = 0;
 		token = "";
 		type = null;
+	}
+
+	public void setC_id(int c_id) {
+		this.c_id = c_id;
+	}
+
+	public int getC_id() {
+		return c_id;
 	}
 
 	public void setCode(String code) {
@@ -75,6 +83,14 @@ public abstract class VIPCard {
 
 	public boolean getPayed() {
 		return payed;
+	}
+
+	public void setV_id(int v_id) {
+		this.v_id = v_id;
+	}
+
+	public int getV_id() {
+		return v_id;
 	}
 
 	public boolean activate(double money) {
