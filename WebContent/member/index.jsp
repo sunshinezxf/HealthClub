@@ -54,7 +54,7 @@
 				<div class="row">
 					<div class="col-6 col-sm-6 col-lg-4">
 						<h2>
-							<s:a action="viewcard">
+							<s:a action="viewcard" namespace="/action">
 								<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Membership Card</s:a>
 						</h2>
 						<p>You can either apply for a new one or check out all that

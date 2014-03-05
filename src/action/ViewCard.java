@@ -2,6 +2,7 @@ package action;
 
 import java.util.ArrayList;
 
+import model.VIP;
 import model.card.VIPCard;
 import service.VIPService;
 
@@ -26,6 +27,10 @@ public class ViewCard extends BaseAction {
 		} else {
 			System.out.println("您当前拥有" + cardList.size() + "张会员卡");
 		}
+		VIP vip = vipService.checkVIP("v_id", v_id);
+		System.out.println("您好！" + vip.getName());
+		vip.setCardList(cardList);
+		session.put("vip", vip);
 		return "success";
 	}
 
