@@ -1,8 +1,11 @@
 package service.impl;
 
+import java.util.ArrayList;
+
 import model.VIP;
 import model.card.HomeVIPCard;
 import model.card.SingleVIPCard;
+import model.card.VIPCard;
 import service.VIPService;
 import dao.VIPDAO;
 
@@ -34,6 +37,10 @@ public class VIPServiceImpl implements VIPService {
 		if (vip.getPassword().equals(password))
 			return true;
 		return false;
+	}
+
+	public ArrayList<VIPCard> viewCard(int v_id) {
+		return vipDAO.viewCard(v_id);
 	}
 
 	public SingleVIPCard applySGCard(String sg_id, int v_id) {

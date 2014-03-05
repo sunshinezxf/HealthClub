@@ -1,6 +1,9 @@
 package dao;
 
+import java.util.ArrayList;
+
 import model.VIP;
+import model.card.VIPCard;
 
 public interface VIPDAO {
 	public boolean addVIP(VIP vip);
@@ -10,4 +13,6 @@ public interface VIPDAO {
 	public VIP find(String column, String value);
 	
 	public boolean update(VIP vip);
+	
+	public ArrayList<VIPCard> viewCard(int v_id);
 }

@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import dao.BaseDAO;
 import dao.VIPDAO;
 import model.Gender;
 import model.Phone;
 import model.VIP;
+import model.card.VIPCard;
 
 public class VIPDAOImpl implements VIPDAO{
 	private BaseDAO baseDAO;
@@ -115,5 +117,9 @@ public class VIPDAOImpl implements VIPDAO{
 
 	public boolean update(VIP vip) {
 		return true;
+	}
+	
+	public ArrayList<VIPCard> viewCard(int v_id) {
+		return null;
 	}
 }
