@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; utf-8"
 	pageEncoding="utf-8"%>
-<%@ page import="model.VIP"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page import="model.VIP"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -18,13 +18,13 @@
 	<s:div cssClass="navbar navbar-inverse navbar-fixed-top">
 		<s:div cssClass="container">
 			<s:div cssClass="navbar-header">
-				<a href="index.jsp"> <img alt="logo"
+				<a href="<s:url value="/index.jsp"></s:url>"> <img alt="logo"
 					src="<s:url value="/material/HealthClub.png"></s:url>" />
 				</a>
 			</s:div>
 			<s:div cssClass="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<s:url value="index.jsp"></s:url>">Home</a></li>
+					<li><a href="<s:url value="/index.jsp"></s:url>">Home</a></li>
 					<li><a href="<s:url value="/member/register.jsp"></s:url>">Register</a></li>
 					<li><a href="<s:url value="/member/login.jsp"></s:url>">Login</a></li>
 				</ul>

@@ -15,5 +15,8 @@
 		<action name="viewcard" class="action.ViewCard">
 			<result name="success">/member/viewcard.jsp</result>
 		</action>
+		<action name="quit" class="action.Quit">
+			<result name="success">index.jsp</result>
+		</action>
 	</package>
 </struts>
