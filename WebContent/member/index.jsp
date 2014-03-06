@@ -31,7 +31,8 @@
 					<li><a href="<s:url value="/member/index.jsp"></s:url>">Home</a></li>
 					<li><a href="<s:url value="/member/index.jsp"></s:url>">Personal
 							Information</a></li>
-					<li><a href="<s:url value="/member/index.jsp"></s:url>">Quit</a></li>
+					<li><s:a action="quit" namespace="/action">
+							<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Quit</s:a></li>
 				</ul>
 			</div>
 		</div>
