@@ -29,4 +29,9 @@
 			<ref bean="VIPService" />
 		</property>
 	</bean>
+	<bean id="ViewPrivacy" class="action.ViewPrivacy">
+		<property name="VIPService">
+			<ref bean="VIPService" />
+		</property>
+	</bean>
 </beans>
