@@ -20,7 +20,7 @@
 			<result name="failure"></result>
 		</action>
 		<action name="quit" class="action.Quit">
-			<result name="success">index.jsp</result>
+			<result name="success">/index.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -20,5 +20,23 @@
 <title>Health Club--<%=vip.getName()%></title>
 </head>
 <body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="<s:url value="/member/index.jsp"></s:url>"><img
+					alt="logo" src="<s:url value="/material/HealthClub.png"></s:url>" /></a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="<s:url value="/member/index.jsp"></s:url>">Home</a></li>
+					<li><s:a action="viewprivacy" namespace="/action">
+							<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Personal Information
+						</s:a></li>
+					<li><s:a action="quit" namespace="/action">
+							<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Quit</s:a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
