@@ -38,5 +38,22 @@
 			</div>
 		</div>
 	</div>
+	<div class="container">
+		<div class="row row-offcanvas row-offcanvas-right">
+			<div class="col-xs-12 col-sm-9">
+				<p class="pull-right visible-xs">
+					<button type="button" class="btn btn-primary btn-xs"
+						data-toggle="offcanvas">Toggle nav</button>
+				</p>
+				<div class="jumbotron">
+					<h1>
+						Hello, &nbsp;
+						<%=vip.getName()%>!
+					</h1>
+					<p>You can check your registration data here.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
