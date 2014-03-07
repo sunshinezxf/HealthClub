@@ -64,7 +64,7 @@
 					</div>
 					<div class="col-6 col-sm-6 col-lg-4">
 						<h2>
-							<s:a action="">
+							<s:a action="viewprivacy" namespace="/action">
 								<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>
 							Registration Data
 							</s:a>
@@ -96,12 +96,12 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-3 sidebar-ofcanvas" id="sidebar">
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
 				<div class="list-group">
 					<s:a cssClass="list-group-item" action="viewcard"
 						namespace="/action">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Membership &nbsp;Card</s:a>
-					<s:a cssClass="list-group-item" action="">
+					<s:a cssClass="list-group-item" action="viewprivacy" namespace="/action">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Registration &nbsp;Data</s:a>
 					<s:a cssClass="list-group-item" action="">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Activity &nbsp; Record</s:a>

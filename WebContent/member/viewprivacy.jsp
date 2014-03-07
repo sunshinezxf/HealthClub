@@ -1,3 +1,4 @@
+<%@page import="model.Gender"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -51,6 +52,44 @@
 						<%=vip.getName()%>!
 					</h1>
 					<p>You can check your registration data here.</p>
+				</div>
+				<div class="grid-layout module">
+					<div class="information">
+						<h3>
+							Username:&nbsp;<%=vip.getUsername()%></h3>
+					</div>
+					<div class="information">
+						<h3>
+							Name:&nbsp;<%=vip.getName()%></h3>
+					</div>
+					<div class="information">
+						<h3>
+							Gender:&nbsp;<%=(vip.getGender() == Gender.MALE) ? "male" : "female"%>
+						</h3>
+					</div>
+					<div class="information">
+						<h3>
+							Cellphone:&nbsp;<%=vip.getPhone().getNo()%></h3>
+					</div>
+					<div class="information">
+						<h3>
+							Age:&nbsp;<%=vip.getAge()%></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+				<div class="list-group">
+					<s:a cssClass="list-group-item" action="viewcard"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Membership &nbsp; Card</s:a>
+					<s:a cssClass="list-group-item" action="viewprivacy">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Registration &nbsp;Data</s:a>
+					<s:a cssClass="list-group-item" action="">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Activity &nbsp;Record</s:a>
+					<s:a cssClass="list-group-item" action="">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Payment &nbsp;Record</s:a>
+					<s:a cssClass="list-group-item" action="">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Withdraw &nbsp;VIP</s:a>
 				</div>
 			</div>
 		</div>
