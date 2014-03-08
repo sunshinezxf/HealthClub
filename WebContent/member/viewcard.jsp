@@ -1,3 +1,4 @@
+<%@page import="model.card.CardType"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.VIP"%>
 <%@page import="model.card.VIPCard"%>
@@ -53,7 +54,7 @@
 					<p>You can manage all your membership cards or apply for a new
 						one.</p>
 				</div>
-				<div class="grid-layout module">
+				<div class="layout module">
 					<%
 						ArrayList<VIPCard> list = vip.getCardList();
 						if (list == null) {
@@ -67,10 +68,39 @@
 					%>
 					<h3>
 						You have
-						<%=size %>
-						cards.
+						<%=size%>
+						<%=(size == 1) ? "card" : "cards"%>.
 					</h3>
 					<%
+						for (int i = 0; i < size; i++) {
+					%>
+					<div class="card">
+						<h4>
+							Card No:
+							<%=list.get(i).getCode()%></h4>
+						<h4>
+							Card Type:
+							<%=(list.get(i).getType() == CardType.SINGLE) ? "Single"
+							: "Home"%>
+						</h4>
+						<h4>
+							Activated:
+							<%=(list.get(i).getActivated() == true) ? "Already Activated"
+							: "Not Yet Activated"%></h4>
+						<h4>
+							Payed:
+							<%=(list.get(i).getPayed() == true) ? "Already Payed This Month"
+							: "Not Payed Yet"%>
+						</h4>
+						<h4>
+							Activate Price: $<%=list.get(i).getActivatePrice()%>
+						</h4>
+						<h4>
+							Rent: $<%=list.get(i).getRent()%>
+						</h4>
+					</div>
+					<%
+						}
 						}
 					%>
 				</div>

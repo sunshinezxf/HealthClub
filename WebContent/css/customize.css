@@ -13,6 +13,22 @@
 	opacity: 0.85;
 }
 
+.layout {
+	width: 100%;
+	position: relative;
+	background-color: #ffffdf;
+	opacity: 0.85;
+}
+
+.card {
+	width: 100%;
+	position: relative;
+	border-radius: 3px;
+	color: #123456;
+	background-color: #a9ffff;
+	opacity: 0.85;
+}
+
 .prompt {
 	position: relative;
 	background-color: #ffffdf;

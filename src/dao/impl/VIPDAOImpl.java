@@ -133,8 +133,8 @@ public class VIPDAOImpl implements VIPDAO {
 			ps.setInt(1, v_id);
 			rs = ps.executeQuery();
 			rs.beforeFirst();
+			cardList = new ArrayList<VIPCard>();
 			while (rs.next()) {
-				cardList = new ArrayList<VIPCard>();
 				VIPCard card = null;
 				String cardType = rs.getString(4);
 				if (cardType.equals("SG")) {
@@ -170,6 +170,8 @@ public class VIPDAOImpl implements VIPDAO {
 			baseDAO.closePreparedStatement(ps);
 			baseDAO.closeConnection(connection);
 		}
+		if (cardList.size() == 0)
+			return null;
 		return cardList;
 	}
 }
