@@ -22,13 +22,7 @@ public class ViewCard extends BaseAction {
 	public String execute() throws Exception {
 		int id = Integer.parseInt(v_id);
 		ArrayList<VIPCard> cardList = vipService.viewCard(id);
-		if (cardList == null) {
-			System.out.println("用户当前还没有会员卡!");
-		} else {
-			System.out.println("您当前拥有" + cardList.size() + "张会员卡");
-		}
 		VIP vip = vipService.checkVIP("v_id", v_id);
-		System.out.println("您好！" + vip.getName());
 		vip.setCardList(cardList);
 		session.put("vip", vip);
 		return "success";

@@ -1,4 +1,6 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="model.VIP"%>
+<%@page import="model.card.VIPCard"%>
 <%@ page language="java" contentType="text/html; utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -48,7 +50,43 @@
 						Hello,&nbsp;
 						<%=vip.getName()%>!
 					</h1>
-					<p>You can manage all your membership cards or apply for a new one. </p>
+					<p>You can manage all your membership cards or apply for a new
+						one.</p>
+				</div>
+				<div class="grid-layout module">
+					<%
+						ArrayList<VIPCard> list = vip.getCardList();
+						if (list == null) {
+					%>
+					<h3><%=vip.getName()%>, you don't have any vip card at the
+						moment.
+					</h3>
+					<%
+						} else {
+							int size = list.size();
+					%>
+					<h3>
+						You have
+						<%=size %>
+						cards.
+					</h3>
+					<%
+						}
+					%>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+				<div class="list-group">
+					<s:a cssClass="list-group-item" action="viewcard"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Membership &nbsp;Card
+					</s:a>
+					<s:a cssClass="list-group-item" action="viewprivacy">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Registration &nbsp;Data</s:a>
+					<s:a cssClass="list-group-item" action="">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Activity &nbsp; Record</s:a>
+					<s:a cssClass="list-group-item" action="">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Payment &nbsp;Record</s:a>
 				</div>
 			</div>
 		</div>
