@@ -101,6 +101,9 @@
 					</div>
 					<%
 						}
+					%>
+					<s:a cssClass="btn btn-lg btn-primary" action="">Modify</s:a>
+					<%
 						}
 					%>
 				</div>
