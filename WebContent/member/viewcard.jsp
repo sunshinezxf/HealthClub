@@ -129,9 +129,11 @@
 						namespace="/action">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Membership &nbsp;Card
 					</s:a>
-					<s:a cssClass="list-group-item" action="viewprivacy">
+					<s:a cssClass="list-group-item" action="viewprivacy"
+						namespace="/action">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Registration &nbsp;Data</s:a>
-					<s:a cssClass="list-group-item" action="">
+					<s:a cssClass="list-group-item" action="viewactivity"
+						namespace="/action">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Activity &nbsp; Record</s:a>
 					<s:a cssClass="list-group-item" action="">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Payment &nbsp;Record</s:a>

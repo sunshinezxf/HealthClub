@@ -34,4 +34,9 @@
 			<ref bean="VIPService" />
 		</property>
 	</bean>
+	<bean id="ViewActivity" class="action.ViewActivity">
+		<property name="VIPService">
+			<ref bean="VIPService" />
+		</property>
+	</bean>
 </beans>

@@ -74,7 +74,7 @@
 					</div>
 					<div class="col-6 col-sm-6 col-lg-4">
 						<h2>
-							<s:a action="">
+							<s:a action="viewactivity" namespace="/action">
 								<s:param name="v_id" value="%{#sessino.vip.v_id}"></s:param>Activity Record</s:a>
 						</h2>
 						<p>Here you can check out all the activities you have
@@ -101,9 +101,11 @@
 					<s:a cssClass="list-group-item" action="viewcard"
 						namespace="/action">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Membership &nbsp;Card</s:a>
-					<s:a cssClass="list-group-item" action="viewprivacy" namespace="/action">
+					<s:a cssClass="list-group-item" action="viewprivacy"
+						namespace="/action">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Registration &nbsp;Data</s:a>
-					<s:a cssClass="list-group-item" action="">
+					<s:a cssClass="list-group-item" action="viewactivity"
+						namespace="/action">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Activity &nbsp; Record</s:a>
 					<s:a cssClass="list-group-item" action="">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Payment &nbsp;Record</s:a>
