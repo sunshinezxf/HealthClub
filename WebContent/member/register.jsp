@@ -49,6 +49,8 @@
 			<input type="text" class="form-control" placeholder="Cellphone"
 				name="phone" />
 			<input type="text" class="form-control" placeholder="Age" name="age" />
+			<input type="text" class="form-control" placeholder="Credit Card"
+				name="credit" />
 			<input type="password" class="form-control" placeholder="Password"
 				name="password" />
 			<button class="btn btn-lg btn-primary btn-block button-commit"
