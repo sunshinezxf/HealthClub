@@ -25,6 +25,10 @@
 		<action name="viewpay" class="action.ViewPay">
 			<result name="success">/member/viewpay.jsp</result>
 		</action>
+		<action name="withdraw" class="action.Withdraw">
+			<result name="success">/index.jsp</result>
+			<result name="failure">/member/index.jsp</result>
+		</action>
 		<action name="quit" class="action.Quit">
 			<result name="success">/index.jsp</result>
 		</action>
