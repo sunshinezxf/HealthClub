@@ -82,7 +82,7 @@
 					</div>
 					<div class="col-6 col-sm-6 col-lg-4">
 						<h2>
-							<s:a>
+							<s:a action="viewpay" namespace="/action">
 								<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Payment Record</s:a>
 						</h2>
 						<p>Here you can check out all your payment record.</p>
