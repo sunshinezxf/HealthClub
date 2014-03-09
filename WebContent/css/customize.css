@@ -117,3 +117,12 @@ footer {
 		width: 50%; /* 6 columns */
 	}
 }
+
+.card a:link {
+	text-decoration: none;
+}
+
+.activate {
+	padding-left: 10px;
+	text-align: right;
+}

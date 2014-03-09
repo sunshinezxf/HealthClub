@@ -86,11 +86,26 @@
 						<h4>
 							Activated:
 							<%=(list.get(i).getActivated() == true) ? "Already Activated"
-							: "Not Yet Activated"%></h4>
+							: "Not Yet Activated"%>
+							<%
+								if (list.get(i).getActivated() == false) {
+							%>
+							<s:a cssClass="activate" action="" namespace="/action">activate</s:a>
+							<%
+								}
+							%>
+						</h4>
 						<h4>
 							Payed:
 							<%=(list.get(i).getPayed() == true) ? "Already Payed This Month"
 							: "Not Payed Yet"%>
+							<%
+								if (list.get(i).getPayed() == false) {
+							%>
+							<s:a cssClass="activate" action="" namespace="/action">pay</s:a>
+							<%
+								}
+							%>
 						</h4>
 						<h4>
 							Activate Price: $<%=list.get(i).getActivatePrice()%>
