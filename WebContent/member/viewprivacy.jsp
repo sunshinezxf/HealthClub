@@ -53,7 +53,7 @@
 					</h1>
 					<p>You can check your registration data here.</p>
 				</div>
-				<div class="grid-layout module">
+				<div class="layout module">
 					<div class="information">
 						<h3>
 							Username:&nbsp;<%=vip.getUsername()%></h3>
