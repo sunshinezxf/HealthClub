@@ -174,4 +174,24 @@ public class VIPDAOImpl implements VIPDAO {
 			return null;
 		return cardList;
 	}
+
+	public boolean deleteVIP(int v_id) {
+		Connection connection = baseDAO.getConnection();
+		PreparedStatement ps = null;
+		String sql = "delete from vip where v_id = ?";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, v_id);
+			int i = ps.executeUpdate();
+			if (i > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return false;
+	}
 }

@@ -23,4 +23,6 @@ public interface VIPService {
 	public VIP checkVIP(String column, String value);
 
 	public boolean modifyVIP(VIP vip);
+	
+	public boolean withdrawVIP(int v_id);
 }

@@ -62,4 +62,8 @@ public class VIPServiceImpl implements VIPService {
 	public boolean modifyVIP(VIP vip) {
 		return vipDAO.update(vip);
 	}
+	
+	public boolean withdrawVIP(int v_id) {
+		return true;
+	}
 }

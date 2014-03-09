@@ -15,4 +15,6 @@ public interface VIPDAO {
 	public boolean update(VIP vip);
 	
 	public ArrayList<VIPCard> viewCard(int v_id);
+	
+	public boolean deleteVIP(int v_id);
 }
