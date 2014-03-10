@@ -46,11 +46,10 @@
 				</p>
 				<div class="jumbotron">
 					<h1>
-						Hello,&nbsp;;
+						Hello,&nbsp;
 						<%=vip.getName()%>!
 					</h1>
-					<p>You can manage all your membership cards or apply for a new
-						one.</p>
+					<p>You can now apply for a new single vip card.</p>
 				</div>
 			</div>
 		</div>
