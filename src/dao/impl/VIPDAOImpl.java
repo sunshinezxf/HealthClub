@@ -217,4 +217,39 @@ public class VIPDAOImpl implements VIPDAO {
 		}
 		return false;
 	}
+
+	public boolean applySG(VIPCard card) {
+		Connection connection = baseDAO.getConnection();
+		PreparedStatement ps = null;
+		String code = card.getCode();
+		String token = card.getToken();
+		String type = (card.getType() == CardType.SINGLE) ? "SG" : "HM";
+		boolean activated = card.getActivated();
+		boolean payed = card.getPayed();
+		double activatePrice = card.getActivatePrice();
+		double rent = card.getRent();
+		int v_id = card.getV_id();
+		String sql = "insert into card(code, token, type, activated, payed, activatePrice, rent, v_id) values (?, ?, ?, ?, ?, ?, ?, ?)";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, code);
+			ps.setString(2, token);
+			ps.setString(3, type);
+			ps.setBoolean(4, activated);
+			ps.setBoolean(5, payed);
+			ps.setDouble(6, activatePrice);
+			ps.setDouble(7, rent);
+			ps.setInt(8, v_id);
+			int i = ps.executeUpdate();
+			if (i > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return false;
+	}
 }

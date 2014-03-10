@@ -3,7 +3,6 @@ package dao;
 import java.util.ArrayList;
 
 import model.VIP;
-import model.card.SingleVIPCard;
 import model.card.VIPCard;
 
 public interface VIPDAO {

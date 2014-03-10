@@ -126,3 +126,8 @@ footer {
 	padding-left: 10px;
 	text-align: right;
 }
+
+.delete {
+	float: right;
+	position: relative;
+}

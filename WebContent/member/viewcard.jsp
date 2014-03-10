@@ -1,3 +1,4 @@
+<%@page import="javax.smartcardio.Card"%>
 <%@page import="model.card.CardType"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.VIP"%>
@@ -73,22 +74,26 @@
 					</h3>
 					<%
 						for (int i = 0; i < size; i++) {
+								VIPCard card = list.get(i);
 					%>
 					<div class="card">
+						<s:a cssClass="btn btn-lg btn-primary delete" action="deletecard"
+							namespace="/action">
+							<s:param name="c_id" value="%{#card.c_id}"></s:param>Delete</s:a>
 						<h4>
 							Card No:
-							<%=list.get(i).getCode()%></h4>
+							<%=card.getCode()%></h4>
 						<h4>
 							Card Type:
-							<%=(list.get(i).getType() == CardType.SINGLE) ? "Single"
+							<%=(card.getType() == CardType.SINGLE) ? "Single"
 							: "Home"%>
 						</h4>
 						<h4>
 							Activated:
-							<%=(list.get(i).getActivated() == true) ? "Already Activated"
+							<%=(card.getActivated() == true) ? "Already Activated"
 							: "Not Yet Activated"%>
 							<%
-								if (list.get(i).getActivated() == false) {
+								if (card.getActivated() == false) {
 							%>
 							<s:a cssClass="activate" action="" namespace="/action">activate</s:a>
 							<%
@@ -97,10 +102,10 @@
 						</h4>
 						<h4>
 							Payed:
-							<%=(list.get(i).getPayed() == true) ? "Already Payed This Month"
+							<%=(card.getPayed() == true) ? "Already Payed This Month"
 							: "Not Payed Yet"%>
 							<%
-								if (list.get(i).getPayed() == false) {
+								if (card.getPayed() == false) {
 							%>
 							<s:a cssClass="activate" action="" namespace="/action">pay</s:a>
 							<%
@@ -108,10 +113,10 @@
 							%>
 						</h4>
 						<h4>
-							Activate Price: $<%=list.get(i).getActivatePrice()%>
+							Activate Price: $<%=card.getActivatePrice()%>
 						</h4>
 						<h4>
-							Rent: $<%=list.get(i).getRent()%>
+							Rent: $<%=card.getRent()%>
 						</h4>
 					</div>
 					<%
@@ -124,9 +129,10 @@
 					<s:a cssClass="btn btn-lg btn-primary" action="applysg"
 						namespace="/action">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Apply SG Card</s:a>
+					<s:a cssClass="btn btn-lg btn-primary" action="applyhm"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Apply HM Card</s:a>
 					<a class="btn btn-lg btn-primary"
-						href="<s:url value="/member/applysg.jsp"></s:url>">Apply SG</a> <a
-						class="btn btn-lg btn-primary"
 						href="<s:url value="/member/applyhm.jsp"></s:url>">Apply HM</a>
 				</div>
 			</div>
