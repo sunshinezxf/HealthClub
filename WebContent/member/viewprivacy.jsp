@@ -75,6 +75,10 @@
 						<h3>
 							Age:&nbsp;<%=vip.getAge()%></h3>
 					</div>
+					<div class="information">
+						<h3>
+							Credit No:&nbsp;<%=vip.getCreditCard().getCr_no()%>&nbsp; Balance:&nbsp;<%=vip.getCreditCard().getBalance() %></h3>
+					</div>
 				</div>
 			</div>
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">

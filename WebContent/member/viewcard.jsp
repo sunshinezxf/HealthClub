@@ -27,7 +27,7 @@
 		<div class="container">
 			<div class="navbar-header">
 				<a href="<s:url value="/member/index.jsp"></s:url>"><img
-					alt="logo" src="<s:url value="/material/HealthClub.png"></s:url>" ></a>
+					alt="logo" src="<s:url value="/material/HealthClub.png"></s:url>"></a>
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
@@ -117,12 +117,14 @@
 					<%
 						}
 					%>
-					<s:a cssClass="btn btn-lg btn-primary" action="applysg">Apply SG</s:a>
-					<s:a cssClass="btn btn-lg btn-primary" action="applyhm">Apply HM</s:a>
 					<s:a cssClass="btn btn-lg btn-primary" action="">Modify</s:a>
 					<%
 						}
 					%>
+					<a class="btn btn-lg btn-primary"
+						href="<s:url value="/member/applysg.jsp"></s:url>">Apply SG</a> <a
+						class="btn btn-lg btn-primary"
+						href="<s:url value="/member/applyhm.jsp"></s:url>">Apply HM</a>
 				</div>
 			</div>
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">

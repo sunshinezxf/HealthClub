@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import dao.BaseDAO;
 import dao.VIPDAO;
+import model.CreditCard;
 import model.Gender;
 import model.Phone;
 import model.VIP;
@@ -36,7 +37,8 @@ public class VIPDAOImpl implements VIPDAO {
 		String phone = vip.getPhone().getNo();
 		int age = vip.getAge();
 		String password = vip.getPassword();
-		String sql = "insert into vip(username, name, gender, phone, age, password) values (?, ?, ?, ?, ?, ?)";
+		String cr_no = vip.getCreditCard().getCr_no();
+		String sql = "insert into vip(username, name, gender, phone, age, password, cr_no) values (?, ?, ?, ?, ?, ?, ?)";
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, username);
@@ -45,6 +47,7 @@ public class VIPDAOImpl implements VIPDAO {
 			ps.setString(4, phone);
 			ps.setInt(5, age);
 			ps.setString(6, password);
+			ps.setString(7, cr_no);
 			int i = ps.executeUpdate();
 			if (i > 0)
 				return true;
@@ -82,6 +85,9 @@ public class VIPDAOImpl implements VIPDAO {
 		String sql = "select * from vip where " + column + " = ?";
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		Connection inner_con = null;
+		PreparedStatement inner_ps = null;
+		ResultSet inner_rs = null;
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, value);
@@ -99,6 +105,20 @@ public class VIPDAOImpl implements VIPDAO {
 				Phone t_phone = new Phone(t_phone_string);
 				int t_age = rs.getInt(6);
 				String t_password = rs.getString(7);
+				String cr_no = rs.getString(8);
+				String inner_sql = "select * from credit where cr_no = ?";
+				inner_con = baseDAO.getConnection();
+				inner_ps = inner_con.prepareStatement(inner_sql);
+				inner_ps.setString(1, cr_no);
+				inner_rs = inner_ps.executeQuery();
+				inner_rs.beforeFirst();
+				if (inner_rs.next()) {
+					CreditCard credit = new CreditCard();
+					double balance = inner_rs.getDouble(2);
+					credit.setCr_no(cr_no);
+					credit.setBalance(balance);
+					vip.setCreditCard(credit);
+				}
 				vip.setV_id(t_v_id);
 				vip.setUsername(t_username);
 				vip.setName(t_name);
@@ -111,6 +131,9 @@ public class VIPDAOImpl implements VIPDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
+			baseDAO.closeResultSet(inner_rs);
+			baseDAO.closePreparedStatement(inner_ps);
+			baseDAO.closeConnection(inner_con);
 			baseDAO.closeResultSet(rs);
 			baseDAO.closePreparedStatement(ps);
 			baseDAO.closeConnection(connection);

@@ -17,9 +17,11 @@ public class VIP {
 	private Phone phone;
 	private int age;
 	private String password;
+	private CreditCard creditCard;
 	private ArrayList<ActivityRecord> activityRecord;
 
 	public VIP() {
+		creditCard = new CreditCard();
 		cardList = new ArrayList<VIPCard>();
 		activityRecord = new ArrayList<ActivityRecord>();
 	}
@@ -70,6 +72,14 @@ public class VIP {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public CreditCard getCreditCard() {
+		return creditCard;
+	}
+
+	public void setCreditCard(CreditCard creditCard) {
+		this.creditCard = creditCard;
 	}
 
 	public String getPassword() {

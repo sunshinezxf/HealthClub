@@ -1,5 +1,6 @@
 package action;
 
+import model.CreditCard;
 import model.Gender;
 import model.Phone;
 import model.VIP;
@@ -14,6 +15,7 @@ public class Register extends BaseAction {
 	private String phone;
 	private int age;
 	private String password;
+	private String credit;
 	private VIPService vipService;
 
 	public VIPService getVIPService() {
@@ -40,6 +42,7 @@ public class Register extends BaseAction {
 		Phone phone = new Phone(this.phone);
 		vip.setPhone(phone);
 		vip.setAge(age);
+		vip.setCreditCard(new CreditCard(credit));
 		vip.setPassword(Encryption.md5(password));
 		boolean status = vipService.registerVIP(vip);
 		if (status) {
@@ -84,6 +87,14 @@ public class Register extends BaseAction {
 			this.age = 0;
 		else
 			this.age = Integer.parseInt(age);
+	}
+
+	public String getCredit() {
+		return credit;
+	}
+
+	public void setCredit(String credit) {
+		this.credit = credit;
 	}
 
 	public String getPassword() {

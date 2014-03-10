@@ -29,6 +29,10 @@
 			<result name="success">/index.jsp</result>
 			<result name="failure">/member/index.jsp</result>
 		</action>
+		<action name="applysg" class="action.ApplySGVIP">
+			<result name="success"></result>
+			<result name="failure"></result>
+		</action>
 		<action name="quit" class="action.Quit">
 			<result name="success">/index.jsp</result>
 		</action>
