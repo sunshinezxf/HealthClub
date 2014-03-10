@@ -3,8 +3,9 @@ package action;
 import service.VIPService;
 
 @SuppressWarnings("serial")
-public class ViewActivity extends BaseAction {
+public class ActivateCard extends BaseAction {
 	private String v_id;
+	private String c_id;
 	private VIPService vipService;
 
 	public VIPService getVIPService() {
@@ -16,7 +17,7 @@ public class ViewActivity extends BaseAction {
 	}
 
 	public String execute() throws Exception {
-		return "success";
+		return null;
 	}
 
 	public String getV_id() {
@@ -25,5 +26,13 @@ public class ViewActivity extends BaseAction {
 
 	public void setV_id(String v_id) {
 		this.v_id = v_id;
+	}
+
+	public String getC_id() {
+		return c_id;
+	}
+
+	public void setC_id(String c_id) {
+		this.c_id = c_id;
 	}
 }
