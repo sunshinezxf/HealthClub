@@ -117,6 +117,8 @@
 					<%
 						}
 					%>
+					<s:a cssClass="btn btn-lg btn-primary" action="applysg">Apply SG</s:a>
+					<s:a cssClass="btn btn-lg btn-primary" action="applyhm">Apply HM</s:a>
 					<s:a cssClass="btn btn-lg btn-primary" action="">Modify</s:a>
 					<%
 						}
