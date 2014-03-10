@@ -21,7 +21,6 @@ public class ApplySGVIP extends BaseAction {
 
 	public String execute() throws Exception {
 		String sg_id = IDGenerator.generateSGVIP();
-		System.out.println("c_id: " + sg_id);
 		VIPCard card = new SingleVIPCard();
 		card.setCode(sg_id);
 		card.setType(CardType.SINGLE);

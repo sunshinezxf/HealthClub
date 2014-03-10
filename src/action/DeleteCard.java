@@ -1,23 +1,28 @@
 package action;
 
-import service.VIPService;
+import service.CardService;
 
 @SuppressWarnings("serial")
 public class DeleteCard extends BaseAction {
 	private String c_id;
-	private VIPService vipService;
+	private CardService cardService;
 
-	public VIPService getVIPService() {
-		return vipService;
+	public CardService getCardService() {
+		return cardService;
 	}
 
-	public void setVIPService(VIPService vipService) {
-		this.vipService = vipService;
+	public void setCardService(CardService cardService) {
+		this.cardService = cardService;
 	}
 
 	public String execute() throws Exception {
-		
-		return null;
+		int id = Integer.parseInt(c_id);
+		boolean status = cardService.deleteCard(id);
+		if (status) {
+			return "success";
+		} else {
+			return "failure";
+		}
 	}
 
 	public String getC_id() {

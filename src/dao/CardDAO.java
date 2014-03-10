@@ -1,5 +1,5 @@
 package dao;
 
-public class CardDAO {
-	
+public interface CardDAO {
+	public boolean delete(int c_id);
 }

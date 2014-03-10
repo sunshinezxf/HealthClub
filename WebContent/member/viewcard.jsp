@@ -1,3 +1,4 @@
+<%@page import="com.sun.tools.doclets.formats.html.resources.standard"%>
 <%@page import="javax.smartcardio.Card"%>
 <%@page import="model.card.CardType"%>
 <%@page import="java.util.ArrayList"%>
@@ -72,56 +73,52 @@
 						<%=size%>
 						<%=(size == 1) ? "card" : "cards"%>.
 					</h3>
-					<%
-						for (int i = 0; i < size; i++) {
-								VIPCard card = list.get(i);
-					%>
-					<div class="card">
-						<s:a cssClass="btn btn-lg btn-primary delete" action="deletecard"
-							namespace="/action">
-							<s:param name="c_id" value="%{#card.c_id}"></s:param>Delete</s:a>
-						<h4>
-							Card No:
-							<%=card.getCode()%></h4>
-						<h4>
-							Card Type:
-							<%=(card.getType() == CardType.SINGLE) ? "Single"
-							: "Home"%>
-						</h4>
-						<h4>
-							Activated:
-							<%=(card.getActivated() == true) ? "Already Activated"
-							: "Not Yet Activated"%>
-							<%
-								if (card.getActivated() == false) {
-							%>
-							<s:a cssClass="activate" action="" namespace="/action">activate</s:a>
-							<%
-								}
-							%>
-						</h4>
-						<h4>
-							Payed:
-							<%=(card.getPayed() == true) ? "Already Payed This Month"
-							: "Not Payed Yet"%>
-							<%
-								if (card.getPayed() == false) {
-							%>
-							<s:a cssClass="activate" action="" namespace="/action">pay</s:a>
-							<%
-								}
-							%>
-						</h4>
-						<h4>
-							Activate Price: $<%=card.getActivatePrice()%>
-						</h4>
-						<h4>
-							Rent: $<%=card.getRent()%>
-						</h4>
-					</div>
-					<%
-						}
-					%>
+					<s:iterator value="vip.cardList" status="st">
+						<div class="card">
+							<s:iterator value="vip.cardList.get(#st.index)">
+								<s:a cssClass="btn btn-lg btn-primary delete"
+									action="deletecard" namespace="/action">
+									<s:param name="c_id" value="vip.cardList.get(#st.index).c_id"></s:param>Delete
+								</s:a>
+								<h4>
+									Card No:
+									<s:property value="vip.cardList.get(#st.index).code" />
+								</h4>
+								<h4>
+									Card Type:
+									<s:property value="vip.cardList.get(#st.index).type" />
+								</h4>
+								<h4>
+									Activated:
+									<s:if test="vip.cardList.get(#st.index).activated==true">
+										Already Activated
+									</s:if>
+									<s:else>
+										Not Yet Activated<s:a cssClass="activate" action=""
+											namespace="/action">activate</s:a>
+									</s:else>
+								</h4>
+								<h4>
+									Payed:
+									<s:if test="vip.cardList.get(#st.index).payed==true">
+										Already Payed This Month
+									</s:if>
+									<s:else>
+										Not Yet Payed<s:a cssClass="activate" action=""
+											namespace="/action">pay</s:a>
+									</s:else>
+								</h4>
+								<h4>
+									Activate Price: $
+									<s:property value="vip.cardList.get(#st.index).activatePrice" />
+								</h4>
+								<h4>
+									Rent: $
+									<s:property value="vip.cardList.get(#st.index).rent" />
+								</h4>
+							</s:iterator>
+						</div>
+					</s:iterator>
 					<s:a cssClass="btn btn-lg btn-primary" action="">Modify</s:a>
 					<%
 						}
@@ -132,8 +129,6 @@
 					<s:a cssClass="btn btn-lg btn-primary" action="applyhm"
 						namespace="/action">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Apply HM Card</s:a>
-					<a class="btn btn-lg btn-primary"
-						href="<s:url value="/member/applyhm.jsp"></s:url>">Apply HM</a>
 				</div>
 			</div>
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">

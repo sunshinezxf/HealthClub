@@ -33,6 +33,10 @@
 			<result name="success">/member/applysg.jsp</result>
 			<result name="failure">/member/viewcard.jsp</result>
 		</action>
+		<action name="deletecard" class="action.DeleteCard">
+			<result name="success">/member/viewcard.jsp</result>
+			<result name="failure">/member/viewcard.jsp</result>
+		</action>
 		<action name="quit" class="action.Quit">
 			<result name="success">/index.jsp</result>
 		</action>

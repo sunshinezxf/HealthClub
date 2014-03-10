@@ -10,6 +10,15 @@ import service.VIPService;
 public class ViewCard extends BaseAction {
 	String v_id;
 	private VIPService vipService;
+	private VIP vip;
+
+	public VIP getVip() {
+		return vip;
+	}
+
+	public void setVip(VIP vip) {
+		this.vip = vip;
+	}
 
 	public VIPService getVIPService() {
 		return vipService;
@@ -22,7 +31,7 @@ public class ViewCard extends BaseAction {
 	public String execute() throws Exception {
 		int id = Integer.parseInt(v_id);
 		ArrayList<VIPCard> cardList = vipService.viewCard(id);
-		VIP vip = vipService.checkVIP("v_id", v_id);
+		vip = vipService.checkVIP("v_id", v_id);
 		vip.setCardList(cardList);
 		session.put("vip", vip);
 		return "success";

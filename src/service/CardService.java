@@ -1,5 +1,5 @@
 package service;
 
 public interface CardService {
-	public boolean delete(int c_id);
+	public boolean deleteCard(int c_id);
 }

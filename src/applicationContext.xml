@@ -14,9 +14,19 @@
 			<ref bean="BaseDAO" />
 		</property>
 	</bean>
+	<bean id="CardDAO" class="dao.impl.CardDAOImpl">
+		<property name="BaseDAO">
+			<ref bean="BaseDAO" />
+		</property>
+	</bean>
 	<bean id="VIPService" class="service.impl.VIPServiceImpl">
 		<property name="VIPDAO">
 			<ref bean="VIPDAO" />
+		</property>
+	</bean>
+	<bean id="CardService" class="service.impl.CardServiceImpl">
+		<property name="CardDAO">
+			<ref bean="CardDAO" />
 		</property>
 	</bean>
 	<bean id="Register" class="action.Register">
@@ -37,6 +47,11 @@
 	<bean id="ViewActivity" class="action.ViewActivity">
 		<property name="VIPService">
 			<ref bean="VIPService" />
+		</property>
+	</bean>
+	<bean id="DeleteCard" class="action.DeleteCard">
+		<property name="CardService">
+			<ref bean="CardService" />
 		</property>
 	</bean>
 </beans>
