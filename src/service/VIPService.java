@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import model.VIP;
 import model.card.HomeVIPCard;
-import model.card.SingleVIPCard;
 import model.card.VIPCard;
 
 public interface VIPService {
@@ -14,7 +13,7 @@ public interface VIPService {
 
 	public ArrayList<VIPCard> viewCard(int v_id);
 
-	public SingleVIPCard applySGCard(String sg_id, int v_id);
+	public boolean applySGCard(VIPCard card);
 
 	public HomeVIPCard applyHMCard(String hm_id, int v_id);
 
@@ -23,6 +22,6 @@ public interface VIPService {
 	public VIP checkVIP(String column, String value);
 
 	public boolean modifyVIP(VIP vip);
-	
+
 	public boolean withdrawVIP(int v_id);
 }

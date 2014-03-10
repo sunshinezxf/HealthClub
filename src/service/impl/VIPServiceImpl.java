@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import model.VIP;
 import model.card.HomeVIPCard;
-import model.card.SingleVIPCard;
 import model.card.VIPCard;
 import service.VIPService;
 import dao.VIPDAO;
@@ -43,8 +42,8 @@ public class VIPServiceImpl implements VIPService {
 		return vipDAO.viewCard(v_id);
 	}
 
-	public SingleVIPCard applySGCard(String sg_id, int v_id) {
-		return null;
+	public boolean applySGCard(VIPCard card) {
+		return vipDAO.applySG(card);
 	}
 
 	public HomeVIPCard applyHMCard(String hm_id, int v_id) {
@@ -62,7 +61,7 @@ public class VIPServiceImpl implements VIPService {
 	public boolean modifyVIP(VIP vip) {
 		return vipDAO.update(vip);
 	}
-	
+
 	public boolean withdrawVIP(int v_id) {
 		return true;
 	}

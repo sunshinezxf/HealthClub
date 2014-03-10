@@ -121,6 +121,9 @@
 					<%
 						}
 					%>
+					<s:a cssClass="btn btn-lg btn-primary" action="applysg"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Apply SG Card</s:a>
 					<a class="btn btn-lg btn-primary"
 						href="<s:url value="/member/applysg.jsp"></s:url>">Apply SG</a> <a
 						class="btn btn-lg btn-primary"

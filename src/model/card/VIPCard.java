@@ -5,8 +5,8 @@ public abstract class VIPCard {
 	private String code;
 	private String token;
 	private CardType type;
-	private boolean activated = false;
-	private boolean payed = false;
+	private boolean activated;
+	private boolean payed;
 	protected double activatePrice;
 	protected double rent;
 	private int v_id;
@@ -15,8 +15,10 @@ public abstract class VIPCard {
 		code = "";
 		activatePrice = 0;
 		rent = 0;
-		token = "";
+		token = "000000";
 		type = null;
+		activated = false;
+		payed = false;
 	}
 
 	public void setC_id(int c_id) {
