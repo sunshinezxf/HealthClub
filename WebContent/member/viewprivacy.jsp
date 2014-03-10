@@ -53,31 +53,32 @@
 					</h1>
 					<p>You can check your registration data here.</p>
 				</div>
-				<div class="layout module">
+				<div class="layout module card">
 					<div class="information">
-						<h3>
-							Username:&nbsp;<%=vip.getUsername()%></h3>
+						<h4>
+							Username:&nbsp;<%=vip.getUsername()%></h4>
 					</div>
 					<div class="information">
-						<h3>
-							Name:&nbsp;<%=vip.getName()%></h3>
+						<h4>
+							Name:&nbsp;<%=vip.getName()%></h4>
 					</div>
 					<div class="information">
-						<h3>
+						<h4>
 							Gender:&nbsp;<%=(vip.getGender() == Gender.MALE) ? "male" : "female"%>
-						</h3>
+						</h4>
 					</div>
 					<div class="information">
-						<h3>
-							Cellphone:&nbsp;<%=vip.getPhone().getNo()%></h3>
+						<h4>
+							Cellphone:&nbsp;<%=vip.getPhone().getNo()%></h4>
 					</div>
 					<div class="information">
-						<h3>
-							Age:&nbsp;<%=vip.getAge()%></h3>
+						<h4>
+							Age:&nbsp;<%=vip.getAge()%></h4>
 					</div>
 					<div class="information">
-						<h3>
-							Credit No:&nbsp;<%=vip.getCreditCard().getCr_no()%>&nbsp; Balance:&nbsp;<%=vip.getCreditCard().getBalance() %></h3>
+						<h4>
+							Credit No:&nbsp;<%=vip.getCreditCard().getCr_no()%>&nbsp;
+							Balance:&nbsp;<%=vip.getCreditCard().getBalance()%></h4>
 					</div>
 				</div>
 			</div>
