@@ -16,13 +16,19 @@ public class Withdraw extends BaseAction {
 	}
 
 	public String execute() throws Exception {
-		return null;
+		int id = Integer.parseInt(v_id);
+		boolean status = vipService.withdrawVIP(id);
+		if (status) {
+			return "success";
+		} else {
+			return "failure";
+		}
 	}
-	
-	public 	String getV_id() {
+
+	public String getV_id() {
 		return v_id;
 	}
-	
+
 	public void setV_id(String v_id) {
 		this.v_id = v_id;
 	}
