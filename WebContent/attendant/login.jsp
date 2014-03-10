@@ -26,5 +26,18 @@
 			</div>
 		</div>
 	</div>
+	<div class="grid-layout module">
+		<strong>Login</strong>
+		<hr>
+		<s:form cssClass="form-register" action="login" name="login"
+			method="post" namespace="/action">
+			<span>Hello, Attendant, Please input your login username and
+				password</span>
+			<input type="text" class="form-control" placeholder="Attendant No."
+				name="username" />
+			<input type="password" class="form-control" placeholder="password"
+				name="password" />
+		</s:form>
+	</div>
 </body>
 </html>
