@@ -27,7 +27,7 @@
 		<div class="container">
 			<div class="navbar-header">
 				<a href="<s:url value="/member/index.jsp"></s:url>"><img
-					alt="logo" src="<s:url value="/material/HealthClub.png"></s:url>" /></a>
+					alt="logo" src="<s:url value="/material/HealthClub.png"></s:url>" ></a>
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
