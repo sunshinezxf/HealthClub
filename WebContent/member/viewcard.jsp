@@ -1,5 +1,3 @@
-<%@page import="com.sun.tools.doclets.formats.html.resources.standard"%>
-<%@page import="javax.smartcardio.Card"%>
 <%@page import="model.card.CardType"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.VIP"%>
@@ -119,7 +117,6 @@
 							</s:iterator>
 						</div>
 					</s:iterator>
-					<s:a cssClass="btn btn-lg btn-primary" action="">Modify</s:a>
 					<%
 						}
 					%>

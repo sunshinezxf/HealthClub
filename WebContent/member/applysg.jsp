@@ -1,3 +1,4 @@
+<%@page import="model.card.VIPCard"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page import="model.VIP"%>
@@ -49,7 +50,43 @@
 						Hello,&nbsp;
 						<%=vip.getName()%>!
 					</h1>
-					<p>You can now apply for a new single vip card.</p>
+					<p>You succeed to apply for a new single card.</p>
+				</div>
+				<div class="layout module">
+					<div class="alert alert-success">Now, you have a new single
+						vip card!</div>
+					<%
+						VIPCard card = (VIPCard) request.getAttribute("card");
+					%>
+					<div class="card">
+						<h4>
+							Card No:
+							<%=card.getCode()%>
+						</h4>
+						<h4>
+							Card Type:
+							<%=card.getType()%>
+						</h4>
+					</div>
+					<s:a cssClass="btn btn-lg btn-primary" action="viewcard"
+						namespace="/action">
+						<s:param name="v_id" value="%{#request.card.v_id}"></s:param>Back</s:a>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+				<div class="list-group">
+					<s:a cssClass="list-group-item" action="viewcard"
+						namespace="/action">
+						<s:param name="v_id" value="%{#request.card.v_id}"></s:param>Membership &nbsp;Card</s:a>
+					<s:a cssClass="list-group-item" action="viewprivacy"
+						namespace="/action">
+						<s:param name="v_id" value="%{#request.card.v_id}"></s:param>Registration &nbsp;Data</s:a>
+					<s:a cssClass="list-group-item" action="viewactivity"
+						namespace="/action">
+						<s:param name="v_id" value="%{#request.card.v_id}"></s:param>Activity &nbsp;Record</s:a>
+					<s:a cssClass="list-group-item" action="viewpay"
+						namespace="/action">
+						<s:param name="v_id" value="%{#request.card.v_id}"></s:param>Payment &nsbp;Record</s:a>
 				</div>
 			</div>
 		</div>
