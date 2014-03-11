@@ -29,7 +29,7 @@
 	<div class="grid-layout module">
 		<strong>Login</strong>
 		<hr>
-		<s:form cssClass="form-register" action="login" name="login"
+		<s:form cssClass="form-register" action="attendantlogin" name="login"
 			method="post" namespace="/action">
 			<span>Hello, Attendant, Please input your login username and
 				password</span>

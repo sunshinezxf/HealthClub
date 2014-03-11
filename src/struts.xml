@@ -40,5 +40,10 @@
 		<action name="quit" class="action.Quit">
 			<result name="success">/index.jsp</result>
 		</action>
+
+		<action name="attendantlogin" class="action.AttendantLogin">
+			<result name="success"></result>
+			<result name="failure"></result>
+		</action>
 	</package>
 </struts>
