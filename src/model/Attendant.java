@@ -8,32 +8,31 @@ import util.manager.ActivityManager;
 import util.manager.PayManager;
 
 public class Attendant {
-	private String ad_id;
-	private String ad_no;
-	private String name;
+	private int a_id;
+	private String username;
 	private String password;
+	private String name;
 
 	public Attendant() {
-		ad_id = "";
-		ad_no = "";
+		username = "";
 		name = "";
 		password = "";
 	}
 
-	public String getAd_id() {
-		return ad_id;
+	public int getA_id() {
+		return a_id;
 	}
 
-	public void setAd_id(String ad_id) {
-		this.ad_id = ad_id;
+	public void setA_id(int a_id) {
+		this.a_id = a_id;
 	}
 
-	public String getAd_no() {
-		return ad_no;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setAd_no(String ad_no) {
-		this.ad_no = ad_no;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getName() {
