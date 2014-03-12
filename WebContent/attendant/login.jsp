@@ -37,6 +37,8 @@
 				name="username" />
 			<input type="password" class="form-control" placeholder="password"
 				name="password" />
+			<button class="btn btn-lg btn-primary btn-block button-commit"
+				type="submit">Login</button>
 		</s:form>
 	</div>
 </body>

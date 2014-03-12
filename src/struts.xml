@@ -41,7 +41,15 @@
 			<result name="success">/index.jsp</result>
 		</action>
 
-		<action name="attendantlogin" class="action.AttendantLogin">
+		<action name="attendantlogin" class="AttendantLogin">
+			<result name="success">/attendant/index.jsp</result>
+			<result name="failure">/attendant/login.jsp</result>
+		</action>
+		<action name="showmember" class="ShowMember">
+			<result name="success"></result>
+			<result name="failure"></result>
+		</action>
+		<action name="showactivity" class="ShowActivity">
 			<result name="success"></result>
 			<result name="failure"></result>
 		</action>
