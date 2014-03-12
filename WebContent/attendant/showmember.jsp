@@ -74,26 +74,30 @@
 					<s:iterator value="%{#request.vipList}" status="st">
 						<div class="card">
 							<s:iterator value="%{#request.vipList.get(#st.index)}">
-								<h3>
+								<s:a cssClass="btn btn-lg btn-primary view" action="viewmember"
+									namespace="/action">
+									<s:param name="v_id"
+										value="%{#request.vipList.get(#st.index).v_id}"></s:param>View</s:a>
+								<h4>
 									Username:
 									<s:property value="%{#request.vipList.get(#st.index).username}" />
-								</h3>
-								<h3>
+								</h4>
+								<h4>
 									Name:
 									<s:property value="%{#request.vipList.get(#st.index).name}" />
-								</h3>
-								<h3>
+								</h4>
+								<h4>
 									Gender:
 									<s:property value="%{#request.vipList.get(#st.index).gender}" />
-								</h3>
-								<h3>
+								</h4>
+								<h4>
 									Phone:
 									<s:property value="%{#request.vipList.get(#st.index).phone.no}" />
-								</h3>
-								<h3>
+								</h4>
+								<h4>
 									Age:
 									<s:property value="%{#request.vipList.get(#st.index).age}" />
-								</h3>
+								</h4>
 							</s:iterator>
 						</div>
 					</s:iterator>

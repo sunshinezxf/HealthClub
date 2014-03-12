@@ -74,4 +74,9 @@
 			<ref bean="AttendantService" />
 		</property>
 	</bean>
+	<bean id="ViewMember" class="action.ViewMember">
+		<property name="AttendantService">
+			<ref bean="AttendantService" />
+		</property>
+	</bean>
 </beans>

@@ -30,4 +30,8 @@ public class AttendantServiceImpl implements AttendantService {
 	public ArrayList<VIP> getVIPList() {
 		return attendantDAO.getVIP();
 	}
+
+	public VIP check(int v_id) {
+		return attendantDAO.check(v_id);
+	}
 }

@@ -127,7 +127,7 @@ footer {
 	text-align: right;
 }
 
-.delete {
+.delete, .view {
 	float: right;
 	position: relative;
 }

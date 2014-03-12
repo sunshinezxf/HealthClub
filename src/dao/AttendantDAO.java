@@ -9,4 +9,6 @@ public interface AttendantDAO {
 	public Attendant find(String column, String value);
 	
 	public ArrayList<VIP> getVIP();
+	
+	public VIP check(int v_id);
 }
