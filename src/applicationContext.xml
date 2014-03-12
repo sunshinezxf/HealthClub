@@ -69,4 +69,9 @@
 			<ref bean="AttendantService" />
 		</property>
 	</bean>
+	<bean id="ShowMember" class="action.ShowMember">
+		<property name="AttendantService">
+			<ref bean="AttendantService" />
+		</property>
+	</bean>
 </beans>

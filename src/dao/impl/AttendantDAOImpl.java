@@ -59,7 +59,7 @@ public class AttendantDAOImpl implements AttendantDAO {
 
 	public ArrayList<VIP> getVIP() {
 		Connection connection = baseDAO.getConnection();
-		String sql = "select * from vip order by v_id, type";
+		String sql = "select * from vip order by v_id";
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		Connection inner_con = null;

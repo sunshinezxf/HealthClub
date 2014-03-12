@@ -47,7 +47,7 @@
 		</action>
 		<action name="showmember" class="ShowMember">
 			<result name="success">/attendant/showmember.jsp</result>
-			<result name="failure"></result>
+			<result name="failure">/attendant/index.jsp</result>
 		</action>
 		<action name="showactivity" class="ShowActivity">
 			<result name="success"></result>

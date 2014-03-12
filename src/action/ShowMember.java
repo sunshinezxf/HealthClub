@@ -21,11 +21,9 @@ public class ShowMember extends BaseAction {
 	public String execute() throws Exception {
 		ArrayList<VIP> vipList = attendantService.getVIPList();
 		if (vipList == null) {
-			System.out.println("No VIP Contained!");
 			return "failure";
 		} else {
 			request.setAttribute("vipList", vipList);
-			System.out.println("Num of VIPs: " + vipList.size());
 			return "success";
 		}
 	}
