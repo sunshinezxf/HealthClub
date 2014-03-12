@@ -55,7 +55,8 @@
 				</div>
 				<div class="layout module">
 					<%
-						ArrayList<VIP> list = (ArrayList<VIP>) request
+						@SuppressWarnings("unchecked")
+									ArrayList<VIP> list = (ArrayList<VIP>) request
 											.getAttribute("vipList");
 									if (list == null) {
 					%>
@@ -70,6 +71,32 @@
 						<%=(size == 1) ? "user is" : "users are"%>
 						registered to the Health Club.
 					</h3>
+					<s:iterator value="%{#request.vipList}" status="st">
+						<div class="card">
+							<s:iterator value="%{#request.vipList.get(#st.index)}">
+								<h3>
+									Username:
+									<s:property value="%{#request.vipList.get(#st.index).username}" />
+								</h3>
+								<h3>
+									Name:
+									<s:property value="%{#request.vipList.get(#st.index).name}" />
+								</h3>
+								<h3>
+									Gender:
+									<s:property value="%{#request.vipList.get(#st.index).gender}" />
+								</h3>
+								<h3>
+									Phone:
+									<s:property value="%{#request.vipList.get(#st.index).phone.no}" />
+								</h3>
+								<h3>
+									Age:
+									<s:property value="%{#request.vipList.get(#st.index).age}" />
+								</h3>
+							</s:iterator>
+						</div>
+					</s:iterator>
 					<%
 						}
 					%>
