@@ -119,6 +119,9 @@ public class VIPDAOImpl implements VIPDAO {
 					credit.setBalance(balance);
 					vip.setCreditCard(credit);
 				}
+				baseDAO.closeResultSet(inner_rs);
+				baseDAO.closePreparedStatement(inner_ps);
+				baseDAO.closeConnection(inner_con);
 				vip.setV_id(t_v_id);
 				vip.setUsername(t_username);
 				vip.setName(t_name);
@@ -131,9 +134,6 @@ public class VIPDAOImpl implements VIPDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			baseDAO.closeResultSet(inner_rs);
-			baseDAO.closePreparedStatement(inner_ps);
-			baseDAO.closeConnection(inner_con);
 			baseDAO.closeResultSet(rs);
 			baseDAO.closePreparedStatement(ps);
 			baseDAO.closeConnection(connection);

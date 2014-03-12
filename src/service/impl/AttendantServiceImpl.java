@@ -1,8 +1,11 @@
 package service.impl;
 
+import java.util.ArrayList;
+
 import model.Attendant;
-import dao.AttendantDAO;
+import model.VIP;
 import service.AttendantService;
+import dao.AttendantDAO;
 
 public class AttendantServiceImpl implements AttendantService {
 	private AttendantDAO attendantDAO;
@@ -22,5 +25,9 @@ public class AttendantServiceImpl implements AttendantService {
 		if (attendant.getPassword().equals(password))
 			return attendant;
 		return null;
+	}
+
+	public ArrayList<VIP> getVIPList() {
+		return attendantDAO.getVIP();
 	}
 }
