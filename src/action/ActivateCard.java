@@ -1,5 +1,8 @@
 package action;
 
+import com.sun.net.httpserver.Authenticator.Failure;
+
+import model.VIP;
 import service.VIPService;
 
 @SuppressWarnings("serial")
@@ -17,7 +20,15 @@ public class ActivateCard extends BaseAction {
 	}
 
 	public String execute() throws Exception {
-		return null;
+		int card_id = Integer.parseInt(c_id);
+		int vip_id = Integer.parseInt(v_id);
+		VIP vip = vipService.requestActivate(card_id, vip_id);
+		if (vip == null) {
+			return "failure";
+		} else {
+			request.setAttribute("vip", vip);
+			return "success";
+		}
 	}
 
 	public String getV_id() {

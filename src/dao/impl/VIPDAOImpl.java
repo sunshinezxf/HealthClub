@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dao.BaseDAO;
-import dao.VIPDAO;
 import model.CreditCard;
 import model.Gender;
 import model.Phone;
@@ -16,6 +14,8 @@ import model.card.CardType;
 import model.card.HomeVIPCard;
 import model.card.SingleVIPCard;
 import model.card.VIPCard;
+import dao.BaseDAO;
+import dao.VIPDAO;
 
 public class VIPDAOImpl implements VIPDAO {
 	private BaseDAO baseDAO;
@@ -251,5 +251,96 @@ public class VIPDAOImpl implements VIPDAO {
 			baseDAO.closeConnection(connection);
 		}
 		return false;
+	}
+
+	public VIP requestActivate(int c_id, int v_id) {
+		VIP vip = null;
+		Connection connection = baseDAO.getConnection();
+		String sql = "select * from vip where v_id = ?";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, v_id);
+			rs = ps.executeQuery();
+			rs.beforeFirst();
+			if (rs.next()) {
+				vip = new VIP();
+				String username = rs.getString(2);
+				String name = rs.getString(3);
+				Gender gender = (rs.getString(4).equals("make")) ? Gender.MALE
+						: Gender.FEMALE;
+				Phone phone = new Phone(rs.getString(5));
+				int age = rs.getInt(6);
+				String password = rs.getString(7);
+				vip.setV_id(v_id);
+				vip.setUsername(username);
+				vip.setName(name);
+				vip.setGender(gender);
+				vip.setPhone(phone);
+				vip.setAge(age);
+				vip.setPassword(password);
+				String cr_no = rs.getString(8);
+				String s_1 = "select * from credit where cr_no = ?";
+				PreparedStatement ps_1 = connection.prepareStatement(s_1);
+				ps_1.setString(1, cr_no);
+				ResultSet rs_1 = ps_1.executeQuery();
+				rs_1.beforeFirst();
+				if (rs_1.next()) {
+					CreditCard credit = new CreditCard();
+					double balance = rs_1.getDouble(2);
+					credit.setCr_no(cr_no);
+					credit.setBalance(balance);
+					vip.setCreditCard(credit);
+				}
+				baseDAO.closeResultSet(rs_1);
+				baseDAO.closePreparedStatement(ps_1);
+				String s_2 = "select * from card where c_id = ?";
+				PreparedStatement ps_2 = connection.prepareStatement(s_2);
+				ps_2.setInt(1, c_id);
+				ResultSet rs_2 = ps_2.executeQuery();
+				rs_2.beforeFirst();
+				ArrayList<VIPCard> cardList = null;
+				if (rs_2.next()) {
+					cardList = new ArrayList<VIPCard>();
+					VIPCard card = null;
+					String type = rs.getString(4);
+					if (type.equals("SG")) {
+						card = new SingleVIPCard();
+						CardType cd = CardType.SINGLE;
+						card.setType(cd);
+					} else {
+						card = new HomeVIPCard();
+						CardType cd = CardType.HOME;
+						card.setType(cd);
+					}
+					String code = rs.getString(2);
+					String token = rs.getString(3);
+					boolean activated = rs.getBoolean(5);
+					boolean payed = rs.getBoolean(6);
+					double activatePrice = rs.getDouble(7);
+					double rent = rs.getDouble(8);
+					card.setCode(code);
+					card.setToken(token);
+					card.setActivated(activated);
+					card.setPayed(payed);
+					card.setActivatePrice(activatePrice);
+					card.setRent(rent);
+					card.setV_id(v_id);
+					cardList.add(card);
+				}
+				vip.setCardList(cardList);
+				baseDAO.closeResultSet(rs_2);
+				baseDAO.closePreparedStatement(ps_2);
+				return vip;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closeResultSet(rs);
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return null;
 	}
 }
