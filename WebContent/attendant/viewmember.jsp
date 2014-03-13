@@ -47,7 +47,7 @@
 					<button type="button" class="btn btn-primary btn-xs"
 						data-toggle="offcanvas">Toggle nav</button>
 				</p>
-				<s:div cssClass="jumotron">
+				<s:div cssClass="jumbotron">
 					<h1>
 						Hello,&nbsp;<%=name%>!
 					</h1>
@@ -89,10 +89,10 @@
 										<h5>
 											Card No:
 											<s:property
-												value="%{#request.vip.cardList.get(#st.index).c_id}" />
+												value="%{#request.vip.cardList.get(#st.index).code}" />
 										</h5>
 										<h5>
-											Card Type
+											Card Type:
 											<s:property
 												value="%{#request.vip.cardList.get(#st.index).type}" />
 										</h5>

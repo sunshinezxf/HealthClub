@@ -20,9 +20,10 @@ public class ViewMember extends BaseAction {
 		int id = Integer.parseInt(v_id);
 		VIP vip = attendantService.check(id);
 		request.setAttribute("vip", vip);
-		if(vip == null) {
+		if (vip == null) {
 			return "failure";
 		}
+		System.out.println(vip.getCardList().size());
 		return "success";
 	}
 

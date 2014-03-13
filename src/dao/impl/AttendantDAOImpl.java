@@ -202,6 +202,7 @@ public class AttendantDAOImpl implements AttendantDAO {
 				vip.setPhone(phone);
 				vip.setAge(age);
 				vip.setPassword(password);
+				vip.setCardList(cardList);
 				return vip;
 			}
 		} catch (SQLException e) {
