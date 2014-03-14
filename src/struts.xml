@@ -41,6 +41,10 @@
 			<result name="success">/member/index.jsp</result>
 			<result name="failure">/member/viewcard.jsp</result>
 		</action>
+		<action name="requestpay" class="action.RequestPay">
+			<result name="success">/member/requestpay.jsp</result>
+			<result name="failure">/member/viewcard.jsp</result>
+		</action>
 		<action name="deletecard" class="DeleteCard">
 			<result name="success">/member/viewcard.jsp</result>
 			<result name="failure">/member/viewcard.jsp</result>

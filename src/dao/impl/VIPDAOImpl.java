@@ -253,7 +253,7 @@ public class VIPDAOImpl implements VIPDAO {
 		return false;
 	}
 
-	public VIP requestActivate(int c_id, int v_id) {
+	public VIP request(int c_id, int v_id) {
 		VIP vip = null;
 		Connection connection = baseDAO.getConnection();
 		String sql = "select * from vip where v_id = ?";

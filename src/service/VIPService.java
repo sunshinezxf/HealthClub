@@ -26,4 +26,6 @@ public interface VIPService {
 	public boolean withdrawVIP(int v_id);
 
 	public VIP requestActivate(int c_id, int v_id);
+	
+	public VIP requestPay(int c_id, int v_id);
 }

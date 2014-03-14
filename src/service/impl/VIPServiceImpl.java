@@ -67,6 +67,10 @@ public class VIPServiceImpl implements VIPService {
 	}
 
 	public VIP requestActivate(int c_id, int v_id) {
-		return vipDAO.requestActivate(c_id, v_id);
+		return vipDAO.request(c_id, v_id);
+	}
+
+	public VIP requestPay(int c_id, int v_id) {
+		return vipDAO.request(c_id, v_id);
 	}
 }

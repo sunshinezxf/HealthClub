@@ -19,6 +19,6 @@ public interface VIPDAO {
 	public boolean deleteVIP(int v_id);
 
 	public boolean applySG(VIPCard card);
-	
-	public VIP requestActivate(int c_id, int v_id);
+
+	public VIP request(int c_id, int v_id);
 }

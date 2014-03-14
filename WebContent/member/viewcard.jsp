@@ -104,8 +104,10 @@
 										Already Payed This Month
 									</s:if>
 									<s:else>
-										Not Yet Payed<s:a cssClass="activate" action=""
-											namespace="/action">pay</s:a>
+										Not Yet Payed<s:a cssClass="activate" action="requestpay"
+											namespace="/action">
+											<s:param name="c_id" value="vip.cardList.get(#st.index).c_id"></s:param>
+											<s:param name="v_id" value="vip.v_id"></s:param>pay</s:a>
 									</s:else>
 								</h4>
 								<h4>
