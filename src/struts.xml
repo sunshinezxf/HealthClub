@@ -34,7 +34,7 @@
 			<result name="failure">/member/viewcard.jsp</result>
 		</action>
 		<action name="requestactivate" class="action.RequestActivate">
-			<result name="success">/member/index.jsp</result>
+			<result name="success">/member/requestactivate.jsp</result>
 			<result name="failure">/member/viewcard.jsp</result>
 		</action>
 		<action name="deletecard" class="DeleteCard">
