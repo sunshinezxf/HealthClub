@@ -69,6 +69,11 @@
 			<ref bean="CardService" />
 		</property>
 	</bean>
+	<bean id="action.Activate" class="action.Activate">
+		<property name="CardService">
+			<ref bean="CardService" />
+		</property>
+	</bean>
 	<bean id="AttendantLogin" class="action.AttendantLogin">
 		<property name="AttendantService">
 			<ref bean="AttendantService" />

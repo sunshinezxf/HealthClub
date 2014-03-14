@@ -37,6 +37,10 @@
 			<result name="success">/member/requestactivate.jsp</result>
 			<result name="failure">/member/viewcard.jsp</result>
 		</action>
+		<action name="activate" class="action.Activate">
+			<result name="success">/member/index.jsp</result>
+			<result name="failure">/member/viewcard.jsp</result>
+		</action>
 		<action name="deletecard" class="DeleteCard">
 			<result name="success">/member/viewcard.jsp</result>
 			<result name="failure">/member/viewcard.jsp</result>

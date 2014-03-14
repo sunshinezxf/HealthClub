@@ -17,4 +17,8 @@ public class CardServiceImpl implements CardService {
 	public boolean deleteCard(int c_id) {
 		return cardDAO.delete(c_id);
 	}
+
+	public boolean activate(int c_id, int v_id) {
+		return cardDAO.activate(c_id, v_id);
+	}
 }

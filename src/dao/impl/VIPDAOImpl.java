@@ -320,6 +320,7 @@ public class VIPDAOImpl implements VIPDAO {
 					boolean payed = rs_2.getBoolean(6);
 					double activatePrice = rs_2.getDouble(7);
 					double rent = rs_2.getDouble(8);
+					card.setC_id(c_id);
 					card.setCode(code);
 					card.setToken(token);
 					card.setActivated(activated);
