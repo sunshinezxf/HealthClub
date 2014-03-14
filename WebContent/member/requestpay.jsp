@@ -39,61 +39,63 @@
 	</s:div>
 	<s:div cssClass="container">
 		<s:div cssClass="row row-offcanvas row-offcanvas-right">
-			<p class="pull-right visible-xs">
-				<button type="button" class="btn btn-primary btn-xs"
-					data-toggle="offcanvas">Toggle nav</button>
-			</p>
-			<s:div cssClass="jumbotron">
-				<h1>
-					Hello,&nbsp;<%=vip.getName()%>!
-				</h1>
-				<p>You are now trying to pay the card.</p>
-			</s:div>
-			<s:div cssClass="layout module">
-				<%
-					VIP display = (VIP) request.getAttribute("vip");
-								VIPCard card = display.getCardList().get(0);
-				%>
+			<s:div cssClass="col-xs-12 col-sm-9">
+				<p class="pull-right visible-xs">
+					<button type="button" class="btn btn-primary btn-xs"
+						data-toggle="offcanvas">Toggle nav</button>
+				</p>
+				<s:div cssClass="jumbotron">
+					<h1>
+						Hello,&nbsp;<%=vip.getName()%>!
+					</h1>
+					<p>You are now trying to pay the card.</p>
+				</s:div>
+				<s:div cssClass="layout module">
+					<%
+						VIP display = (VIP) request.getAttribute("vip");
+										VIPCard card = display.getCardList().get(0);
+					%>
 				Confirm Pay
 				<s:div cssClass="card">
-					<s:a cssClass="btn btn-lg btn-primary delete" action="pay"
-						namespace="/action">
-						<s:param name="c_id" value="%{#request.vip.cardList.get(0).c_id}"></s:param>
-						<s:param name="v_id" value="%{#request.vip.v_id}"></s:param>Confirm</s:a>
-					<h4>
-						Card No:
-						<%=card.getCode()%></h4>
-					<h4>
-						Card Type:
-						<%=card.getType()%></h4>
-					<h4>
-						Owner Name:
-						<%=display.getName()%></h4>
-					<h4>
-						Rent:
-						<%=card.getRent()%></h4>
-					<h4>
-						Credit No:
-						<%=display.getCreditCard().getCr_no()%></h4>
+						<s:a cssClass="btn btn-lg btn-primary delete" action="pay"
+							namespace="/action">
+							<s:param name="c_id" value="%{#request.vip.cardList.get(0).c_id}"></s:param>
+							<s:param name="v_id" value="%{#request.vip.v_id}"></s:param>Confirm</s:a>
+						<h4>
+							Card No:
+							<%=card.getCode()%></h4>
+						<h4>
+							Card Type:
+							<%=card.getType()%></h4>
+						<h4>
+							Owner Name:
+							<%=display.getName()%></h4>
+						<h4>
+							Rent:
+							<%=card.getRent()%></h4>
+						<h4>
+							Credit No:
+							<%=display.getCreditCard().getCr_no()%></h4>
+					</s:div>
 				</s:div>
 			</s:div>
-		</s:div>
-		<s:div cssClass="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-			<s:div cssClass="list-group">
-				<s:a cssClass="list-group-item" action="viewcard"
-					namespace="/action">
-					<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Membership &nbsp;Card</s:a>
-				<s:a cssClass="listgroup-item" action="viewprivacy"
-					namespace="/action">
-					<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Registration &nbsp;Data</s:a>
-				<s:a cssClass="list-group-item" action="viewactivity"
-					namespace="/action">
-					<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Activity &nbsp;Record</s:a>
-				<s:a cssClass="list-group-item" action="viewpayment"
-					namespace="/action">
-					<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Payment &nbsp;Record</s:a>
-				<s:a cssClass="list-group-item" action="" namespace="/action">
-					<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Withdraw &nbsp;VIP</s:a>
+			<s:div cssClass="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+				<s:div cssClass="list-group">
+					<s:a cssClass="list-group-item" action="viewcard"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Membership &nbsp;Card</s:a>
+					<s:a cssClass="list-group-item" action="viewprivacy"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Registration &nbsp;Data</s:a>
+					<s:a cssClass="list-group-item" action="viewactivity"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Activity &nbsp;Record</s:a>
+					<s:a cssClass="list-group-item" action="viewpayment"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Payment &nbsp;Record</s:a>
+					<s:a cssClass="list-group-item" action="" namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Withdraw &nbsp;VIP</s:a>
+				</s:div>
 			</s:div>
 		</s:div>
 	</s:div>
