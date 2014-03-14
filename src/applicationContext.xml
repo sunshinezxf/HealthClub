@@ -19,6 +19,11 @@
 			<ref bean="BaseDAO" />
 		</property>
 	</bean>
+	<bean id="PayRecordDAO" class="dao.impl.PayRecordDAOImpl">
+		<property name="BaseDAO">
+			<ref bean="BaseDAO" />
+		</property>
+	</bean>
 	<bean id="AttendantDAO" class="dao.impl.AttendantDAOImpl">
 		<property name="BaseDAO">
 			<ref bean="BaseDAO" />
@@ -27,6 +32,11 @@
 	<bean id="VIPService" class="service.impl.VIPServiceImpl">
 		<property name="VIPDAO">
 			<ref bean="VIPDAO" />
+		</property>
+	</bean>
+	<bean id="PayRecordService" class="service.impl.PayRecordService">
+		<property name="PayRecordDAO">
+			<ref bean="PayRecordDAO" />
 		</property>
 	</bean>
 	<bean id="CardService" class="service.impl.CardServiceImpl">
