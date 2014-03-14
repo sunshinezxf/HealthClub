@@ -93,7 +93,7 @@
 									</s:if>
 									<s:else>
 										Not Yet Activated<s:a cssClass="activate"
-											action="activatecard" namespace="/action">
+											action="requestactivate" namespace="/action">
 											<s:param name="c_id" value="vip.cardList.get(#st.index).c_id"></s:param>
 											<s:param name="v_id" value="vip.v_id"></s:param>activate</s:a>
 									</s:else>

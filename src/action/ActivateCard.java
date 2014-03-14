@@ -1,7 +1,5 @@
 package action;
 
-import com.sun.net.httpserver.Authenticator.Failure;
-
 import model.VIP;
 import service.VIPService;
 
