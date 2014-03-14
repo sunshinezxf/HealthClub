@@ -55,7 +55,7 @@
 						VIP display = (VIP) request.getAttribute("vip");
 										VIPCard card = display.getCardList().get(0);
 					%>
-					Confirm Payment
+					Confirm Activate
 					<s:div cssClass="card">
 						<s:a cssClass="btn btn-lg btn-primary delete" action="activate"
 							namespace="/action">

@@ -21,4 +21,8 @@ public class CardServiceImpl implements CardService {
 	public boolean activate(int c_id, int v_id) {
 		return cardDAO.activate(c_id, v_id);
 	}
+
+	public boolean pay(int c_id, int v_id) {
+		return cardDAO.pay(c_id, v_id);
+	}
 }

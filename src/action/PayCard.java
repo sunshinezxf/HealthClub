@@ -1,23 +1,30 @@
 package action;
 
-import service.VIPService;
+import service.CardService;
 
 @SuppressWarnings("serial")
 public class PayCard extends BaseAction {
 	private String v_id;
 	private String c_id;
-	private VIPService vipService;
+	private CardService cardService;
 
-	public VIPService getVIPService() {
-		return vipService;
+	public CardService getCardService() {
+		return cardService;
 	}
 
-	public void setVIPService(VIPService vipService) {
-		this.vipService = vipService;
+	public void setCardService(CardService cardService) {
+		this.cardService = cardService;
 	}
 
 	public String execute() throws Exception {
-		return null;
+		int card_id = Integer.parseInt(c_id);
+		int vip_id = Integer.parseInt(v_id);
+		boolean status = cardService.pay(card_id, vip_id);
+		if (status) {
+			return "succes";
+		} else {
+			return "failure";
+		}
 	}
 
 	public String getV_id() {
