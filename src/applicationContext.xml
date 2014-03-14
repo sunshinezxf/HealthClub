@@ -44,6 +44,11 @@
 			<ref bean="VIPService" />
 		</property>
 	</bean>
+	<bean id="RequestActivate" class="action.RequestActivate">
+		<property name="VIPService">
+			<ref bean="VIPService" />
+		</property>
+	</bean>
 	<bean id="Login" class="action.Login">
 		<property name="VIPService">
 			<ref bean="VIPService" />

@@ -4,7 +4,7 @@ import model.VIP;
 import service.VIPService;
 
 @SuppressWarnings("serial")
-public class ActivateCard extends BaseAction {
+public class RequestActivate extends BaseAction {
 	private String v_id;
 	private String c_id;
 	private VIPService vipService;
