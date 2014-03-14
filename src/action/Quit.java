@@ -5,6 +5,7 @@ public class Quit extends BaseAction {
 	private String v_id;
 
 	public String execute() throws Exception {
+		session.clear();
 		return "success";
 	}
 
