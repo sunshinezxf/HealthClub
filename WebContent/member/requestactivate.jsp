@@ -1,3 +1,4 @@
+<%@page import="model.card.VIPCard"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page import="model.VIP"%>
@@ -29,9 +30,48 @@
 			<s:div cssClass="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<s:url value="/member/index.jsp"></s:url>">Home</a></li>
-					<li><s:a action="viewprivacy" namespace="/action"><s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Personal Information</s:a></li>
+					<li><s:a action="viewprivacy" namespace="/action">
+							<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Personal Information</s:a></li>
 					<li><s:a action="quit" namespace="/action">Quit</s:a></li>
 				</ul>
+			</s:div>
+		</s:div>
+	</s:div>
+	<s:div cssClass="container">
+		<s:div cssClass="row row-offcanvas row-offcanvas-right">
+			<s:div cssClass="col-xs-12 col-sm-9">
+				<p class="pull-right visible-xs">
+					<button type="button" class="btn btn-primary btn-xs"
+						data-toggle="offcanvas">Toggle nav</button>
+				</p>
+				<s:div cssClass="jumbotron">
+					<h1>
+						Hello,&nbsp;<%=vip.getName()%>!
+					</h1>
+					<p>You are now trying to activate card.</p>
+				</s:div>
+				<s:div cssClass="layout module">
+					<%
+						VIP display = (VIP) request.getAttribute("vip");
+										VIPCard card = display.getCardList().get(0);
+					%>
+					Confirm Payment
+					<s:div cssClass="card">
+						<s:a cssClass="btn btn-lg btn-primary delete" action="activate"
+							namespace="/action">Confirm</s:a>
+						<h4>
+							Card No:
+							<%=card.getCode()%></h4>
+						<h4>
+							Card Type:
+							<%=card.getType()%></h4>
+						<h4>
+							Owner Name:
+							<%=display.getName()%></h4>
+						<h4>
+							Activate Price: $<%=card.getActivatePrice()%></h4>
+					</s:div>
+				</s:div>
 			</s:div>
 		</s:div>
 	</s:div>

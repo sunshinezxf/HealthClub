@@ -304,7 +304,7 @@ public class VIPDAOImpl implements VIPDAO {
 				if (rs_2.next()) {
 					cardList = new ArrayList<VIPCard>();
 					VIPCard card = null;
-					String type = rs.getString(4);
+					String type = rs_2.getString(4);
 					if (type.equals("SG")) {
 						card = new SingleVIPCard();
 						CardType cd = CardType.SINGLE;
