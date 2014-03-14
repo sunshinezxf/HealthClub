@@ -21,7 +21,7 @@ public class PayCard extends BaseAction {
 		int vip_id = Integer.parseInt(v_id);
 		boolean status = cardService.pay(card_id, vip_id);
 		if (status) {
-			return "succes";
+			return "success";
 		} else {
 			return "failure";
 		}
