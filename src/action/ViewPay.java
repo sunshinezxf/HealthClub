@@ -25,7 +25,6 @@ public class ViewPay extends BaseAction {
 			return "failure";
 		} else {
 			request.setAttribute("recordList", recordList);
-			System.out.println(recordList.size());
 			return "success";
 		}
 	}
