@@ -101,7 +101,7 @@
 										<h5>
 											Activated:
 											<s:if
-												test="%{#request.vip.cardList.get(#st.index).activated} == true">
+												test="%{#request.vip.cardList.get(#st.index).activated  == true}">
 												Already Activated
 											</s:if>
 											<s:else>
@@ -111,7 +111,7 @@
 										<h5>
 											Payed:
 											<s:if
-												test="%{#request.vip.cardList.get(#st.index).payed} == true">
+												test="%{#request.vip.cardList.get(#st.index).payed == true}">
 												Already Payed This Month
 											</s:if>
 											<s:else>

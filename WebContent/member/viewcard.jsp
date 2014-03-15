@@ -32,8 +32,8 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<s:url value="/member/index.jsp"></s:url>">Home</a></li>
-					<li><a href="<s:url value="/member/index.jsp"></s:url>">Personal
-							Information</a></li>
+					<li><s:a action="viewprivacy" namespace="/action">
+							<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Personal Information</s:a></li>
 					<li><a href="<s:url value="/member/index.jsp"></s:url>">Quit</a></li>
 				</ul>
 			</div>
@@ -143,9 +143,13 @@
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Registration &nbsp;Data</s:a>
 					<s:a cssClass="list-group-item" action="viewactivity"
 						namespace="/action">
-						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Activity &nbsp; Record</s:a>
-					<s:a cssClass="list-group-item" action="">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Activity &nbsp;Record</s:a>
+					<s:a cssClass="list-group-item" action="viewpay"
+						namespace="/action">
 						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Payment &nbsp;Record</s:a>
+					<s:a cssClass="list-group-item" action="withdraw"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Withdraw &nbsp;VIP</s:a>
 				</div>
 			</div>
 		</div>

@@ -23,7 +23,6 @@ public class ViewMember extends BaseAction {
 		if (vip == null) {
 			return "failure";
 		}
-		System.out.println(vip.getCardList().size());
 		return "success";
 	}
 

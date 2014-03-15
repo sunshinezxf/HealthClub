@@ -98,6 +98,25 @@
 					%>
 				</s:div>
 			</s:div>
+			<s:div cssClass="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+				<s:div cssClass="list-group">
+					<s:a cssClass="list-group-item" action="viewcard"
+						namespace="/action">
+						<s:param name="v_id" value="%{session.vip.v_id}"></s:param>Membership &nbsp;Card</s:a>
+					<s:a cssClass="list-group-item" action="viewprivacy"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Registration &nbsp;Data</s:a>
+					<s:a cssClass="list-group-item" action="viewactivity"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Activity &nbsp;Record</s:a>
+					<s:a cssClass="list-group-item" action="viewpay"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Payment &nbsp;Record</s:a>
+					<s:a cssClass="list-group-item" action="withdraw"
+						namespace="/action">
+						<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Withdraw &nbsp;VIP</s:a>
+				</s:div>
+			</s:div>
 		</s:div>
 	</s:div>
 </body>
