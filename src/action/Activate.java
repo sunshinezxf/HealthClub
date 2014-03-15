@@ -19,8 +19,8 @@ public class Activate extends BaseAction {
 	public String execute() throws Exception {
 		int card_id = Integer.parseInt(c_id);
 		int vip_id = Integer.parseInt(v_id);
-		boolean status = cardService.activate(card_id, vip_id);
-		if (status) {
+		boolean activated = cardService.activate(card_id, vip_id);
+		if (activated) {
 			return "success";
 		} else {
 			return "failure";

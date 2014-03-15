@@ -34,7 +34,7 @@
 			<ref bean="VIPDAO" />
 		</property>
 	</bean>
-	<bean id="PayRecordService" class="service.impl.PayRecordService">
+	<bean id="PayRecordService" class="service.impl.PayRecordServiceImpl">
 		<property name="PayRecordDAO">
 			<ref bean="PayRecordDAO" />
 		</property>

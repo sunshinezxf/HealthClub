@@ -11,11 +11,13 @@ public class PayRecord {
 	private double price;
 	private PayType payType;
 	private Date date;
+	private String cr_no;
 
 	public PayRecord() {
 		username = "";
 		code = "";
 		price = 0;
+		cr_no = "";
 	}
 
 	public int getP_id() {
@@ -80,5 +82,13 @@ public class PayRecord {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public String getCr_no() {
+		return cr_no;
+	}
+
+	public void setCr_no(String cr_no) {
+		this.cr_no = cr_no;
 	}
 }

@@ -44,6 +44,7 @@ public class PayRecordDAOImpl implements PayRecordDAO {
 				PayType payType = (rs.getString(7).equals("activate")) ? PayType.ACTIVATE
 						: PayType.RENT;
 				Date date = rs.getDate(8);
+				String cr_no = rs.getString(9);
 				record.setP_id(p_id);
 				record.setV_id(v_id);
 				record.setC_id(c_id);
@@ -52,6 +53,7 @@ public class PayRecordDAOImpl implements PayRecordDAO {
 				record.setPrice(price);
 				record.setPayType(payType);
 				record.setDate(date);
+				record.setCr_no(cr_no);
 				payList.add(record);
 			}
 			if (payList.size() > 0) {
@@ -67,31 +69,4 @@ public class PayRecordDAOImpl implements PayRecordDAO {
 		return null;
 	}
 
-	public boolean insert(PayRecord record) {
-		Connection connection = baseDAO.getConnection();
-		String sql = "insert into payrecord(v_id, c_id, username, code, price, payType, date) values (?, ?, ?, ?, ?, ?, ?)";
-		PreparedStatement ps = null;
-		try {
-			ps = connection.prepareStatement(sql);
-			ps.setInt(1, record.getV_id());
-			ps.setInt(2, record.getC_id());
-			ps.setString(3, record.getUsername());
-			ps.setString(4, record.getCode());
-			ps.setDouble(5, record.getPrice());
-			ps.setString(6,
-					(record.getPayType() == PayType.ACTIVATE) ? "activate"
-							: "rent");
-			ps.setString(7, record.getDate() + "");
-			int i = ps.executeUpdate();
-			if (i > 0) {
-				return true;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			baseDAO.closePreparedStatement(ps);
-			baseDAO.closeConnection(connection);
-		}
-		return false;
-	}
 }

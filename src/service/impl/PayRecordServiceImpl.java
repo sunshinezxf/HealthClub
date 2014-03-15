@@ -20,8 +20,4 @@ public class PayRecordServiceImpl implements PayRecordService {
 	public ArrayList<PayRecord> getPayRecord(int v_id) {
 		return payRecordDAO.getPayRecord(v_id);
 	}
-
-	public boolean addRecord(PayRecord record) {
-		return payRecordDAO.insert(record);
-	}
 }
