@@ -79,6 +79,11 @@
 			<ref bean="VIPService" />
 		</property>
 	</bean>
+	<bean id="ViewPay" class="action.ViewPay">
+		<property name="PayRecordService">
+			<ref bean="PayRecordService" />
+		</property>
+	</bean>
 	<bean id="DeleteCard" class="action.DeleteCard">
 		<property name="CardService">
 			<ref bean="CardService" />

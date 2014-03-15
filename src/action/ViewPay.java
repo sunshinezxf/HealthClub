@@ -1,22 +1,33 @@
 package action;
 
-import service.VIPService;
+import java.util.ArrayList;
+
+import model.record.PayRecord;
+import service.PayRecordService;
 
 @SuppressWarnings("serial")
 public class ViewPay extends BaseAction {
 	private String v_id;
-	private VIPService vipService;
+	private PayRecordService payRecordService;
 
-	public VIPService getVIPService() {
-		return vipService;
+	public PayRecordService getPayRecordService() {
+		return payRecordService;
 	}
 
-	public void setVIPService(VIPService vipService) {
-		this.vipService = vipService;
+	public void setPayRecordService(PayRecordService payRecordService) {
+		this.payRecordService = payRecordService;
 	}
 
 	public String execute() throws Exception {
-		return null;
+		int vip_id = Integer.parseInt(v_id);
+		ArrayList<PayRecord> recordList = payRecordService.getPayRecord(vip_id);
+		if (recordList == null || recordList.size() == 0) {
+			return "failure";
+		} else {
+			request.setAttribute("recordList", recordList);
+			System.out.println(recordList.size());
+			return "success";
+		}
 	}
 
 	public String getV_id() {
