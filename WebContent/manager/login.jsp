@@ -1,5 +1,5 @@
-0<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="<s:url value="/css/customize.css"></s:url>" />
 <link rel="stylesheet"
 	href="<s:url value="/css/bootstrap-theme.min.css"></s:url>" />
-<title>HealthClub--Attendant--login</title>
+<title>HealthClub--Manager--login</title>
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -31,7 +31,7 @@
 		<hr>
 		<s:form cssClass="form-register" action="attendantlogin" name="login"
 			method="post" namespace="/action">
-			<span>Hello, Attendant, Please input your login username and
+			<span>Hello, Manager, Please input your login username and
 				password</span>
 			<input type="text" class="form-control" placeholder="Attendant No."
 				name="username" />
