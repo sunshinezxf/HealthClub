@@ -33,7 +33,8 @@
 					</a></li>
 					<li><a href="<s:url value="/attendant/index.jsp"></s:url>">Home</a></li>
 					<li><s:a action="showmember" namespace="/action">Member</s:a></li>
-					<li><s:a action="showactivity" namespace="/action">Activity</s:a></li>
+					<li><s:a action="showactivity" namespace="/action">
+							<s:param name="a_id" value="%{#session.attendant.a_id}"></s:param>Activity</s:a></li>
 				</ul>
 			</s:div>
 		</s:div>
