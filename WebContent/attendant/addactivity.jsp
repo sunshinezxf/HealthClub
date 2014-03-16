@@ -12,20 +12,14 @@
 <meta name="author" content="zhang xu fan" />
 <link rel="shortcut icon"
 	href="<s:url value="/material/logo.ico"></s:url>" />
+<link rel="stylesheet" href="<s:url value="/css/bootstrap.css"></s:url>" />
+<link rel="stylesheet" href="<s:url value="/css/customize.css"></s:url>" />
 <%
 	Attendant attendant = (Attendant) session.getAttribute("attendant");
 	String name = attendant.getName();
 %>
-<title>HealthClub--<%=name%>--viewactivity
+<title>HealthClub--<%=name%>--add activity
 </title>
-<script src="<s:url value="/js/jquery-1.11.0.js"></s:url>"></script>
-<link href="<s:url value="/css/bootstrap.min.css"></s:url>"
-	rel="stylesheet">
-<link href="<s:url value="/css/datepicker3.css"></s:url>"
-	rel="stylesheet">
-<script src="<s:url value="/js/bootstrap-datepicker.js"></s:url>"></script>
-<link rel="stylesheet" href="<s:url value="/css/bootstrap.css"></s:url>" />
-<link rel="stylesheet" href="<s:url value="/css/customize.css"></s:url>" />
 </head>
 <body>
 	<s:div cssClass="navbar navbar-inverse navbar-fixed-top">
