@@ -22,7 +22,7 @@ public class ShowActivity extends BaseAction {
 		int attendant_id = Integer.parseInt(a_id);
 		ArrayList<Activity> activities = attendantService
 				.checkActivities(attendant_id);
-		request.setAttribute("acitivities", activities);
+		request.setAttribute("activities", activities);
 		return "success";
 	}
 

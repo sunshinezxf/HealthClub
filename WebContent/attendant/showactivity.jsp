@@ -72,11 +72,51 @@
 										: "activities"%>
 						are published.
 					</h3>
+					<s:iterator value="%{#request.activities}" status="st">
+						<s:div cssClass="card">
+							<s:iterator value="%{#request.activities.get(#st.index)}">
+								<s:a cssClass="btn btn-lg btn-primary view"
+									action="viewactivity" namespace="/action">
+									<s:param name="ac_id"
+										value="%{#request.activities.get(#st.index).ac_id}"></s:param>View</s:a>
+								<h4>
+									Activity Name:&nbsp;
+									<s:property
+										value="%{#request.activities.get(#st.index).ac_name}" />
+								</h4>
+								<h4>
+									Place:&nbsp;
+									<s:property
+										value="%{#request.activities.get(#st.index).place.location}" />
+								</h4>
+								<h4>
+									Start Date:&nbsp;
+									<s:property
+										value="%{#request.activities.get(#st.index).startDate}" />
+								</h4>
+								<h4>
+									End Date:&nbsp;
+									<s:property
+										value="%{#request.activities.get(#st.index).endDate}" />
+								</h4>
+							</s:iterator>
+						</s:div>
+					</s:iterator>
 					<%
 						}
 					%>
 					<s:a action="requestaddactivity" cssClass="btn btn-lg btn-primary">
 						<s:param name="a_id" value="%{#session.attendant.a_id}"></s:param>Add New Activity</s:a>
+				</s:div>
+			</s:div>
+			<s:div cssClass="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+				<s:div cssClass="list-group">
+					<s:a cssClass="list-group-item" action="showmember"
+						namespace="/action">VIP &nbsp;Management</s:a>
+					<s:a cssClass="list-group-item" action="showactivity"
+						namespace="/action">
+						<s:param name="a_id" value="%{#session.attendant.a_id}"></s:param>Activity &nbsp;Management
+						</s:a>
 				</s:div>
 			</s:div>
 		</s:div>

@@ -20,12 +20,8 @@ public class ShowMember extends BaseAction {
 
 	public String execute() throws Exception {
 		ArrayList<VIP> vipList = attendantService.getVIPList();
-		if (vipList == null) {
-			return "failure";
-		} else {
-			request.setAttribute("vipList", vipList);
-			return "success";
-		}
+		request.setAttribute("vipList", vipList);
+		return "success";
 	}
 
 	public String getA_id() {

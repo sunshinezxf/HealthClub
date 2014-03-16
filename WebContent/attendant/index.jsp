@@ -58,7 +58,8 @@
 				<s:div cssClass="row">
 					<s:div cssClass="col-6 col-sm-6 col-lg-4">
 						<h2>
-							<s:a action="showmember" namespace="/action">VIP Management</s:a>
+							<s:a action="showmember" namespace="/action">
+								<s:param name="a_id" value="%{#session.attendant.a_id}"></s:param>VIP Management</s:a>
 						</h2>
 						<p>You can see members registered to the Health Club, and view
 							the details.</p>

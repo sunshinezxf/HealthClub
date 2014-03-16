@@ -9,11 +9,14 @@ public class Activity {
 	private Place place;
 	private Date startDate;
 	private Date endDate;
+	private String coach_no;
 
 	public Activity() {
 		ac_name = "";
 		place = new Place();
 		startDate = null;
+		endDate = null;
+		coach_no = "";
 	}
 
 	public int getAc_id() {
@@ -62,6 +65,14 @@ public class Activity {
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+
+	public String getCoach_no() {
+		return coach_no;
+	}
+
+	public void setCoach_no(String coach_no) {
+		this.coach_no = coach_no;
 	}
 
 	public String getLocation() {

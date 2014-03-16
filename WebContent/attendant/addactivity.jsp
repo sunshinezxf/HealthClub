@@ -73,6 +73,8 @@
 							</s:div>
 						</s:div>
 						<br>
+						<input type="text" class="form-control" placeholder="Coach No" name="co_id"/>
+						<br>
 						<button class="btn btn-primary btn-lg" type="submit">Publish</button>
 					</s:form>
 				</s:div>

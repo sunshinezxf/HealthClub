@@ -16,6 +16,7 @@ public class Register extends BaseAction {
 	private int age;
 	private String password;
 	private String credit;
+	private String address;
 	private VIPService vipService;
 
 	public VIPService getVIPService() {
@@ -29,7 +30,8 @@ public class Register extends BaseAction {
 	public String execute() throws Exception {
 		if (name == null || name.equals("") || gender == null
 				|| gender.equals("") || phone == null || phone.equals("")
-				|| password == null || password.equals("") || age == 0) {
+				|| password == null || password.equals("") || age == 0
+				|| address == null || address.equals("")) {
 			return "failure";
 		}
 		String username = IDGenerator.generateUsername();
@@ -44,6 +46,7 @@ public class Register extends BaseAction {
 		vip.setAge(age);
 		vip.setCreditCard(new CreditCard(credit));
 		vip.setPassword(Encryption.md5(password));
+		vip.setAddress(address);
 		boolean status = vipService.registerVIP(vip);
 		if (status) {
 			session.put("username", vip.getUsername());
@@ -87,6 +90,14 @@ public class Register extends BaseAction {
 			this.age = 0;
 		else
 			this.age = Integer.parseInt(age);
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getCredit() {

@@ -38,7 +38,8 @@ public class VIPDAOImpl implements VIPDAO {
 		int age = vip.getAge();
 		String password = vip.getPassword();
 		String cr_no = vip.getCreditCard().getCr_no();
-		String sql = "insert into vip(username, name, gender, phone, age, password, cr_no) values (?, ?, ?, ?, ?, ?, ?)";
+		String address = vip.getAddress();
+		String sql = "insert into vip(username, name, gender, phone, age, password, cr_no, address) values (?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, username);
@@ -48,6 +49,7 @@ public class VIPDAOImpl implements VIPDAO {
 			ps.setInt(5, age);
 			ps.setString(6, password);
 			ps.setString(7, cr_no);
+			ps.setString(8, address);
 			int i = ps.executeUpdate();
 			if (i > 0)
 				return true;
@@ -106,6 +108,7 @@ public class VIPDAOImpl implements VIPDAO {
 				int t_age = rs.getInt(6);
 				String t_password = rs.getString(7);
 				String cr_no = rs.getString(8);
+				String address = rs.getString(9);
 				String inner_sql = "select * from credit where cr_no = ?";
 				inner_con = baseDAO.getConnection();
 				inner_ps = inner_con.prepareStatement(inner_sql);
@@ -129,6 +132,7 @@ public class VIPDAOImpl implements VIPDAO {
 				vip.setPhone(t_phone);
 				vip.setAge(t_age);
 				vip.setPassword(t_password);
+				vip.setAddress(address);
 				return vip;
 			}
 		} catch (SQLException e) {
@@ -268,7 +272,7 @@ public class VIPDAOImpl implements VIPDAO {
 				vip = new VIP();
 				String username = rs.getString(2);
 				String name = rs.getString(3);
-				Gender gender = (rs.getString(4).equals("make")) ? Gender.MALE
+				Gender gender = (rs.getString(4).equals("male")) ? Gender.MALE
 						: Gender.FEMALE;
 				Phone phone = new Phone(rs.getString(5));
 				int age = rs.getInt(6);

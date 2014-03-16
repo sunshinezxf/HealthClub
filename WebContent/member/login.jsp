@@ -59,6 +59,5 @@
 				type="submit">Login</button>
 		</s:form>
 	</div>
-
 </body>
 </html>

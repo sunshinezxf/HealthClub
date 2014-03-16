@@ -21,8 +21,12 @@ public class PayCard extends BaseAction {
 		int vip_id = Integer.parseInt(v_id);
 		boolean status = cardService.pay(card_id, vip_id);
 		if (status) {
+			request.setAttribute("prompt",
+					"Congratulation! You succeed to pay the rent!");
 			return "success";
 		} else {
+			request.setAttribute("prompt",
+					"Sorry, something's wrong during your operation.");
 			return "failure";
 		}
 	}

@@ -21,8 +21,10 @@ public class Activate extends BaseAction {
 		int vip_id = Integer.parseInt(v_id);
 		boolean activated = cardService.activate(card_id, vip_id);
 		if (activated) {
+			request.setAttribute("prompt", "Congratulation! You succeed to activate your card!");
 			return "success";
 		} else {
+			request.setAttribute("prompt", "Sorry, Something's wrong during the operation.");
 			return "failure";
 		}
 	}

@@ -19,8 +19,11 @@ public class DeleteCard extends BaseAction {
 		int id = Integer.parseInt(c_id);
 		boolean status = cardService.deleteCard(id);
 		if (status) {
+			request.setAttribute("prompt",
+					"Congratulation! You succeed to drop one of your vip card!");
 			return "success";
 		} else {
+			request.setAttribute("prompt", "Sorry, something's wrong during your operation.");
 			return "failure";
 		}
 	}
