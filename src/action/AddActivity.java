@@ -3,6 +3,7 @@ package action;
 import java.util.Date;
 
 import model.Activity;
+import model.Attendant;
 import model.Place;
 import service.AttendantService;
 
@@ -56,19 +57,27 @@ public class AddActivity extends BaseAction {
 
 	public String execute() throws Exception {
 		Activity activity = new Activity();
-		activity.setAc_name(ac_name);
-		System.out.println(ac_name);
+		int a_id = ((Attendant) session.get("attendant")).getA_id();
 		Place place = new Place(location);
-		System.out.println(place.getLocation());
-		activity.setPlace(place);
-		System.out.println(start);
-		System.out.println(end);
 		String[] startDateString = start.split("-");
+		String[] endDateString = end.split("-");
 		@SuppressWarnings("deprecation")
-		Date startDate = new Date(Integer.parseInt(startDateString[0]),
-				Integer.parseInt(startDateString[1]),
+		Date startDate = new Date(Integer.parseInt(startDateString[0]) - 1900,
+				Integer.parseInt(startDateString[1]) - 1,
 				Integer.parseInt(startDateString[2]));
-		System.out.println(startDate.getYear());
+		@SuppressWarnings("deprecation")
+		Date endDate = new Date(Integer.parseInt(endDateString[0]) - 1900,
+				Integer.parseInt(endDateString[1]) - 1,
+				Integer.parseInt(endDateString[2]));
+		activity.setAc_name(ac_name);
+		activity.setPlace(place);
+		activity.setStartDate(startDate);
+		activity.setEndDate(endDate);
+		activity.setA_id(a_id);
+		boolean status = attendantService.addActivity(activity);
+		if (status) {
+			return "success";
+		}
 		return "failure";
 	}
 

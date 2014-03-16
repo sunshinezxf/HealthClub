@@ -73,8 +73,7 @@
 							</s:div>
 						</s:div>
 						<br>
-						<s:a cssClass="btn btn-primary btn-lg" action="addactivity"
-							namespace="/action">Publish</s:a>
+						<button class="btn btn-primary btn-lg" type="submit">Publish</button>
 					</s:form>
 				</s:div>
 			</s:div>

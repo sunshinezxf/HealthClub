@@ -75,9 +75,8 @@
 					<%
 						}
 					%>
-					<a class="btn btn-lg btn-primary"
-						href="<s:url value="/attendant/addactivity.jsp"></s:url>">Add New
-						Activity</a>
+					<s:a action="requestaddactivity" cssClass="btn btn-lg btn-primary">
+						<s:param name="a_id" value="%{#session.attendant.a_id}"></s:param>Add New Activity</s:a>
 				</s:div>
 			</s:div>
 		</s:div>
