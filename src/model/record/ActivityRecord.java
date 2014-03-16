@@ -6,6 +6,7 @@ import model.Place;
 
 public class ActivityRecord {
 	private int ar_id;
+	private int a_id;
 	private int v_id;
 	private int co_id;
 	private Calendar date;
@@ -17,6 +18,14 @@ public class ActivityRecord {
 
 	public void setAr_id(int ar_id) {
 		this.ar_id = ar_id;
+	}
+
+	public int getA_id() {
+		return a_id;
+	}
+
+	public void setA_id(int a_id) {
+		this.a_id = a_id;
 	}
 
 	public int getV_id() {
