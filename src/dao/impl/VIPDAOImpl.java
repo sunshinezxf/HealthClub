@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import model.Activity;
 import model.CreditCard;
 import model.Gender;
 import model.Phone;
@@ -346,6 +347,10 @@ public class VIPDAOImpl implements VIPDAO {
 			baseDAO.closePreparedStatement(ps);
 			baseDAO.closeConnection(connection);
 		}
+		return null;
+	}
+	
+	public ArrayList<Activity> checkActivities(int a_id) {
 		return null;
 	}
 }

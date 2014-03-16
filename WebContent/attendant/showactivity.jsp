@@ -76,9 +76,10 @@
 						<s:div cssClass="card">
 							<s:iterator value="%{#request.activities.get(#st.index)}">
 								<s:a cssClass="btn btn-lg btn-primary view"
-									action="viewactivity" namespace="/action">
+									action="requestmodifyactivity" namespace="/action">
+									<s:param name="a_id" value="%{#session.attendant.a_id}"></s:param>
 									<s:param name="ac_id"
-										value="%{#request.activities.get(#st.index).ac_id}"></s:param>View</s:a>
+										value="%{#request.activities.get(#st.index).ac_id}"></s:param>Check</s:a>
 								<h4>
 									Activity Name:&nbsp;
 									<s:property

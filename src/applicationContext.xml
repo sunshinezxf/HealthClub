@@ -119,6 +119,16 @@
 			<ref bean="AttendantService" />
 		</property>
 	</bean>
+	<bean id="RequestModifyActivity" class="action.RequestModifyActivity">
+		<property name="AttendantService">
+			<ref bean="AttendantService" />
+		</property>
+	</bean>
+	<bean id="ModifyActivity" class="action.ModifyActivity">
+		<property name="AttendantService">
+			<ref bean="AttendantService" />
+		</property>
+	</bean>
 	<bean id="RequestAddActivity" class="action.RequestAddActivity">
 	</bean>
 	<bean id="action.AddActivity" class="action.AddActivity">

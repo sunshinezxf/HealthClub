@@ -13,6 +13,7 @@ public class AddActivity extends BaseAction {
 	private String location;
 	private String start;
 	private String end;
+	private String co_no;
 	private AttendantService attendantService;
 
 	public String getAc_name() {
@@ -47,6 +48,14 @@ public class AddActivity extends BaseAction {
 		this.end = end;
 	}
 
+	public String getCo_no() {
+		return co_no;
+	}
+
+	public void setCo_no(String co_no) {
+		this.co_no = co_no;
+	}
+
 	public AttendantService getAttendantService() {
 		return attendantService;
 	}
@@ -74,11 +83,17 @@ public class AddActivity extends BaseAction {
 		activity.setStartDate(startDate);
 		activity.setEndDate(endDate);
 		activity.setA_id(a_id);
+		activity.setCoach_no(co_no);
 		boolean status = attendantService.addActivity(activity);
 		if (status) {
+			request.setAttribute("prompt",
+					"Congratulation! You succeed to publish a new activity!");
 			return "success";
+		} else {
+			request.setAttribute("prompt",
+					"Sorry, something's wrong during the operation.");
+			return "failure";
 		}
-		return "failure";
 	}
 
 }

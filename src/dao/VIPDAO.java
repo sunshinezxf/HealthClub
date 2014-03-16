@@ -2,6 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 
+import model.Activity;
 import model.VIP;
 import model.card.VIPCard;
 
@@ -21,4 +22,6 @@ public interface VIPDAO {
 	public boolean applySG(VIPCard card);
 
 	public VIP request(int c_id, int v_id);
+	
+	public ArrayList<Activity> checkActivities(int a_id);
 }

@@ -221,7 +221,7 @@ public class AttendantDAOImpl implements AttendantDAO {
 
 	public boolean addActivity(Activity activity) {
 		Connection connection = baseDAO.getConnection();
-		String sql = "insert into activity(ac_name, a_id, location, start, end) values(?, ?, ?, ?, ?)";
+		String sql = "insert into activity(ac_name, a_id, location, start, end, co_no) values(?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps = null;
 		try {
 			ps = connection.prepareStatement(sql);
@@ -235,6 +235,7 @@ public class AttendantDAOImpl implements AttendantDAO {
 			Date ed = activity.getEndDate();
 			String end = format.format(ed);
 			ps.setString(5, end);
+			ps.setString(6, activity.getCoach_no());
 			int row = ps.executeUpdate();
 			if (row > 0) {
 				return true;

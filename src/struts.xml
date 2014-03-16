@@ -73,6 +73,10 @@
 		<action name="showactivity" class="ShowActivity">
 			<result name="success">/attendant/showactivity.jsp</result>
 		</action>
+		<action name="requestmodifyactivity" class="RequestModifyActivity">
+			<result name="success">/attendant/viewactivity.jsp</result>
+		</action>
+		<action name="modifyactivity" class=""></action>
 		<action name="requestaddactivity" class="RequestAddActivity">
 			<result name="success">/attendant/addactivity.jsp</result>
 		</action>
