@@ -4,12 +4,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
+import model.Activity;
 import model.Attendant;
 import model.CreditCard;
 import model.Gender;
 import model.Phone;
+import model.Place;
 import model.VIP;
 import model.card.HomeVIPCard;
 import model.card.SingleVIPCard;
@@ -211,6 +215,103 @@ public class AttendantDAOImpl implements AttendantDAO {
 			baseDAO.closeResultSet(rs);
 			baseDAO.closePreparedStatement(ps);
 			baseDAO.closeConnection(connection);
+		}
+		return null;
+	}
+
+	public boolean addActivity(Activity activity) {
+		Connection connection = baseDAO.getConnection();
+		String sql = "insert into activity(ac_name, a_id, location, start, end) values(?, ?, ?, ?, ?)";
+		PreparedStatement ps = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, activity.getAc_name());
+			ps.setInt(2, activity.getA_id());
+			ps.setString(3, activity.getLocation());
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+			Date sd = activity.getStartDate();
+			String start = format.format(sd);
+			ps.setString(4, start);
+			Date ed = activity.getEndDate();
+			String end = format.format(ed);
+			ps.setString(5, end);
+			int row = ps.executeUpdate();
+			if (row > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return false;
+	}
+
+	public ArrayList<Activity> checkActivities(int a_id) {
+		Connection connection = baseDAO.getConnection();
+		String sql = "select * from activity where a_id = ?";
+		PreparedStatement ps_1 = null;
+		ResultSet rs_1 = null;
+		ArrayList<Activity> activityList = new ArrayList<Activity>();
+		try {
+			ps_1 = connection.prepareStatement(sql);
+			ps_1.setInt(1, a_id);
+			rs_1 = ps_1.executeQuery();
+			rs_1.beforeFirst();
+			while (rs_1.next()) {
+				Activity activity = new Activity();
+				int ac_id = rs_1.getInt(1);
+				String ac_name = rs_1.getString(2);
+				Place place = new Place(rs_1.getString(4));
+				Date start = rs_1.getDate(5);
+				Date end = rs_1.getDate(6);
+				activity.setAc_id(ac_id);
+				activity.setAc_name(ac_name);
+				activity.setA_id(a_id);
+				activity.setPlace(place);
+				activity.setStartDate(start);
+				activity.setEndDate(end);
+				activityList.add(activity);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closeResultSet(rs_1);
+			baseDAO.closePreparedStatement(ps_1);
+		}
+		String sql_2 = "select * from activity where a_id <> ? order by a_id";
+		PreparedStatement ps_2 = null;
+		ResultSet rs_2 = null;
+		try {
+			ps_2 = connection.prepareStatement(sql_2);
+			ps_2.setInt(1, a_id);
+			rs_2 = ps_2.executeQuery();
+			rs_2.beforeFirst();
+			while (rs_2.next()) {
+				Activity activity = new Activity();
+				int ac_id = rs_1.getInt(1);
+				String ac_name = rs_1.getString(2);
+				Place place = new Place(rs_1.getString(4));
+				Date start = rs_1.getDate(5);
+				Date end = rs_1.getDate(6);
+				activity.setAc_id(ac_id);
+				activity.setAc_name(ac_name);
+				activity.setA_id(a_id);
+				activity.setPlace(place);
+				activity.setStartDate(start);
+				activity.setEndDate(end);
+				activityList.add(activity);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closeResultSet(rs_2);
+			baseDAO.closePreparedStatement(ps_2);
+			baseDAO.closeConnection(connection);
+		}
+		if (activityList.size() > 0) {
+			return activityList;
 		}
 		return null;
 	}

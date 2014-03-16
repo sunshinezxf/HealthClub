@@ -2,6 +2,7 @@ package service.impl;
 
 import java.util.ArrayList;
 
+import model.Activity;
 import model.Attendant;
 import model.VIP;
 import service.AttendantService;
@@ -33,5 +34,13 @@ public class AttendantServiceImpl implements AttendantService {
 
 	public VIP check(int v_id) {
 		return attendantDAO.check(v_id);
+	}
+
+	public boolean addActivity(Activity activity) {
+		return attendantDAO.addActivity(activity);
+	}
+
+	public ArrayList<Activity> checkActivities(int a_id) {
+		return attendantDAO.checkActivities(a_id);
 	}
 }
