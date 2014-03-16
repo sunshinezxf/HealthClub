@@ -84,6 +84,14 @@
 					</s:form>
 				</s:div>
 			</s:div>
+			<s:div cssClass="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+				<s:div cssClass="list-group">
+					<s:a cssClass="list-group-item" action="showmember"
+						namespace="/action">VIP &nbsp;Management</s:a>
+					<s:a cssClass="list-group-item" action="showactivity"
+						namespace="/action">Activity &nbsp;Management</s:a>
+				</s:div>
+			</s:div>
 		</s:div>
 	</s:div>
 </body>

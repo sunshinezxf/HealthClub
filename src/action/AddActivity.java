@@ -6,9 +6,8 @@ import service.AttendantService;
 public class AddActivity extends BaseAction {
 	private String ac_name;
 	private String location;
-	private String year;
-	private String month;
-	private String day;
+	private String start;
+	private String end;
 	private AttendantService attendantService;
 
 	public AttendantService getAttendantService() {
@@ -18,7 +17,7 @@ public class AddActivity extends BaseAction {
 	public void setAttendantService(AttendantService attendantService) {
 		this.attendantService = attendantService;
 	}
-	
+
 	public String execute() throws Exception {
 		return null;
 	}
@@ -39,29 +38,20 @@ public class AddActivity extends BaseAction {
 		this.location = location;
 	}
 
-	public String getYear() {
-		return year;
+	public String getStart() {
+		return start;
 	}
 
-	public void setYear(String year) {
-		this.year = year;
+	public void setStart(String start) {
+		this.start = start;
 	}
 
-	public String getMonth() {
-		return month;
+	public String getEnd() {
+		return end;
 	}
 
-	public void setMonth(String month) {
-		this.month = month;
+	public void setEnd(String end) {
+		this.end = end;
 	}
 
-	public String getDay() {
-		return day;
-	}
-
-	public void setDay(String day) {
-		this.day = day;
-	}
-	
-	
 }
