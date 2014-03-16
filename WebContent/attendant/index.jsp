@@ -1,3 +1,4 @@
+<%@page import="model.VIP"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page import="model.Attendant"%>
@@ -13,6 +14,7 @@
 <link rel="shortcut icon"
 	href="<s:url value="/material/logo.ico"></s:url>" />
 <link rel="stylesheet" href="<s:url value="/css/bootstrap.css"></s:url>" />
+<link rel="stylesheet" href="<s:url value="/css/customize.css"></s:url>" />
 <%
 	Attendant attendant = (Attendant) session.getAttribute("attendant");
 	String name = attendant.getName();
@@ -36,6 +38,50 @@
 					<li><s:a action="showactivity" namespace="/action">
 							<s:param name="a_id" value="%{#session.attendant.a_id}"></s:param>Activity</s:a></li>
 				</ul>
+			</s:div>
+		</s:div>
+	</s:div>
+	<s:div cssClass="container">
+		<s:div cssClass="row row-offcanvas row-offcanvas-right">
+			<s:div cssClass="col-xs-12 col-sm-9">
+				<p class="pull-right visible-xs">
+					<button type="button" class="btn btn-primary btn-xs"
+						data-toggle="offcanvas">Toggle nav</button>
+				</p>
+				<s:div cssClass="jumbotron">
+					<h1>
+						Hello,&nbsp;<%=attendant.getName()%>!
+					</h1>
+					<p>Welcome to your personal home page, you can see what you can
+						do here.</p>
+				</s:div>
+				<s:div cssClass="row">
+					<s:div cssClass="col-6 col-sm-6 col-lg-4">
+						<h2>
+							<s:a action="showmember" namespace="/action">VIP Management</s:a>
+						</h2>
+						<p>You can see members registered to the Health Club, and view
+							the details.</p>
+					</s:div>
+					<s:div cssClass="col-6 col-sm-6 col-lg-4">
+						<h2>
+							<s:a action="showactivity" namespace="/action">
+								<s:param name="a_id" value="%{#session.attendant.a_id}"></s:param>Activity/Course</s:a>
+						</h2>
+						<p>You can see all activities in Health Club and modify
+							activities published by you.</p>
+					</s:div>
+				</s:div>
+			</s:div>
+			<s:div cssClass="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+				<s:div cssClass="list-group">
+					<s:a cssClass="list-group-item" action="showmember"
+						namespace="/action">VIP &nbsp;Management</s:a>
+					<s:a cssClass="list-group-item" action="showactivity"
+						namespace="/action">
+						<s:param name="a_id" value="%{#session.attendant.a_id}"></s:param>Activity &nbsp;Management
+						</s:a>
+				</s:div>
 			</s:div>
 		</s:div>
 	</s:div>

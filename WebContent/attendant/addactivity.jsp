@@ -19,11 +19,10 @@
 <title>HealthClub--<%=name%>--viewactivity
 </title>
 <script src="<s:url value="/js/jquery-1.11.0.js"></s:url>"></script>
-<link id="bs-css" href="<s:url value="/css/bootstrap.min.css"></s:url>"
+<link href="<s:url value="/css/bootstrap.min.css"></s:url>"
 	rel="stylesheet">
-<link id="bsdp-css" href="<s:url value="/css/datepicker3.css"></s:url>"
+<link href="<s:url value="/css/datepicker3.css"></s:url>"
 	rel="stylesheet">
-
 <script src="<s:url value="/js/bootstrap-datepicker.js"></s:url>"></script>
 <link rel="stylesheet" href="<s:url value="/css/bootstrap.css"></s:url>" />
 <link rel="stylesheet" href="<s:url value="/css/customize.css"></s:url>" />
@@ -63,7 +62,7 @@
 					<strong>Add New Activity</strong>
 					<hr>
 					<s:form cssClass="form-activity" action="addactivity"
-						name="addactivity" method="post" namespace="/action">
+						name="addactivity" namespace="/action">
 						<span>Please fill activity information</span>
 						<input type="text" class="form-control"
 							placeholder="Activity Name" name="ac_name">
@@ -71,16 +70,17 @@
 						<input type="text" class="form-control" placeholder="Location"
 							name="location">
 						<br>
-						<s:div cssClass="span5 col-md-14" id="sandbox-container">
+						<s:div cssClass="span5 col-md-14">
 							Date:&nbsp;
-							<s:div cssClass="input-daterange input-group" id="datepicker">
+							<s:div cssClass="input-daterange input-group">
 								<input type="text" class="input-sm form-control" name="start" />
 								<span class="input-group-addon">to</span>
 								<input type="text" class="input-sm form-control" name="end" />
 							</s:div>
 						</s:div>
 						<br>
-						<s:a cssClass="btn btn-primary btn-lg" action="addactivity">Publish</s:a>
+						<s:a cssClass="btn btn-primary btn-lg" action="addactivity"
+							namespace="/action">Publish</s:a>
 					</s:form>
 				</s:div>
 			</s:div>
