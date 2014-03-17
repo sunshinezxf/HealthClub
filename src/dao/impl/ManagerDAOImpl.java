@@ -74,6 +74,30 @@ public class ManagerDAOImpl {
 			sum[1] = d2;
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			baseDAO.closeResultSet(rs_1);
+			baseDAO.closeResultSet(rs_2);
+			baseDAO.closePreparedStatement(ps_1);
+			baseDAO.closePreparedStatement(ps_2);
+			baseDAO.closeConnection(connection);
+		}
+		return sum;
+	}
+
+	public Data[] addressSum() {
+		Data[] sum = new Data[3];
+		sum[0] = new Data("China");
+		sum[1] = new Data("US");
+		sum[2] = new Data("Korea");
+		Connection connection = baseDAO.getConnection();
+		String sql = "select * from vip where address = ?";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return sum;
 	}
