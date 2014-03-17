@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Data;
 import model.Manager;
 import dao.BaseDAO;
 
@@ -49,8 +50,8 @@ public class ManagerDAOImpl {
 		return null;
 	}
 
-	public int[] genderSum() {
-		int[] sum = new int[2];
+	public Data[] genderSum() {
+		Data[] sum = new Data[2];
 		Connection connection = baseDAO.getConnection();
 		String sql_1 = "select count(*) from vip where gender = 'male'";
 		String sql_2 = "select count(*) from vip where gender = 'female'";
@@ -63,10 +64,14 @@ public class ManagerDAOImpl {
 			ps_2 = connection.prepareStatement(sql_2);
 			rs_1 = ps_1.executeQuery();
 			rs_1.beforeFirst();
-			sum[0] = rs_1.getInt(1);
+			int t1 = rs_1.getInt(1);
+			Data d1 = new Data("Male", t1);
 			rs_2 = ps_2.executeQuery();
 			rs_2.beforeFirst();
-			sum[1] = rs_2.getInt(1);
+			int t2 = rs_2.getInt(1);
+			Data d2 = new Data("Female", t2);
+			sum[0] = d1;
+			sum[1] = d2;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

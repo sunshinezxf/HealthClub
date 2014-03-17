@@ -1,5 +1,6 @@
 package service.impl;
 
+import model.Data;
 import model.Manager;
 import dao.ManagerDAO;
 
@@ -18,7 +19,9 @@ public class ManagerServiceImpl {
 		return managerDAO.login(username, password);
 	}
 
-	public int[] genderSum() {
+	public Data[] genderSum() {
 		return managerDAO.genderSum();
 	}
+	
+	
 }
