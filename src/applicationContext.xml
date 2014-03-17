@@ -99,6 +99,11 @@
 			<ref bean="CardService" />
 		</property>
 	</bean>
+	<bean id="RequestModifyPrivacy" class="action.RequestModifyPrivacy">
+		<property name="VIPService">
+			<ref bean="VIPService" />
+		</property>
+	</bean>
 	<bean id="AttendantLogin" class="action.AttendantLogin">
 		<property name="AttendantService">
 			<ref bean="AttendantService" />
@@ -136,37 +141,34 @@
 			<ref bean="AttendantService" />
 		</property>
 	</bean>
-	
-	
-	
-	
+
+
+
+
 	<bean id="Business" class="time.Business" />
-   <bean name="timeTask"  
-        class="org.springframework.scheduling.quartz.JobDetailBean">  
-        <property name="jobClass" value="time.Business" />  
-    </bean>  
-  
-    <!-- 触发器 -->  
-    <bean id="cronTrigger"  
-        class="org.springframework.scheduling.quartz.CronTriggerBean">  
-  
-        <!-- 指向我们的任务 -->  
-        <property name="jobDetail" ref="timeTask" />  
-  
-        <!--  每天下午16点50分到55分,每分钟运行一次 -->  
-        <property name="cronExpression" value="0 1 1 * * ?" />  
-    </bean>  
-  
-  
-    <!-- 调度器  -->  
-    <bean  
-        class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
-        <property name="triggers">  
-            <list>  
-                <!--  触发器列表 -->  
-                <ref bean="cronTrigger" />  
-            </list>  
-        </property>  
-        <property name="configLocation" value="classpath:quartz.properties" />   
-    </bean>  
+	<bean name="timeTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="time.Business" />
+	</bean>
+
+	<!-- 触发器 -->
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+
+		<!-- 指向我们的任务 -->
+		<property name="jobDetail" ref="timeTask" />
+
+		<!-- 每天下午16点50分到55分,每分钟运行一次 -->
+		<property name="cronExpression" value="0 1 1 * * ?" />
+	</bean>
+
+
+	<!-- 调度器 -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<!-- 触发器列表 -->
+				<ref bean="cronTrigger" />
+			</list>
+		</property>
+		<property name="configLocation" value="classpath:quartz.properties" />
+	</bean>
 </beans>

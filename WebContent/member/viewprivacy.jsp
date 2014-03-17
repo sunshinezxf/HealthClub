@@ -76,6 +76,9 @@
 							Age:&nbsp;<%=vip.getAge()%></h4>
 					</div>
 					<div class="information">
+						<h4>Address:&nbsp;<%=vip.getAddress() %></h4>
+					</div>
+					<div class="information">
 						<h4>
 							Credit No:&nbsp;<%=vip.getCreditCard().getCr_no()%>&nbsp;
 							Balance:&nbsp;<%=vip.getCreditCard().getBalance()%></h4>
