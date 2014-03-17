@@ -80,6 +80,8 @@
 							Credit No:&nbsp;<%=vip.getCreditCard().getCr_no()%>&nbsp;
 							Balance:&nbsp;<%=vip.getCreditCard().getBalance()%></h4>
 					</div>
+					<s:a cssClass="btn btn-lg btn-primary" action="requestmodifyprivacy"
+						namespace="/action">Modify</s:a>
 				</div>
 			</div>
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
