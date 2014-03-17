@@ -90,14 +90,25 @@ public class ManagerDAOImpl {
 		sum[1] = new Data("US");
 		sum[2] = new Data("Korea");
 		Connection connection = baseDAO.getConnection();
-		String sql = "select * from vip where address = ?";
+		String sql = "select count(*) from vip where address = ?";
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
 			ps = connection.prepareStatement(sql);
-			
+			for (int i = 0; i < 3; i++) {
+				ps.setString(1, sum[i].getName());
+				rs = ps.executeQuery();
+				rs.beforeFirst();
+				sum[i].setData(rs.getDouble(1));
+				baseDAO.closeResultSet(rs);
+				baseDAO.closePreparedStatement(ps);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			baseDAO.closeResultSet(rs);
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
 		}
 		return sum;
 	}
