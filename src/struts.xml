@@ -85,6 +85,14 @@
 			<result name="success">/attendant/viewmember.jsp</result>
 			<result name="failure">/attendant/index.jsp</result>
 		</action>
+		<action name="requestmodifymember" class="RequestModifyMember">
+			<result name="success">/attendant/modifymember.jsp</result>
+			<result name="failure">/attendant/failure.jsp</result>
+		</action>
+		<action name="confirmmember" class="ConfirmMember">
+			<result name="success">/attendant/success.jsp</result>
+			<result name="failure">/attendant/failure.jsp</result>
+		</action>
 		<action name="showactivity" class="ShowActivity">
 			<result name="success">/attendant/showactivity.jsp</result>
 		</action>

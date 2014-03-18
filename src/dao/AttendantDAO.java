@@ -16,4 +16,6 @@ public interface AttendantDAO {
 	public boolean addActivity(Activity activity);
 	
 	public ArrayList<Activity> checkActivities(int a_id);
+	
+	public boolean update(VIP vip);
 }

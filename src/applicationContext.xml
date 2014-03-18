@@ -144,7 +144,17 @@
 			<ref bean="AttendantService" />
 		</property>
 	</bean>
+	<bean id="RequestModifyMember" class="action.RequestModifyMember">
+		<property name="AttendantService">
+			<ref bean="AttendantService" />
+		</property>
+	</bean>
 	<bean id="ModifyActivity" class="action.ModifyActivity">
+		<property name="AttendantService">
+			<ref bean="AttendantService" />
+		</property>
+	</bean>
+	<bean id="ConfirmMember" class="action.ConfirmMember">
 		<property name="AttendantService">
 			<ref bean="AttendantService" />
 		</property>
@@ -156,7 +166,6 @@
 			<ref bean="AttendantService" />
 		</property>
 	</bean>
-
 
 
 

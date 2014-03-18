@@ -150,6 +150,7 @@ public class AttendantDAOImpl implements AttendantDAO {
 				int age = rs.getInt(6);
 				String password = rs.getString(7);
 				String cr_no = rs.getString(8);
+				String address = rs.getString(9);
 				Connection inner_con = baseDAO.getConnection();
 				String s_1 = "select * from credit where cr_no = ?";
 				PreparedStatement inner_ps = null;
@@ -205,6 +206,7 @@ public class AttendantDAOImpl implements AttendantDAO {
 				vip.setGender(gender);
 				vip.setPhone(phone);
 				vip.setAge(age);
+				vip.setAddress(address);
 				vip.setPassword(password);
 				vip.setCardList(cardList);
 				return vip;
@@ -315,5 +317,32 @@ public class AttendantDAOImpl implements AttendantDAO {
 			return activityList;
 		}
 		return null;
+	}
+
+	public boolean update(VIP vip) {
+		Connection connection = baseDAO.getConnection();
+		String sql = "update vip set name = ?, gender = ?, phone = ?, age = ?, cr_no = ?, address = ? where username = ?";
+		PreparedStatement ps = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, vip.getName());
+			ps.setString(2, (vip.getGender() == Gender.MALE) ? "male"
+					: "female");
+			ps.setString(3, vip.getPhone().getNo());
+			ps.setInt(4, vip.getAge());
+			ps.setString(5, vip.getCreditCard().getCr_no());
+			ps.setString(6, vip.getAddress());
+			ps.setString(7, vip.getUsername());
+			int count = ps.executeUpdate();
+			if (count > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return false;
 	}
 }

@@ -43,4 +43,8 @@ public class AttendantServiceImpl implements AttendantService {
 	public ArrayList<Activity> checkActivities(int a_id) {
 		return attendantDAO.checkActivities(a_id);
 	}
+
+	public boolean update(VIP vip) {
+		return attendantDAO.update(vip);
+	}
 }
