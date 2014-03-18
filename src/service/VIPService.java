@@ -2,6 +2,7 @@ package service;
 
 import java.util.ArrayList;
 
+import model.Activity;
 import model.VIP;
 import model.card.HomeVIPCard;
 import model.card.VIPCard;
@@ -30,4 +31,10 @@ public interface VIPService {
 	public VIP requestPay(int c_id, int v_id);
 	
 	public boolean update(VIP vip);
+	
+	public ArrayList<Activity> checkReserved(int v_id);
+	
+	public ArrayList<Activity> checkOther(int v_id);
+	
+	public boolean reserve(int ac_id, int v_id);
 }

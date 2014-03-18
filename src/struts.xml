@@ -22,6 +22,10 @@
 		<action name="viewactivity" class="action.ViewActivity">
 			<result name="success">/member/viewactivity.jsp</result>
 		</action>
+		<action name="reserveactivity" class="action.ReserveActivity">
+			<result name="success">/member/success.jsp</result>
+			<result name="failure">/member/failure.jsp</result>
+		</action>
 		<action name="viewpay" class="action.ViewPay">
 			<result name="success">/member/viewpay.jsp</result>
 			<result name="failure">/member/index.jsp</result>

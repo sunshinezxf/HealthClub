@@ -5,11 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import model.Activity;
 import model.CreditCard;
 import model.Gender;
 import model.Phone;
+import model.Place;
 import model.VIP;
 import model.card.CardType;
 import model.card.HomeVIPCard;
@@ -370,6 +372,106 @@ public class VIPDAOImpl implements VIPDAO {
 			ps.setString(7, vip.getUsername());
 			int count = ps.executeUpdate();
 			if (count > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return false;
+	}
+
+	public ArrayList<Activity> checkReservedActivities(int v_id) {
+		Connection connection = baseDAO.getConnection();
+		String sql = "select c.ac_id, a.ac_name, a.a_id, a.location, a.start, a.end, a.co_no from choose c, activity a where c.ac_id = a.ac_id and v_id = ?";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ArrayList<Activity> activities = new ArrayList<Activity>();
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, v_id);
+			rs = ps.executeQuery();
+			rs.beforeFirst();
+			while (rs.next()) {
+				Activity activity = new Activity();
+				int ac_id = rs.getInt(1);
+				String ac_name = rs.getString(2);
+				int a_id = rs.getInt(3);
+				Place place = new Place(rs.getString(4));
+				Date startDate = rs.getDate(5);
+				Date endDate = rs.getDate(6);
+				String coach_no = rs.getString(7);
+				activity.setAc_id(ac_id);
+				activity.setAc_name(ac_name);
+				activity.setA_id(a_id);
+				activity.setPlace(place);
+				activity.setStartDate(startDate);
+				activity.setEndDate(endDate);
+				activity.setCoach_no(coach_no);
+				activities.add(activity);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closeResultSet(rs);
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return activities;
+	}
+
+	public ArrayList<Activity> checkOtherActivities(int v_id) {
+		Connection connection = baseDAO.getConnection();
+		String sql = "select * from activity where ac_id not in(select ac_id from choose where v_id = ?)";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ArrayList<Activity> activities = new ArrayList<Activity>();
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, v_id);
+			rs = ps.executeQuery();
+			rs.beforeFirst();
+			while (rs.next()) {
+				Activity activity = new Activity();
+				int ac_id = rs.getInt(1);
+				String ac_name = rs.getString(2);
+				int a_id = rs.getInt(3);
+				Place place = new Place(rs.getString(4));
+				Date startDate = rs.getDate(5);
+				Date endDate = rs.getDate(6);
+				String coach_no = rs.getString(7);
+				activity.setAc_id(ac_id);
+				activity.setAc_name(ac_name);
+				activity.setA_id(a_id);
+				activity.setPlace(place);
+				activity.setStartDate(startDate);
+				activity.setEndDate(endDate);
+				activity.setCoach_no(coach_no);
+				activities.add(activity);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closeResultSet(rs);
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return activities;
+	}
+
+	public boolean reserve(int ac_id, int v_id) {
+		Connection connection = baseDAO.getConnection();
+		String sql = "insert into choose(v_id, ac_id, attended) values (?, ?, ?)";
+		PreparedStatement ps = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, v_id);
+			ps.setInt(2, ac_id);
+			ps.setBoolean(3, false);
+			int row = ps.executeUpdate();
+			if (row > 0) {
 				return true;
 			}
 		} catch (SQLException e) {

@@ -1,5 +1,8 @@
 package action;
 
+import java.util.ArrayList;
+
+import model.Activity;
 import service.VIPService;
 
 @SuppressWarnings("serial")
@@ -16,6 +19,11 @@ public class ViewActivity extends BaseAction {
 	}
 
 	public String execute() throws Exception {
+		int vip_id = Integer.parseInt(v_id);
+		ArrayList<Activity> activityList = vipService.checkReserved(vip_id);
+		request.setAttribute("reserved", activityList);
+		ArrayList<Activity> otherList = vipService.checkOther(vip_id);
+		request.setAttribute("other", otherList);
 		return "success";
 	}
 

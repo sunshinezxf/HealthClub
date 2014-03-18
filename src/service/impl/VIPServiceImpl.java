@@ -2,6 +2,7 @@ package service.impl;
 
 import java.util.ArrayList;
 
+import model.Activity;
 import model.VIP;
 import model.card.HomeVIPCard;
 import model.card.VIPCard;
@@ -73,8 +74,20 @@ public class VIPServiceImpl implements VIPService {
 	public VIP requestPay(int c_id, int v_id) {
 		return vipDAO.request(c_id, v_id);
 	}
-	
+
 	public boolean update(VIP vip) {
 		return vipDAO.updateVIP(vip);
+	}
+
+	public ArrayList<Activity> checkReserved(int v_id) {
+		return vipDAO.checkReservedActivities(v_id);
+	}
+
+	public ArrayList<Activity> checkOther(int v_id) {
+		return vipDAO.checkOtherActivities(v_id);
+	}
+
+	public boolean reserve(int ac_id, int v_id) {
+		return vipDAO.reserve(ac_id, v_id);
 	}
 }

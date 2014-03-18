@@ -26,4 +26,10 @@ public interface VIPDAO {
 	public ArrayList<Activity> checkActivities(int a_id);
 	
 	public boolean updateVIP(VIP vip);
+	
+	public ArrayList<Activity> checkReservedActivities(int v_id);
+	
+	public ArrayList<Activity> checkOtherActivities(int v_id);
+	
+	public boolean reserve(int ac_id, int v_id);
 }
