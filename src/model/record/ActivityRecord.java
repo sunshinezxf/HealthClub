@@ -1,32 +1,12 @@
 package model.record;
 
-import java.util.Calendar;
-
-import model.Place;
 
 public class ActivityRecord {
-	private int ar_id;
-	private int a_id;
 	private int v_id;
-	private int co_id;
-	private Calendar date;
-	private Place place;
-
-	public int getAr_id() {
-		return ar_id;
-	}
-
-	public void setAr_id(int ar_id) {
-		this.ar_id = ar_id;
-	}
-
-	public int getA_id() {
-		return a_id;
-	}
-
-	public void setA_id(int a_id) {
-		this.a_id = a_id;
-	}
+	private int ac_id;
+	private String username;
+	private String co_no;
+	private boolean attended;
 
 	public int getV_id() {
 		return v_id;
@@ -36,32 +16,36 @@ public class ActivityRecord {
 		this.v_id = v_id;
 	}
 
-	public int getCo_id() {
-		return co_id;
+	public int getAc_id() {
+		return ac_id;
 	}
 
-	public void setCo_id(int co_id) {
-		this.co_id = co_id;
+	public void setAc_id(int ac_id) {
+		this.ac_id = ac_id;
 	}
 
-	public ActivityRecord() {
-		date = null;
-		place = null;
+	public String getUsername() {
+		return username;
 	}
 
-	public Calendar getDate() {
-		return date;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public void setDate(Calendar date) {
-		this.date = date;
+	public String getCo_no() {
+		return co_no;
 	}
 
-	public Place getPlace() {
-		return place;
+	public void setCo_no(String co_no) {
+		this.co_no = co_no;
 	}
 
-	public void setPlace(Place place) {
-		this.place = place;
+	public boolean getAttended() {
+		return attended;
 	}
+
+	public void setAttended(boolean attended) {
+		this.attended = attended;
+	}
+
 }

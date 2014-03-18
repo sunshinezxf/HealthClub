@@ -1,10 +1,11 @@
 package service.impl;
 
+import service.ManagerService;
 import model.Data;
 import model.Manager;
 import dao.ManagerDAO;
 
-public class ManagerServiceImpl {
+public class ManagerServiceImpl implements ManagerService {
 	private ManagerDAO managerDAO;
 
 	public ManagerDAO getManagerDAO() {
@@ -22,6 +23,9 @@ public class ManagerServiceImpl {
 	public Data[] genderSum() {
 		return managerDAO.genderSum();
 	}
-	
-	
+
+	public Data[] addressSum() {
+		return managerDAO.addressSum();
+	}
+
 }

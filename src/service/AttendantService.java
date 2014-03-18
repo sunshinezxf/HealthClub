@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import model.Activity;
 import model.Attendant;
 import model.VIP;
+import model.record.ActivityRecord;
 
 public interface AttendantService {
 	public Attendant login(String username, String password);
@@ -20,4 +21,8 @@ public interface AttendantService {
 	public boolean update(VIP vip);
 	
 	public boolean deleteVIP(int v_id);
+	
+	public Activity viewActivity(int ac_id);
+	
+	public ArrayList<ActivityRecord> getRecord(int ac_id);
 }

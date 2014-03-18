@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import model.Activity;
 import model.Attendant;
 import model.VIP;
+import model.record.ActivityRecord;
 import service.AttendantService;
 import dao.AttendantDAO;
 
@@ -50,5 +51,13 @@ public class AttendantServiceImpl implements AttendantService {
 
 	public boolean deleteVIP(int v_id) {
 		return attendantDAO.deleteVIP(v_id);
+	}
+
+	public Activity viewActivity(int ac_id) {
+		return attendantDAO.view(ac_id);
+	}
+
+	public ArrayList<ActivityRecord> getRecord(int ac_id) {
+		return attendantDAO.getRecord(ac_id);
 	}
 }
