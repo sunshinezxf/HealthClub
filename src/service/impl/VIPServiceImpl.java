@@ -73,4 +73,8 @@ public class VIPServiceImpl implements VIPService {
 	public VIP requestPay(int c_id, int v_id) {
 		return vipDAO.request(c_id, v_id);
 	}
+	
+	public boolean update(VIP vip) {
+		return vipDAO.updateVIP(vip);
+	}
 }

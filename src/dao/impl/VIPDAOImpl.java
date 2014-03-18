@@ -349,8 +349,35 @@ public class VIPDAOImpl implements VIPDAO {
 		}
 		return null;
 	}
-	
+
 	public ArrayList<Activity> checkActivities(int a_id) {
 		return null;
+	}
+
+	public boolean updateVIP(VIP vip) {
+		Connection connection = baseDAO.getConnection();
+		String sql = "update vip set name = ?, gender = ?, phone = ?, age = ?, cr_no = ?, address = ? where username = ?";
+		PreparedStatement ps = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, vip.getName());
+			ps.setString(2, (vip.getGender() == Gender.MALE) ? "male"
+					: "female");
+			ps.setString(3, vip.getPhone().getNo());
+			ps.setInt(4, vip.getAge());
+			ps.setString(5, vip.getCreditCard().getCr_no());
+			ps.setString(6, vip.getAddress());
+			ps.setString(7, vip.getUsername());
+			int count = ps.executeUpdate();
+			if (count > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return false;
 	}
 }

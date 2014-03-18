@@ -24,4 +24,6 @@ public interface VIPDAO {
 	public VIP request(int c_id, int v_id);
 	
 	public ArrayList<Activity> checkActivities(int a_id);
+	
+	public boolean updateVIP(VIP vip);
 }

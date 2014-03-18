@@ -53,7 +53,7 @@
 					</h1>
 					<p>You can check your registration data here.</p>
 				</div>
-				<form class="layout module card">
+				<s:form cssClass="layout module card" action="confirmprivacy" namespace="/action">
 					<div class="information">
 						<h4>
 							Username:&nbsp;<%=vip.getUsername()%></h4>
@@ -99,7 +99,7 @@
 					</div>
 					<br>
 					<button type="submit" class="btn btn-lg btn-primary">Confirm</button>
-				</form>
+				</s:form>
 			</div>
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
 				<div class="list-group">

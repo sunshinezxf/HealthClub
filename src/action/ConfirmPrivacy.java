@@ -1,6 +1,7 @@
 package action;
 
 import service.VIPService;
+import model.CreditCard;
 import model.Gender;
 import model.Phone;
 import model.VIP;
@@ -13,6 +14,7 @@ public class ConfirmPrivacy extends BaseAction {
 	private String phone;
 	private String age;
 	private String address;
+	private String cr_no;
 	private VIPService vipService;
 
 	public VIPService getVipService() {
@@ -27,11 +29,23 @@ public class ConfirmPrivacy extends BaseAction {
 		VIP vip = new VIP();
 		vip.setUsername(username);
 		vip.setName(name);
-		vip.setGender((gender.equals("gender")) ? Gender.MALE : Gender.FEMALE);
+		vip.setGender((gender.equals("male")) ? Gender.MALE : Gender.FEMALE);
 		vip.setPhone(new Phone(phone));
 		vip.setAge(Integer.parseInt(age));
 		vip.setAddress(address);
-		return "success";
+		vip.setCreditCard(new CreditCard(cr_no));
+		boolean status = vipService.update(vip);
+		vip = vipService.checkVIP("username", username);
+		session.put("vip", vip);
+		if (status) {
+			request.setAttribute("prompt",
+					"Congratulation! Registration data updated.");
+			return "success";
+		} else {
+			request.setAttribute("prompt",
+					"Sorry, registration data not succeed to update");
+			return "failure";
+		}
 	}
 
 	public String getUsername() {
@@ -89,6 +103,4 @@ public class ConfirmPrivacy extends BaseAction {
 	public void setCr_no(String cr_no) {
 		this.cr_no = cr_no;
 	}
-
-	private String cr_no;
 }

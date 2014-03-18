@@ -28,4 +28,6 @@ public interface VIPService {
 	public VIP requestActivate(int c_id, int v_id);
 	
 	public VIP requestPay(int c_id, int v_id);
+	
+	public boolean update(VIP vip);
 }
