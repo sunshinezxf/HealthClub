@@ -57,8 +57,11 @@
 					<%
 						VIP vip = (VIP) request.getAttribute("vip");
 					%>
-					<s:a cssClass="btn btn-lg btn-primary delete" ation=""
-						namespace="/action">Delete</s:a>
+					<s:a cssClass="btn btn-lg btn-primary delete"
+						action="requestmodifymember" namespace="/action">
+						<s:param name="v_id" value="%{#request.vip.v_id}"></s:param>Modify</s:a>
+					<s:a cssClass="btn btn-lg btn-primary delete" ation="deletemember" namespace="/action">
+						<s:param name="v_id" value="%{#request.vip.v_id}"></s:param>Delete</s:a>
 					<s:div cssClass="information">
 						<h4>
 							Username:
