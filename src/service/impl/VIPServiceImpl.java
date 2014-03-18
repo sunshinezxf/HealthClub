@@ -64,7 +64,7 @@ public class VIPServiceImpl implements VIPService {
 	}
 
 	public boolean withdrawVIP(int v_id) {
-		return true;
+		return vipDAO.withdraw(v_id);
 	}
 
 	public VIP requestActivate(int c_id, int v_id) {

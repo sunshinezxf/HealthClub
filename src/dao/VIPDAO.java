@@ -34,4 +34,6 @@ public interface VIPDAO {
 	public boolean reserve(int ac_id, int v_id);
 	
 	public boolean cancelActivity(int ac_id, int v_id);
+	
+	public boolean withdraw(int v_id);
 }
