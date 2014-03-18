@@ -482,4 +482,25 @@ public class VIPDAOImpl implements VIPDAO {
 		}
 		return false;
 	}
+
+	public boolean cancelActivity(int ac_id, int v_id) {
+		Connection connection = baseDAO.getConnection();
+		String sql = "delete from choose where ac_id = ? and v_id = ?";
+		PreparedStatement ps = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, ac_id);
+			ps.setInt(2, v_id);
+			int count = ps.executeUpdate();
+			if (count > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return false;
+	}
 }

@@ -75,9 +75,9 @@
 					<s:iterator value="%{#request.reserved}" status="st">
 						<div class="card">
 							<s:iterator value="%{#request.reserved.get(#st.index)}">
-								<s:a cssClass="btn btn-lg btn-primary delete" action=""
-									namespace="/action">
-									<s:param name="v_id"
+								<s:a cssClass="btn btn-lg btn-primary delete"
+									action="cancelactivity" namespace="/action">
+									<s:param name="ac_id"
 										value="%{#request.reserved.get(#st.index).ac_id}"></s:param>
 									<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Cancel
 								</s:a>
@@ -92,7 +92,8 @@
 								</h4>
 								<h4>
 									Start:
-									<s:property value="%{#request.reserved.get(#st.index).startDate}" />
+									<s:property
+										value="%{#request.reserved.get(#st.index).startDate}" />
 								</h4>
 								<h4>
 									End:
@@ -121,8 +122,8 @@
 					<s:iterator value="%{#request.other}" status="st">
 						<div class="card">
 							<s:iterator value="%{#request.other.get(#st.index)}">
-								<s:a cssClass="btn btn-lg btn-primary delete" action="reserveactivity"
-									namespace="/action">
+								<s:a cssClass="btn btn-lg btn-primary delete"
+									action="reserveactivity" namespace="/action">
 									<s:param name="ac_id"
 										value="%{#request.other.get(#st.index).ac_id}"></s:param>
 									<s:param name="v_id" value="%{#session.vip.v_id}"></s:param>Reserve

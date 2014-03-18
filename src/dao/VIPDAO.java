@@ -32,4 +32,6 @@ public interface VIPDAO {
 	public ArrayList<Activity> checkOtherActivities(int v_id);
 	
 	public boolean reserve(int ac_id, int v_id);
+	
+	public boolean cancelActivity(int ac_id, int v_id);
 }

@@ -90,4 +90,8 @@ public class VIPServiceImpl implements VIPService {
 	public boolean reserve(int ac_id, int v_id) {
 		return vipDAO.reserve(ac_id, v_id);
 	}
+
+	public boolean cancelActivity(int ac_id, int v_id) {
+		return vipDAO.cancelActivity(ac_id, v_id);
+	}
 }
