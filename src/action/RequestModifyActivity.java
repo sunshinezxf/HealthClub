@@ -1,5 +1,9 @@
 package action;
 
+import java.util.ArrayList;
+
+import model.Activity;
+import model.record.ActivityRecord;
 import service.AttendantService;
 
 @SuppressWarnings("serial")
@@ -17,7 +21,18 @@ public class RequestModifyActivity extends BaseAction {
 	}
 
 	public String execute() throws Exception {
-		return "success";
+		Activity activity = attendantService.viewActivity(Integer
+				.parseInt(ac_id));
+		if (activity == null) {
+			request.setAttribute("prompt", "Activity Not Exist!");
+			return "failure";
+		} else {
+			request.setAttribute("activity", activity);
+			ArrayList<ActivityRecord> records = attendantService
+					.getRecord(Integer.parseInt(ac_id));
+			request.setAttribute("record", records);
+			return "success";
+		}
 	}
 
 	public String getA_id() {

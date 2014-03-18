@@ -7,4 +7,6 @@ public interface ManagerDAO {
 	public Manager login(String username, String password);
 
 	public Data[] genderSum();
+	
+	public Data[] addressSum();
 }

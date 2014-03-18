@@ -18,6 +18,7 @@ import model.VIP;
 import model.card.HomeVIPCard;
 import model.card.SingleVIPCard;
 import model.card.VIPCard;
+import model.record.ActivityRecord;
 import dao.AttendantDAO;
 import dao.BaseDAO;
 
@@ -364,5 +365,76 @@ public class AttendantDAOImpl implements AttendantDAO {
 			baseDAO.closeConnection(connection);
 		}
 		return false;
+	}
+
+	public Activity view(int ac_id) {
+		Connection connection = baseDAO.getConnection();
+		String sql = "select * from activity where ac_id = ?";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, ac_id);
+			rs = ps.executeQuery();
+			rs.beforeFirst();
+			if (rs.next()) {
+				Activity activity = new Activity();
+				String ac_name = rs.getString(2);
+				int a_id = rs.getInt(3);
+				Place place = new Place(rs.getString(4));
+				Date startDate = rs.getDate(5);
+				Date endDate = rs.getDate(6);
+				String co_no = rs.getString(7);
+				activity.setAc_id(ac_id);
+				activity.setAc_name(ac_name);
+				activity.setA_id(a_id);
+				activity.setPlace(place);
+				activity.setStartDate(startDate);
+				activity.setEndDate(endDate);
+				activity.setCoach_no(co_no);
+				return activity;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closeResultSet(rs);
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return null;
+	}
+
+	public ArrayList<ActivityRecord> getRecord(int ac_id) {
+		Connection connection = baseDAO.getConnection();
+		String sql = "select c.v_id, c.ac_id, v.username, a.co_no, c.attended from choose c, activity a, vip v where c.ac_id = a.ac_id and c.v_id = v.v_id and c.ac_id = ?";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ArrayList<ActivityRecord> list = new ArrayList<ActivityRecord>();
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, ac_id);
+			rs = ps.executeQuery();
+			rs.beforeFirst();
+			while (rs.next()) {
+				ActivityRecord record = new ActivityRecord();
+				int v_id = rs.getInt(1);
+				String username = rs.getString(3);
+				String co_no = rs.getString(4);
+				boolean attended = rs.getBoolean(5);
+				record.setV_id(v_id);
+				record.setAc_id(ac_id);
+				record.setUsername(username);
+				record.setCo_no(co_no);
+				record.setAttended(attended);
+				list.add(record);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closeResultSet(rs);
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return list;
 	}
 }

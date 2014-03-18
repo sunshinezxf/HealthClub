@@ -29,6 +29,11 @@
 			<ref bean="BaseDAO" />
 		</property>
 	</bean>
+	<bean id="ManagerDAO" class="dao.impl.ManagerDAOImpl">
+		<property name="BaseDAO">
+			<ref bean="BaseDAO" />
+		</property>
+	</bean>
 	<bean id="VIPService" class="service.impl.VIPServiceImpl">
 		<property name="VIPDAO">
 			<ref bean="VIPDAO" />
@@ -47,6 +52,11 @@
 	<bean id="AttendantService" class="service.impl.AttendantServiceImpl">
 		<property name="AttendantDAO">
 			<ref bean="AttendantDAO" />
+		</property>
+	</bean>
+	<bean id="ManagerService" class="service.impl.ManagerServiceImpl">
+		<property name="ManagerDAO">
+			<ref bean="ManagerDAO" />
 		</property>
 	</bean>
 	<bean id="Register" class="action.Register">
@@ -176,7 +186,11 @@
 			<ref bean="AttendantService" />
 		</property>
 	</bean>
-
+	<bean id="action.SumVIP" class="action.SumVIP">
+		<property name="ManagerService">
+			<ref bean="ManagerService"/>
+		</property>
+	</bean>
 
 
 	<bean id="Business" class="time.Business" />

@@ -8,8 +8,9 @@ import java.sql.SQLException;
 import model.Data;
 import model.Manager;
 import dao.BaseDAO;
+import dao.ManagerDAO;
 
-public class ManagerDAOImpl {
+public class ManagerDAOImpl implements ManagerDAO {
 	BaseDAO baseDAO;
 
 	public BaseDAO getBaseDAO() {
@@ -25,19 +26,20 @@ public class ManagerDAOImpl {
 		String sql = "select * from manager where username = ? and password = ?";
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		System.out.println(username);
+		System.out.println(password);
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, username);
+			ps.setString(2, password);
 			rs = ps.executeQuery();
 			rs.beforeFirst();
 			if (rs.next()) {
 				Manager manager = new Manager();
 				int m_id = rs.getInt(1);
-				String name = rs.getString(4);
 				manager.setM_id(m_id);
 				manager.setUsername(username);
 				manager.setPassword(password);
-				manager.setName(name);
 				return manager;
 			}
 		} catch (SQLException e) {
@@ -64,10 +66,12 @@ public class ManagerDAOImpl {
 			ps_2 = connection.prepareStatement(sql_2);
 			rs_1 = ps_1.executeQuery();
 			rs_1.beforeFirst();
+			rs_1.next();
 			int t1 = rs_1.getInt(1);
 			Data d1 = new Data("Male", t1);
 			rs_2 = ps_2.executeQuery();
 			rs_2.beforeFirst();
+			rs_2.next();
 			int t2 = rs_2.getInt(1);
 			Data d2 = new Data("Female", t2);
 			sum[0] = d1;
@@ -99,9 +103,8 @@ public class ManagerDAOImpl {
 				ps.setString(1, sum[i].getName());
 				rs = ps.executeQuery();
 				rs.beforeFirst();
+				rs.next();
 				sum[i].setData(rs.getDouble(1));
-				baseDAO.closeResultSet(rs);
-				baseDAO.closePreparedStatement(ps);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
