@@ -18,4 +18,6 @@ public interface AttendantDAO {
 	public ArrayList<Activity> checkActivities(int a_id);
 	
 	public boolean update(VIP vip);
+	
+	public boolean deleteVIP(int v_id);
 }

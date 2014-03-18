@@ -345,4 +345,24 @@ public class AttendantDAOImpl implements AttendantDAO {
 		}
 		return false;
 	}
+
+	public boolean deleteVIP(int v_id) {
+		Connection connection = baseDAO.getConnection();
+		String sql = "delete from vip where v_id = ?";
+		PreparedStatement ps = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, v_id);
+			int count = ps.executeUpdate();
+			if (count > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return false;
+	}
 }

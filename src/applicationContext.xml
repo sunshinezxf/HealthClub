@@ -99,6 +99,11 @@
 			<ref bean="CardService" />
 		</property>
 	</bean>
+	<bean id="RemoveCard" class="action.RemoveCard">
+		<property name="CardService">
+			<ref bean="CardService" />
+		</property>
+	</bean>
 	<bean id="action.Activate" class="action.Activate">
 		<property name="CardService">
 			<ref bean="CardService" />
@@ -145,6 +150,11 @@
 		</property>
 	</bean>
 	<bean id="RequestModifyMember" class="action.RequestModifyMember">
+		<property name="AttendantService">
+			<ref bean="AttendantService" />
+		</property>
+	</bean>
+	<bean id="DeleteMember" class="action.DeleteMember">
 		<property name="AttendantService">
 			<ref bean="AttendantService" />
 		</property>

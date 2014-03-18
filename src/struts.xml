@@ -85,6 +85,10 @@
 			<result name="success">/attendant/viewmember.jsp</result>
 			<result name="failure">/attendant/index.jsp</result>
 		</action>
+		<action name="deletemember" class="DeleteMember">
+			<result name="success">/attendant/success.jsp</result>
+			<result name="failure">/attendant/failure.jsp</result>
+		</action>
 		<action name="requestmodifymember" class="RequestModifyMember">
 			<result name="success">/attendant/modifymember.jsp</result>
 			<result name="failure">/attendant/failure.jsp</result>
@@ -102,6 +106,10 @@
 		<action name="modifyactivity" class=""></action>
 		<action name="requestaddactivity" class="RequestAddActivity">
 			<result name="success">/attendant/addactivity.jsp</result>
+		</action>
+		<action name="rmcard" class="RemoveCard">
+			<result name="success">/attendant/success.jsp</result>
+			<result name="failure">/attendant/failure.jsp</result>
 		</action>
 		<action name="addactivity" class="action.AddActivity">
 			<result name="success">/attendant/showactivity.jsp</result>

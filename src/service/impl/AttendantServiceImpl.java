@@ -47,4 +47,8 @@ public class AttendantServiceImpl implements AttendantService {
 	public boolean update(VIP vip) {
 		return attendantDAO.update(vip);
 	}
+
+	public boolean deleteVIP(int v_id) {
+		return attendantDAO.deleteVIP(v_id);
+	}
 }

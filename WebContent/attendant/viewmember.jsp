@@ -60,7 +60,8 @@
 					<s:a cssClass="btn btn-lg btn-primary delete"
 						action="requestmodifymember" namespace="/action">
 						<s:param name="v_id" value="%{#request.vip.v_id}"></s:param>Modify</s:a>
-					<s:a cssClass="btn btn-lg btn-primary delete" ation="deletemember" namespace="/action">
+					<s:a cssClass="btn btn-lg btn-primary delete" action="deletemember"
+						namespace="/action">
 						<s:param name="v_id" value="%{#request.vip.v_id}"></s:param>Delete</s:a>
 					<s:div cssClass="information">
 						<h4>
@@ -87,9 +88,10 @@
 							<s:iterator value="%{#request.vip.cardList}" status="st">
 								<s:div cssClass="card">
 									<s:iterator value="%{#request.vip.cardList.get(#st.index)}">
-										<s:a cssClass="btn btn-lg btn-primary delete" action=""
+										<s:a cssClass="btn btn-lg btn-primary delete" action="rmcard"
 											namespace="/action">
-											<s:param name="v_id" value="%{#request.vip.v_id}"></s:param>Delete
+											<s:param name="c_id"
+												value="%{#request.vip.cardList.get(#st.index).c_id}"></s:param>Delete
 										</s:a>
 										<h5>
 											Card No:
@@ -131,8 +133,10 @@
 			<s:div cssClass="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
 				<s:div clss="list-group">
 					<s:a cssClass="list-group-item" action="showmember"
-						namespace="/action">VIP Management</s:a>
-					<s:a cssClass="list-group-item">Activity Management</s:a>
+						namespace="/action">VIP &nbsp;Management</s:a>
+					<s:a cssClass="list-group-item" action="showactivity"
+						namespace="/action">
+						<s:param name="a_id" value="%{#session.attendant.a_id}"></s:param>Activity &nbsp;Management</s:a>
 				</s:div>
 			</s:div>
 		</s:div>
