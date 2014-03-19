@@ -115,4 +115,77 @@ public class ManagerDAOImpl implements ManagerDAO {
 		}
 		return sum;
 	}
+
+	public Data[] ageSum() {
+		Connection connection = baseDAO.getConnection();
+		Data[] sum = new Data[5];
+		int i = 10;
+		String sql = "select count(*) from vip where age >= ? and age < ?";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			for (int j = 0; j < 5; j++) {
+				ps.setInt(1, i);
+				i += 10;
+				ps.setInt(2, i);
+				rs = ps.executeQuery();
+				rs.beforeFirst();
+				rs.next();
+				Data data = new Data();
+				data.setName((i - 10) + "~" + i);
+				data.setData(rs.getDouble(1));
+				sum[j] = data;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return sum;
+	}
+
+	public int[][] cardSum() {
+		Connection connection = baseDAO.getConnection();
+		int[][] data = new int[3][2];
+		String sql_1 = "select max(c_id) from card";
+		String sql_2 = "select count(*) from card";
+		String sql_3 = "select count(*) from card where activated = 1";
+		String sql_4 = "select count(*) from card where payed = 1";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = connection.prepareStatement(sql_1);
+			rs = ps.executeQuery();
+			rs.beforeFirst();
+			rs.next();
+			int max = rs.getInt(1);
+			ps = connection.prepareStatement(sql_2);
+			rs = ps.executeQuery();
+			rs.beforeFirst();
+			rs.next();
+			int current = rs.getInt(1);
+			data[0][0] = current;
+			data[0][1] = max - current;
+			ps = connection.prepareStatement(sql_3);
+			rs = ps.executeQuery();
+			rs.beforeFirst();
+			rs.next();
+			int activated = rs.getInt(1);
+			data[1][0] = activated;
+			data[1][1] = current - activated;
+			ps = connection.prepareStatement(sql_4);
+			rs = ps.executeQuery();
+			rs.beforeFirst();
+			rs.next();
+			int payed = rs.getInt(1);
+			data[2][0] = payed;
+			data[2][1] = current - payed;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			baseDAO.closeResultSet(rs);
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return data;
+	}
 }

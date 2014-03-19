@@ -119,5 +119,9 @@
 			<result name="success">/manager/vipview.jsp</result>
 			<result name="failure">/manager/index.jsp</result>
 		</action>
+		<action name="sumclub" class="action.SumHealthClub">
+			<result name="success">/manager/clubview.jsp</result>
+			<result name="failure">/manager/index.jsp</result>
+		</action>
 	</package>
 </struts>

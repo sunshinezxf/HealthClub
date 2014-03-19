@@ -188,7 +188,12 @@
 	</bean>
 	<bean id="action.SumVIP" class="action.SumVIP">
 		<property name="ManagerService">
-			<ref bean="ManagerService"/>
+			<ref bean="ManagerService" />
+		</property>
+	</bean>
+	<bean id="action.SumHealthClub" class="action.SumHealthClub">
+		<property name="ManagerService">
+			<ref bean="ManagerService" />
 		</property>
 	</bean>
 

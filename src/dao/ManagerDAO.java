@@ -9,4 +9,8 @@ public interface ManagerDAO {
 	public Data[] genderSum();
 	
 	public Data[] addressSum();
+	
+	public Data[] ageSum();
+	
+	public int[][] cardSum();
 }
