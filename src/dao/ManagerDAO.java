@@ -13,4 +13,8 @@ public interface ManagerDAO {
 	public Data[] ageSum();
 	
 	public int[][] cardSum();
+	
+	public int[] coachSum();
+	
+	public double[] prediction();
 }

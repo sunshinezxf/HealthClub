@@ -181,10 +181,63 @@ public class ManagerDAOImpl implements ManagerDAO {
 			data[2][1] = current - payed;
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			baseDAO.closeResultSet(rs);
 			baseDAO.closePreparedStatement(ps);
 			baseDAO.closeConnection(connection);
+		}
+		return data;
+	}
+
+	public int[] coachSum() {
+		int[] data = new int[3];
+		Connection connection = baseDAO.getConnection();
+		String sql = "select count(*) from activity where co_no = ?";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			int i = 10000;
+			for (int j = 0; j < 3; j++) {
+				ps.setString(1, (i + j) + "");
+				rs = ps.executeQuery();
+				rs.beforeFirst();
+				if (rs.next()) {
+					data[j] = rs.getInt(1);
+				} else {
+					data[j] = 0;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closeResultSet(rs);
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return data;
+	}
+
+	public double[] prediction() {
+		double[] data = new double[2];
+		Connection connection = baseDAO.getConnection();
+		String sql_1 = "select count(*) from vip";
+		String sql_2 = "select count(*) from activity";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = connection.prepareStatement(sql_1);
+			rs = ps.executeQuery();
+			rs.beforeFirst();
+			rs.next();
+			data[0] = rs.getDouble(1) / 6;
+			ps = connection.prepareStatement(sql_2);
+			rs = ps.executeQuery();
+			rs.beforeFirst();
+			rs.next();
+			data[1] = rs.getDouble(1) / 6;
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return data;
 	}

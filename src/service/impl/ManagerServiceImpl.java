@@ -27,13 +27,21 @@ public class ManagerServiceImpl implements ManagerService {
 	public Data[] addressSum() {
 		return managerDAO.addressSum();
 	}
-	
+
 	public Data[] ageSum() {
 		return managerDAO.ageSum();
 	}
-	
+
 	public int[][] cardSum() {
 		return managerDAO.cardSum();
+	}
+
+	public int[] coachSum() {
+		return managerDAO.coachSum();
+	}
+
+	public double[] predict() {
+		return managerDAO.prediction();
 	}
 
 }

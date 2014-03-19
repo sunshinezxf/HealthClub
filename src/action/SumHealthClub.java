@@ -1,5 +1,6 @@
 package action;
 
+import model.Data;
 import service.ManagerService;
 
 @SuppressWarnings("serial")
@@ -13,10 +14,14 @@ public class SumHealthClub extends BaseAction {
 	public void setManagerService(ManagerService managerService) {
 		this.managerService = managerService;
 	}
-	
+
 	public String execute() throws Exception {
 		int[][] card = managerService.cardSum();
 		request.setAttribute("card", card);
+		int[] coach = managerService.coachSum();
+		request.setAttribute("coach", coach);
+		double[] predict = managerService.predict();
+		request.setAttribute("predict", predict);
 		return "success";
 	}
 }

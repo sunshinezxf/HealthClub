@@ -132,7 +132,7 @@
 										[ "<%=age[1].getName()%>",parseFloat(<%=age[1].getData()%>)],
 										[ "<%=age[2].getName()%>",parseFloat(<%=age[2].getData()%>) ],
 										[ "<%=age[3].getName()%>",parseFloat(<%=age[3].getData()%>) ],
-										[ "<%=age[4].getName()%>",parseFloat(<%=age[4].getData()%>) ]]
+										[ "<%=age[4].getName()%>",parseFloat(<%=age[4].getData()%>) ] ]
 							} ]
 						});
 	});
@@ -145,6 +145,13 @@
 				<a href="<s:url value="/member/index.jsp"></s:url>"><img
 					alt="logo" src="<s:url value="/material/HealthClub.png"></s:url>" /></a>
 			</div>
+			<s:div cssClass="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="<s:url value="/manager/index.jsp"></s:url>">Home</a></li>
+					<li><s:a action="sumvip" namespace="/action">VIP Statistics</s:a></li>
+					<li><s:a action="sumclub" namespace="/action">Club Statistics</s:a></li>
+				</ul>
+			</s:div>
 		</div>
 	</div>
 	<script src="<s:url value="/js/highcharts.js"></s:url>"></script>
