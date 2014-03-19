@@ -22,6 +22,7 @@
 <%
 	Data[] gender = (Data[]) request.getAttribute("gender");
 	Data[] address = (Data[]) request.getAttribute("address");
+	Data[] age = (Data[]) request.getAttribute("age");
 %>
 <script type="text/javascript">
 	$(function() {
@@ -96,6 +97,45 @@
 							} ]
 						});
 	});
+	
+	$(function() {
+		$('#container3')
+				.highcharts(
+						{
+							chart : {
+								plotBackgroundColor : null,
+								plotBorderWidth : null,
+								plotShadow : false
+							},
+							title : {
+								text : 'Age Distribution'
+							},
+							tooltip : {
+								pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+							},
+							plotOptions : {
+								pie : {
+									allowPointSelect : true,
+									cursor : 'pointer',
+									dataLabels : {
+										enabled : true,
+										color : '#000000',
+										connectorColor : '#000000',
+										format : '<b>{point.name}</b>: {point.percentage:.1f} %'
+									}
+								}
+							},
+							series : [ {
+								type : 'pie',
+								name : 'Browser share',
+								data : [ [ "<%=age[0].getName()%>",parseFloat(<%=age[0].getData()%>)],
+										[ "<%=age[1].getName()%>",parseFloat(<%=age[1].getData()%>)],
+										[ "<%=age[2].getName()%>",parseFloat(<%=age[2].getData()%>) ],
+										[ "<%=age[3].getName()%>",parseFloat(<%=age[3].getData()%>) ],
+										[ "<%=age[4].getName()%>",parseFloat(<%=age[4].getData()%>) ]]
+							} ]
+						});
+	});
 </script>
 </head>
 <body>
@@ -114,6 +154,7 @@
 		style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 	<div id="container2"
 		style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
+	<div id="container3"
+		style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 </body>
 </html>
