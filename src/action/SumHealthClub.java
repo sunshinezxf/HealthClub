@@ -1,6 +1,5 @@
 package action;
 
-import model.Data;
 import service.ManagerService;
 
 @SuppressWarnings("serial")
